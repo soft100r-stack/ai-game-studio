@@ -38,6 +38,9 @@ DESIGN_MODEL = os.environ.get("OLLAMA_MODEL", "qwen2.5:7b")
 CODE_MODEL = os.environ.get("OLLAMA_CODE_MODEL", "qwen2.5-coder:7b")
 LEVELS = os.environ.get("LEVELS", "20")
 MAX_HOURS = float(os.environ.get("MAX_HOURS", "14"))
+# Вариант ночи: с кодом (1) или только дизайн (0). Локальный код черновой,
+# качественный лучше сделать утром через OpenAI --code-only.
+WITH_CODE = os.environ.get("WITH_CODE", "1") == "1"
 RETRIES = int(os.environ.get("RETRIES", "2"))
 CALL_TIMEOUT = int(os.environ.get("STEP_TIMEOUT", "5400"))  # общий таймаут фазы (сек)
 
@@ -239,8 +242,11 @@ def main():
         res["design_min"] = mins
         log(f"  дизайн: {res['design']} ({mins} мин)")
 
-        # --- Код (если дизайн есть и не дедлайн) ---
-        if ok and time.time() < deadline:
+        # --- Код (вариант "с кодом", если дизайн есть и не дедлайн) ---
+        if not WITH_CODE:
+            res["code"] = "пропущен (режим без кода)"
+            log("  код: пропущен (вариант 'без кода')")
+        elif ok and time.time() < deadline:
             c_log = os.path.join(logs_dir, f"{gid}_code.log")
             c_args = ["--game", gid, "--genre", genre, "--code-only"]
             proj = _proj_dir(gid)
