@@ -23,3 +23,7 @@ secrets.*
 # ОС
 Thumbs.db
 .DS_Store
+
+# Ночные отчёты (генерируются)
+night_reports/
+УТРЕННИЙ_ОТЧЁТ.md

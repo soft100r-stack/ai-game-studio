@@ -28,7 +28,9 @@ $env:OLLAMA_NUM_CTX = "4096"
 $env:OLLAMA_TIMEOUT = "1800"
 $env:MAX_REVISION_ROUNDS = "1"
 $env:PYTHONUTF8 = "1"
+$env:PYTHONIOENCODING = "utf-8"
 $env:PYTHONUNBUFFERED = "1"
+$env:PYTHONPATH = (Split-Path $PSScriptRoot -Parent)  # чтобы `-m ai_game_studio.main` находился
 
 Set-Location $PSScriptRoot
 New-Item -ItemType Directory -Force -Path "night_logs" | Out-Null

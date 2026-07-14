@@ -22,8 +22,10 @@ $env:OLLAMA_CODE_MODEL = $CodeModel    # код (coder-модель)
 $env:OLLAMA_NUM_CTX = "4096"           # держим RAM в узде (у тебя 8 ГБ)
 $env:OLLAMA_TIMEOUT = "3600"           # до 60 мин на вызов (код на CPU долгий)
 $env:PYTHONUTF8 = "1"
+$env:PYTHONIOENCODING = "utf-8"
 $env:PYTHONUNBUFFERED = "1"
 $env:STUDIO_GENRE = $Game.genre
+$env:PYTHONPATH = (Split-Path $PSScriptRoot -Parent)  # чтобы `-m ai_game_studio.main` находился
 
 Set-Location $PSScriptRoot
 New-Item -ItemType Directory -Force -Path "night_logs" | Out-Null
