@@ -79,12 +79,21 @@ python -m ai_game_studio.main --engine ollama --game my_game --genre match3 --sk
 python -m ai_game_studio.main --engine openai --game my_game --genre roguelike --code-only
 ```
 
-### Жанры (`--genre`)
-- `match3` — три-в-ряд (по умолчанию)
-- `roguelike` — пошаговый данжен-кроулер (свои механики/уровни/код)
-- `merge`, `bubble_shooter`, `word_puzzle` — заготовки
+### Жанры (`--genre`) — можно писать ЧТО УГОДНО
+- `match3` — три-в-ряд (по умолчанию, свои промты)
+- `roguelike` — пошаговый данжен-кроулер (свои промты)
+- **`any` или ЛЮБАЯ строка** (`tower_defense`, `cozy fishing sim`, `rhythm`, …) — студия берёт
+  **универсальные промты** и сама придумывает механику, контент и архитектуру кода под идею
 
-Жанровая система: агент грузит `prompts/<name>.<genre>.md`, если есть, иначе базовый `<name>.md`.
+```bash
+# любая идея — просто опиши в --theme и задай свободный жанр
+python -m ai_game_studio.main --engine openai --game my_game --genre any \
+    --theme "ритм-игра про дирижёра оркестра призраков в заброшенной опере"
+```
+
+Жанровая система (цепочка загрузки промта): `prompts/<name>.<genre>.md` → `<name>.any.md`
+(универсальный) → `<name>.md` (базовый). Так знакомые жанры используют свои промты, а любой
+новый — универсальные.
 
 ### Флаги стоимости (по умолчанию выключены)
 | Флаг | Что включает |

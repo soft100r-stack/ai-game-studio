@@ -223,7 +223,8 @@ def main():
     parser = argparse.ArgumentParser(description="AI Game Studio (fixed)")
     parser.add_argument("--game", type=str, default="game_003")
     parser.add_argument("--genre", type=str, default="match3",
-                        choices=["match3", "bubble_shooter", "merge", "word_puzzle", "roguelike"])
+                        help="match3 | roguelike | any | ЛЮБАЯ строка. Для незнакомого жанра "
+                             "студия берёт универсальные промты (.any) и придумывает игру сама.")
     parser.add_argument("--theme", type=str, default="", help="Подсказка темы, например 'викторианская алхимия'")
     parser.add_argument("--levels", type=int, default=20, help="Сколько уровней сгенерировать")
     parser.add_argument("--skip-code", action="store_true", help="Пропустить генерацию Godot-кода")

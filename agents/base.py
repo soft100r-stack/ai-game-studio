@@ -80,7 +80,9 @@ class BaseAgent:
         genre = os.environ.get("STUDIO_GENRE", "").strip()
         candidates = []
         if genre and genre != "match3":
+            # 1) точный жанр  2) универсальный (.any)  3) базовый (match3)
             candidates.append(f"{self.name}.{genre}.md")
+            candidates.append(f"{self.name}.any.md")
         candidates.append(f"{self.name}.md")
         for fname in candidates:
             path = os.path.join(PROMPTS_DIR, fname)
