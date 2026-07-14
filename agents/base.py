@@ -88,11 +88,13 @@ class BaseAgent:
             candidates.append(f"{self.name}.{genre}.md")
             candidates.append(f"{self.name}.any.md")
         candidates.append(f"{self.name}.md")
+        # Промты могут лежать в подпапках-отделах (prompts/game_design/, art/ и т.д.) —
+        # ищем рекурсивно, поэтому раскладку можно менять без правки кода.
         for fname in candidates:
-            path = os.path.join(PROMPTS_DIR, fname)
-            if os.path.exists(path):
-                with open(path, "r", encoding="utf-8") as f:
-                    return f.read().strip()
+            for root, _dirs, files in os.walk(PROMPTS_DIR):
+                if fname in files:
+                    with open(os.path.join(root, fname), "r", encoding="utf-8") as f:
+                        return f.read().strip()
         raise FileNotFoundError(
             f"[{self.name}] Промт не найден: {os.path.join(PROMPTS_DIR, self.name + '.md')}. "
             f"Создай файл с системным промтом для этого агента."
@@ -205,11 +207,12 @@ class BaseAgent:
         return self._call(user_message, extra_system, force_json=False)
 
     def call_json(self, user_message: str, extra_system: str = "") -> dict:
-        """Вызов модели с ожиданием JSON (Ollama форсирует формат json)."""
-        raw = self._call(user_message, extra_system, force_json=True)
-        return self._extract_json(raw)
+        """Вызов модели с ожиданием JSON. Разбор JSON — ВНУТРИ ретраев: если модель
+        (особенно локальная) выдала кривой JSON, делаем повтор, а не роняем весь прогон."""
+        return self._call(user_message, extra_system, force_json=True, parse_json=True)
 
-    def _call(self, user_message: str, extra_system: str, force_json: bool) -> str:
+    def _call(self, user_message: str, extra_system: str, force_json: bool,
+              parse_json: bool = False):
         system = self.system_prompt
         if extra_system:
             system = f"{system}\n\n---\n{extra_system}"
@@ -218,7 +221,9 @@ class BaseAgent:
         for attempt in range(retries):
             last = attempt == retries - 1
             try:
-                return self._backend_once(system, user_message, force_json)
+                raw = self._backend_once(system, user_message, force_json)
+                # Разбор внутри try → JSONDecodeError уйдёт в ретрай ниже
+                return self._extract_json(raw) if parse_json else raw
             except urllib.error.URLError as e:
                 # Чаще всего — Ollama не запущен
                 print(
@@ -256,7 +261,13 @@ class BaseAgent:
             j = text.rfind("}")
             if i != -1 and j != -1:
                 text = text[i:j + 1]
-        return json.loads(text)
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError:
+            # лёгкая починка типовых огрехов локальных моделей: висячие запятые
+            import re
+            cleaned = re.sub(r",\s*([}\]])", r"\1", text)
+            return json.loads(cleaned)  # если и это не помогло — уйдёт в ретрай вызывающего
 
     @staticmethod
     def save_json(game_dir: str, subdir: str, filename: str, data: dict) -> str:

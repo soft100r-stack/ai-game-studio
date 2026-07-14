@@ -91,9 +91,23 @@ python -m ai_game_studio.main --engine openai --game my_game --genre any \
     --theme "ритм-игра про дирижёра оркестра призраков в заброшенной опере"
 ```
 
-Жанровая система (цепочка загрузки промта): `prompts/<name>.<genre>.md` → `<name>.any.md`
+Жанровая система (цепочка загрузки промта): `<name>.<genre>.md` → `<name>.any.md`
 (универсальный) → `<name>.md` (базовый). Так знакомые жанры используют свои промты, а любой
 новый — универсальные.
+
+### Раскладка промтов по отделам
+Промты лежат по папкам-отделам (загрузчик ищет рекурсивно, так что раскладку можно менять):
+```
+prompts/
+├── game_design/   product, narrative_designer, storyteller, designer, booster_designer,
+│                  liveops_designer, level_designer  (+ .any / .roguelike варианты)
+├── art/           art_director, sprite/environment/vfx/ui_artist, concept/texture_artist
+├── audio/         sound_designer
+├── quality/       critic, editor, playtest
+├── monetization/  monetization
+└── dev/           device_adapter, developer, tech_lead, systems/gameplay/ui_programmer,
+                   optimizer  (+ developer .any / .roguelike)
+```
 
 ### Флаги стоимости (по умолчанию выключены)
 | Флаг | Что включает |
