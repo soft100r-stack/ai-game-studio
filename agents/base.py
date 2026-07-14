@@ -35,6 +35,9 @@ OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "qwen2.5:7b")
 OLLAMA_NUM_CTX = int(os.environ.get("OLLAMA_NUM_CTX", "8192"))
 # Таймаут одного вызова. На CPU 7B-модель думает долго, поэтому щедро.
 OLLAMA_TIMEOUT = int(os.environ.get("OLLAMA_TIMEOUT", "1800"))
+# Отдельная локальная модель под КОД (developer). По умолчанию = общей.
+# Рекомендуется coder-модель: OLLAMA_CODE_MODEL=qwen2.5-coder:7b
+OLLAMA_CODE_MODEL = os.environ.get("OLLAMA_CODE_MODEL", os.environ.get("OLLAMA_MODEL", "qwen2.5:7b"))
 
 CLAUDE_MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5")
 OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
@@ -48,7 +51,8 @@ OPENAI_CODE_MODEL = os.environ.get("OPENAI_CODE_MODEL", OPENAI_MODEL)
 class BaseAgent:
     name = "base"
     backend = "ollama"          # "ollama" | "claude" | "openai"
-    model = OLLAMA_MODEL        # для backend="ollama"; облака берут CLAUDE_MODEL/OPENAI_MODEL
+    model = OLLAMA_MODEL        # (для совместимости; реально шлём self.ollama_model)
+    ollama_model = OLLAMA_MODEL  # локальная модель; developer переопределяет на OLLAMA_CODE_MODEL
     openai_model = OPENAI_MODEL  # можно переопределить в агенте (напр. developer)
     max_tokens = 4096
     num_ctx = OLLAMA_NUM_CTX    # можно переопределить в конкретном агенте
@@ -96,7 +100,7 @@ class BaseAgent:
 
     def _post_chat(self, system: str, user_message: str, force_json: bool) -> str:
         payload = {
-            "model": self.model,
+            "model": self.ollama_model,
             "messages": [
                 {"role": "system", "content": system},
                 {"role": "user", "content": user_message},
@@ -224,8 +228,8 @@ class BaseAgent:
                 if last:
                     raise RuntimeError(
                         f"Ollama недоступен на {OLLAMA_HOST}. "
-                        f"Запусти 'ollama serve' и убедись, что модель '{self.model}' скачана "
-                        f"('ollama pull {self.model}')."
+                        f"Запусти 'ollama serve' и убедись, что модель '{self.ollama_model}' скачана "
+                        f"('ollama pull {self.ollama_model}')."
                     ) from e
                 time.sleep(min(2 ** attempt, 15))
             except Exception as e:

@@ -52,4 +52,5 @@ class ArtDirectorAgent(BaseAgent):
         a = cls()
         a.backend = self.backend
         a.openai_model = self.openai_model
+        a.ollama_model = self.ollama_model
         return a

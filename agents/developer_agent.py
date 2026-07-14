@@ -1,6 +1,6 @@
 import os
 import json
-from .base import BaseAgent, OPENAI_CODE_MODEL
+from .base import BaseAgent, OPENAI_CODE_MODEL, OLLAMA_CODE_MODEL
 from .dev_team import (
     TechLeadAgent, SystemsProgrammerAgent, GameplayProgrammerAgent, UIProgrammerAgent,
 )
@@ -15,7 +15,8 @@ class DeveloperAgent(BaseAgent):
     """
     name = "developer"
     backend = "claude"                # переопределяется флагом --engine
-    openai_model = OPENAI_CODE_MODEL  # код пишем сильной моделью
+    openai_model = OPENAI_CODE_MODEL  # облачный код — сильной моделью
+    ollama_model = OLLAMA_CODE_MODEL  # локальный код — coder-моделью (qwen2.5-coder)
     max_tokens = 32000                # для одиночного режима — весь проект за раз
 
     def run(self, game_dir: str, gdd: dict, mechanics: dict, art_style: dict,
@@ -115,4 +116,5 @@ class DeveloperAgent(BaseAgent):
         a = cls()
         a.backend = self.backend
         a.openai_model = self.openai_model
+        a.ollama_model = self.ollama_model
         return a

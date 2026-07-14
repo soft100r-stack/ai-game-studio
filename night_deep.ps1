@@ -4,21 +4,23 @@
 # Утром лучший код — через OpenAI: --code-only.
 $ErrorActionPreference = "Continue"
 
-# --- ОДНА игра (меняй под себя) ---
-$Game = @{ id = "night_deep_01"; genre = "roguelike"; theme = "Часовой механизм умирающего города: шестерни, пар, время утекает; смотритель башни спускается всё глубже" }
+# --- ОДНА игра (меняй под себя). Жанр 'any' = студия сама придумает механику под идею ---
+$Game = @{ id = "night_crazy_01"; genre = "any"; theme = "Гриб-детектив в подземном неоновом городе спор расследует кражу чужих снов. Улики он выращивает как светящийся мицелий по ритму биолюминесцентного джаза, а подозреваемых допрашивает, играя с ними в игру теней. Каждая раскрытая тайна освещает ещё один тёмный туннель грибницы." }
 
 # --- Настройки качества ---
-$Model = "qwen2.5:7b"    # качественнее llama3.2 (медленнее, но у нас 1 игра за ночь)
+$Model = "qwen2.5:7b"            # ДИЗАЙН: креативная модель
+$CodeModel = "qwen2.5-coder:7b"  # КОД: специальная coder-модель (пишет рабочий код)
 $Levels = 20
-$MaxHours = 10
+$MaxHours = 14                   # времени не жалеем — пусть работает долго, но качественно
 $Ollama = "$env:LOCALAPPDATA\Programs\Ollama\ollama.exe"
 
 # --- Окружение: включаем глубокий проход и лишний раунд критика ---
 $env:DEEP = "1"                  # редактор (углубление) + плейтест (баланс)
 $env:MAX_REVISION_ROUNDS = "2"   # критик проходит дважды
-$env:OLLAMA_MODEL = $Model
-$env:OLLAMA_NUM_CTX = "4096"     # держим RAM в узде (у тебя 8 ГБ)
-$env:OLLAMA_TIMEOUT = "2400"     # до 40 мин на вызов (7B медленнее)
+$env:OLLAMA_MODEL = $Model             # дизайн
+$env:OLLAMA_CODE_MODEL = $CodeModel    # код (coder-модель)
+$env:OLLAMA_NUM_CTX = "4096"           # держим RAM в узде (у тебя 8 ГБ)
+$env:OLLAMA_TIMEOUT = "3600"           # до 60 мин на вызов (код на CPU долгий)
 $env:PYTHONUTF8 = "1"
 $env:PYTHONUNBUFFERED = "1"
 $env:STUDIO_GENRE = $Game.genre
@@ -33,6 +35,7 @@ $up = $false
 try { Invoke-RestMethod "http://localhost:11434/api/tags" -TimeoutSec 4 | Out-Null; $up = $true } catch {}
 if (-not $up) { Write-Host "Запускаю Ollama..." -ForegroundColor Yellow; Start-Process -FilePath $Ollama -ArgumentList "serve" -WindowStyle Hidden; Start-Sleep 6 }
 & $Ollama pull $Model | Out-Null
+& $Ollama pull $CodeModel | Out-Null
 
 # --- ФАЗА 1: ДЕТАЛЬНЫЙ ДИЗАЙН ---
 Write-Host "`n########## ФАЗА 1: ГЛУБОКИЙ ДИЗАЙН ($($Game.id)) ##########" -ForegroundColor Magenta
