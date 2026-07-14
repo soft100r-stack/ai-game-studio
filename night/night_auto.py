@@ -34,7 +34,8 @@ OLLAMA = os.environ.get("OLLAMA_EXE",
                         os.path.expandvars(r"%LOCALAPPDATA%\Programs\Ollama\ollama.exe"))
 GODOT = os.environ.get("GODOT_EXE",
                        r"C:\Users\POLLAP\Godot\Godot_v4.3-stable_win64_console.exe")
-DESIGN_MODEL = os.environ.get("OLLAMA_MODEL", "qwen2.5:7b")
+# llama3.2 надёжно пишет по-русски; qwen2.5:7b «съезжает» на китайский — не годится для RU.
+DESIGN_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.2")
 CODE_MODEL = os.environ.get("OLLAMA_CODE_MODEL", "qwen2.5-coder:7b")
 LEVELS = os.environ.get("LEVELS", "20")
 MAX_HOURS = float(os.environ.get("MAX_HOURS", "14"))

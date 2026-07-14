@@ -39,6 +39,9 @@ OLLAMA_TIMEOUT = int(os.environ.get("OLLAMA_TIMEOUT", "1800"))
 # Рекомендуется coder-модель: OLLAMA_CODE_MODEL=qwen2.5-coder:7b
 OLLAMA_CODE_MODEL = os.environ.get("OLLAMA_CODE_MODEL", os.environ.get("OLLAMA_MODEL", "qwen2.5:7b"))
 
+# Язык ответов. Замок против «съезда» слабых моделей (Qwen любит уходить в китайский).
+STUDIO_LANG = os.environ.get("STUDIO_LANG", "русском")
+
 CLAUDE_MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5")
 OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
 # Ретраи на вызов (сетевые сбои). При 17 агентах шанс блипа выше — держим запас.
@@ -216,6 +219,10 @@ class BaseAgent:
         system = self.system_prompt
         if extra_system:
             system = f"{system}\n\n---\n{extra_system}"
+        # Языковой замок: заставляем модель держаться одного языка (Qwen склонна съезжать
+        # на китайский посреди ответа). Значения JSON — тоже на нужном языке.
+        system += (f"\n\nВАЖНО: весь ответ и все значения в JSON пиши строго на {STUDIO_LANG} "
+                   f"языке. НИКОГДА не переключайся на другой язык (китайский, английский и т.п.).")
 
         retries = MAX_RETRIES
         for attempt in range(retries):
