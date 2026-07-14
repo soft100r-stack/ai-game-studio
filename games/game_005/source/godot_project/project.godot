@@ -1,0 +1,11 @@
+[application]
+config/name="Deep Sea Library"
+
+[autoload]
+GameState="*res://scripts/game_state.gd"
+
+[main]
+run/main_scene="res://scripts/Main.gd"
+
+[rendering]
+quality/driver/driver_name="GLES3"

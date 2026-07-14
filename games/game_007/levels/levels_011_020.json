@@ -1,0 +1,427 @@
+{
+  "levels": [
+    {
+      "num": 11,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.95,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "__11111__",
+        "__11111__",
+        "__11111__"
+      ],
+      "colors_count": 5,
+      "moves_limit": 20,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_1",
+          "amount": 30
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 4000,
+        "two_star": 10000,
+        "three_star": 20000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Кораллин находит первую часть карты, указывающую путь к следующему залу.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 12,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.9,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "___II____",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 25,
+      "goals": [
+        {
+          "type": "clear_ice",
+          "amount": 1
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 5000,
+        "two_star": 12000,
+        "three_star": 25000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "special_rules": "Блоки водорослей начинают появляться.",
+      "narrative_beat": "Водоросли начинают покрывать доску, Кораллин использует кристаллы для их очистки.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 13,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.85,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_BB__BB__",
+        "_________",
+        "____B____",
+        "_________",
+        "____B____",
+        "_________",
+        "_BB__BB__",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_2",
+          "amount": 40
+        },
+        {
+          "type": "clear_ice",
+          "amount": 2
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 6000,
+        "two_star": 14000,
+        "three_star": 28000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Кораллин находит древние осколки кораллов, которые ведут её к новым знаниям.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 14,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.8,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "111111111",
+        "1_______1",
+        "1_______1",
+        "1_______1",
+        "1_______1",
+        "1_______1",
+        "1_______1",
+        "1_______1",
+        "111111111"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_3",
+          "amount": 50
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 5500,
+        "two_star": 13000,
+        "three_star": 26000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Кораллин находит ряд раковин, в которых скрыты записи о древних цивилизациях.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 15,
+      "difficulty_tag": "hard",
+      "estimated_win_rate": 0.4,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "___CC___",
+        "___CC___",
+        "__CCCC__",
+        "__CCCC__",
+        "_CCCIII_",
+        "_CCCIII_",
+        "__CCCC__",
+        "__CCCC__",
+        "___CC___"
+      ],
+      "colors_count": 6,
+      "moves_limit": 25,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_4",
+          "amount": 30
+        },
+        {
+          "type": "clear_ice",
+          "amount": 4
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 7000,
+        "two_star": 16000,
+        "three_star": 32000
+      },
+      "available_boosters": [
+        "booster_1",
+        "booster_2"
+      ],
+      "narrative_beat": "Кораллин сталкивается с трудностями, но находит скрытые пузырьки, содержащие важные реликвии.",
+      "monetization_hint": "Используйте бустеры, чтобы справиться с водорослями и льдом."
+    },
+    {
+      "num": 16,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.9,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_____SS__",
+        "__S_____S",
+        "_____SS__",
+        "_S_____S_",
+        "_____SS__",
+        "__S_____S",
+        "_____SS__",
+        "_S_____S_",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 35,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_5",
+          "amount": 60
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 5000,
+        "two_star": 12000,
+        "three_star": 24000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Кораллин открывает большую карту, которая ведёт её всё глубже в архив.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 17,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.75,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_____S___",
+        "__S_____S",
+        "_____S___",
+        "_S_____S_",
+        "_____S___",
+        "__S_____S",
+        "_____S___",
+        "_S_____S_",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_6",
+          "amount": 45
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 5500,
+        "two_star": 13000,
+        "three_star": 27000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Кораллин обнаруживает амулеты времени, которые помогают ей ориентироваться в лабиринте архивов.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 18,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.7,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_______S_",
+        "_S_______",
+        "_______S_",
+        "_S_______",
+        "_______S_",
+        "_S_______",
+        "_______S_",
+        "_S_______",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_2",
+          "amount": 50
+        },
+        {
+          "type": "clear_ice",
+          "amount": 3
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 5800,
+        "two_star": 13500,
+        "three_star": 28000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Кораллин находит скрытые осколки кораллов, которые открывают новые коридоры.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 19,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.65,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "II______I",
+        "I______II",
+        "____BB___",
+        "___BB____",
+        "BBBBBBBBB",
+        "___BB____",
+        "____BB___",
+        "I______II",
+        "II______I"
+      ],
+      "colors_count": 6,
+      "moves_limit": 28,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_1",
+          "amount": 60
+        },
+        {
+          "type": "clear_ice",
+          "amount": 5
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 6200,
+        "two_star": 14000,
+        "three_star": 29000
+      },
+      "available_boosters": [
+        "booster_1",
+        "booster_2"
+      ],
+      "narrative_beat": "Кораллин преодолевает блоки и находит путь к новым знаниям.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 20,
+      "difficulty_tag": "super_hard",
+      "estimated_win_rate": 0.25,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "BB__CCC__BB",
+        "BB__CCC__BB",
+        "BB__CCC__BB",
+        "___BB__BB__",
+        "___BB__BB__",
+        "BB__CCC__BB",
+        "BB__CCC__BB",
+        "BB__CCC__BB",
+        "BB__CCC__BB"
+      ],
+      "colors_count": 6,
+      "moves_limit": 22,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_5",
+          "amount": 40
+        },
+        {
+          "type": "clear_ice",
+          "amount": 6
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 8000,
+        "two_star": 18000,
+        "three_star": 35000
+      },
+      "available_boosters": [
+        "booster_1",
+        "booster_2",
+        "booster_3"
+      ],
+      "narrative_beat": "Кораллин сталкивается с мощной преградой, требующей всех её навыков для преодоления.",
+      "monetization_hint": "Рекомендуется использовать бустеры или посмотреть рекламу для получения дополнительных ходов."
+    }
+  ],
+  "curve_summary": {
+    "total_levels": 10,
+    "avg_estimated_win_rate": 0.64,
+    "monetization_pressure_points": [
+      15,
+      20
+    ],
+    "narrative_arc": "Кораллин находит части карты и преодолевает сложные препятствия, чтобы раскрыть тайны подводного архива."
+  }
+}

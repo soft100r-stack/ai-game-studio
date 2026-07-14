@@ -1,0 +1,8 @@
+# Гибридный движок:
+#  - Дизайн/идеи/уровни считаются локально через Ollama (без ключей, без зависимостей).
+#    Нужен установленный Ollama: https://ollama.com/download
+#  - Шаг генерации кода использует Claude API (backend="claude" у DeveloperAgent).
+#    Нужен пакет ниже и переменная ANTHROPIC_API_KEY.
+#    Если запускаешь только дизайн (--skip-code) — anthropic не обязателен.
+anthropic>=0.40.0   # для --engine claude / hybrid
+openai>=1.40.0      # для --engine openai

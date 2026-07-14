@@ -1,0 +1,442 @@
+{
+  "levels": [
+    {
+      "num": 11,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.92,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_1111111_",
+        "_2222222_",
+        "_3333333_",
+        "_4444444_",
+        "_5555555_",
+        "_6666666_",
+        "_1111111_",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 20,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_1",
+          "amount": 20
+        },
+        {
+          "type": "collect_element",
+          "element_id": "elem_2",
+          "amount": 20
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 4000,
+        "two_star": 12000,
+        "three_star": 25000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Майя находит первую часть древнего свитка, освещающего путь.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 12,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.85,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "___IIC___",
+        "__IIICII_",
+        "_IIIIIIC_",
+        "_CCCICCC_",
+        "_IIIIIIC_",
+        "__IIICII_",
+        "___IIC___",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 25,
+      "goals": [
+        {
+          "type": "clear_ice",
+          "amount": 12
+        },
+        {
+          "type": "collect_element",
+          "element_id": "elem_3",
+          "amount": 15
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 5000,
+        "two_star": 15000,
+        "three_star": 30000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "special_rules": "Введение Стеклянной Преграды",
+      "narrative_beat": "Майя освобождает древние кристаллы, скрытые за стеклянными преградами."
+    },
+    {
+      "num": 13,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.9,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_1111111_",
+        "_2222222_",
+        "_3333333_",
+        "_4444444_",
+        "_5555555_",
+        "_6666666_",
+        "_1111111_",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 20,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_4",
+          "amount": 20
+        },
+        {
+          "type": "collect_element",
+          "element_id": "elem_5",
+          "amount": 20
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 4500,
+        "two_star": 13000,
+        "three_star": 28000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Майя находит древний ключ, открывающий новую часть библиотеки."
+    },
+    {
+      "num": 14,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.8,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "__IICII__",
+        "_ICCCCI_",
+        "_CCCCCC_",
+        "_CCCCCC_",
+        "_CCCCCC_",
+        "_ICCCCI_",
+        "__IICII__",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 22,
+      "goals": [
+        {
+          "type": "clear_ice",
+          "amount": 16
+        },
+        {
+          "type": "collect_element",
+          "element_id": "elem_6",
+          "amount": 15
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 6000,
+        "two_star": 16000,
+        "three_star": 32000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Майя открывает скрытые хранилища с древними артефактами."
+    },
+    {
+      "num": 15,
+      "difficulty_tag": "hard",
+      "estimated_win_rate": 0.4,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "__BBIBB__",
+        "_BIBBBIB_",
+        "_IBBBBI_",
+        "_BBIBBIB_",
+        "_IBBBBI_",
+        "_BIBBBIB_",
+        "__BBIBB__",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "clear_ice",
+          "amount": 20
+        },
+        {
+          "type": "collect_element",
+          "element_id": "elem_2",
+          "amount": 25
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 7000,
+        "two_star": 17000,
+        "three_star": 35000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "special_rules": "Введение Кристального Луча",
+      "narrative_beat": "Майя освобождает центральный зал от загадочных преград.",
+      "monetization_hint": "Используй Копьё Света для быстрого прогресса."
+    },
+    {
+      "num": 16,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.9,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_1111111_",
+        "_2222222_",
+        "_3333333_",
+        "_4444444_",
+        "_5555555_",
+        "_6666666_",
+        "_1111111_",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 18,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_3",
+          "amount": 20
+        },
+        {
+          "type": "collect_element",
+          "element_id": "elem_5",
+          "amount": 20
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 4500,
+        "two_star": 12500,
+        "three_star": 27000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Майя изучает новые свитки, открывая тайны своего народа."
+    },
+    {
+      "num": 17,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.78,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_IICCCII_",
+        "_ICCCCIC_",
+        "_CCCCCCC_",
+        "_CCCCCCC_",
+        "_CCCCCCC_",
+        "_ICCCCIC_",
+        "_IICCCII_",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 24,
+      "goals": [
+        {
+          "type": "clear_ice",
+          "amount": 18
+        },
+        {
+          "type": "collect_element",
+          "element_id": "elem_1",
+          "amount": 25
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 5500,
+        "two_star": 14000,
+        "three_star": 31000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Майя сталкивается с более сложными загадками в библиотеке."
+    },
+    {
+      "num": 18,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.88,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_1111111_",
+        "_2222222_",
+        "_3333333_",
+        "_4444444_",
+        "_5555555_",
+        "_6666666_",
+        "_1111111_",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 20,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_6",
+          "amount": 20
+        },
+        {
+          "type": "collect_element",
+          "element_id": "elem_4",
+          "amount": 20
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 4000,
+        "two_star": 12000,
+        "three_star": 26000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Майя находит новый ход в глубины библиотеки."
+    },
+    {
+      "num": 19,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.76,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_IIBBBII_",
+        "_IBBBBI_",
+        "_BBBBBB_",
+        "_BBBBBB_",
+        "_BBBBBB_",
+        "_IBBBBI_",
+        "_IIBBBII_",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 25,
+      "goals": [
+        {
+          "type": "clear_ice",
+          "amount": 22
+        },
+        {
+          "type": "collect_element",
+          "element_id": "elem_2",
+          "amount": 20
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 6000,
+        "two_star": 15500,
+        "three_star": 32000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Майя освобождает древние проходы от тяжёлых завалов."
+    },
+    {
+      "num": 20,
+      "difficulty_tag": "super_hard",
+      "estimated_win_rate": 0.25,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_BBBBBBB_",
+        "_BIIIIBB_",
+        "_BIICIBB_",
+        "_BIICIBB_",
+        "_BIICIBB_",
+        "_BIIIIBB_",
+        "_BBBBBBB_",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "clear_ice",
+          "amount": 30
+        },
+        {
+          "type": "collect_element",
+          "element_id": "elem_5",
+          "amount": 25
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 8000,
+        "two_star": 18000,
+        "three_star": 36000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Майя открывает путь к сердцу затонувшей библиотеки.",
+      "monetization_hint": "Используй Зелье Вспышки для быстрого прохождения."
+    }
+  ],
+  "curve_summary": {
+    "total_levels": 10,
+    "avg_estimated_win_rate": 0.7,
+    "monetization_pressure_points": [
+      15,
+      20
+    ],
+    "narrative_arc": "Майя исследует затонувшую библиотеку, открывая древние свитки и преодолевая загадочные преграды. Путь к сердцу библиотеки открывается с каждым уровнем."
+  }
+}

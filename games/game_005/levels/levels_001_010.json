@@ -1,0 +1,439 @@
+{
+  "levels": [
+    {
+      "num": 1,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.98,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "____I____",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 20,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "elem_1",
+          "amount": 20
+        },
+        {
+          "type": "clear_obstacles",
+          "amount": 1
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 5000,
+        "two_star": 15000,
+        "three_star": 30000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Архивариус Лора находит первую секцию Глубоководной библиотеки и осветляет её.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 2,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.97,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "____B____",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 20,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "elem_2",
+          "amount": 15
+        },
+        {
+          "type": "clear_obstacles",
+          "amount": 1
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 6000,
+        "two_star": 16000,
+        "three_star": 32000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Лора учится справляться с простыми преградами на пути к знаниям.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 3,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.96,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "___BBB___",
+        "___BBB___",
+        "___BBB___",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 25,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "elem_3",
+          "amount": 10
+        },
+        {
+          "type": "clear_obstacles",
+          "amount": 9
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 7000,
+        "two_star": 17000,
+        "three_star": 34000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Лора сталкивается с плотными завалами и учится их расчищать.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 4,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.92,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "__B___B__",
+        "__B___B__",
+        "__B_B_B__",
+        "_________",
+        "__B_B_B__",
+        "__B___B__",
+        "__B___B__",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "elem_4",
+          "amount": 25
+        },
+        {
+          "type": "clear_obstacles",
+          "amount": 12
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 8000,
+        "two_star": 18000,
+        "three_star": 35000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Лора обнаруживает сложные узоры в завалах, которые нужно разгадать.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 5,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.9,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "__BBBBB__",
+        "__BBBBB__",
+        "__BBBBB__",
+        "__BBBBB__",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 35,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "elem_5",
+          "amount": 30
+        },
+        {
+          "type": "clear_obstacles",
+          "amount": 25
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 9000,
+        "two_star": 19000,
+        "three_star": 36000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Лора начинает понимать, как управляться с завалами более эффективно.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 6,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.85,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "__B_B_B__",
+        "__B___B__",
+        "__B_B_B__",
+        "_________",
+        "__B_B_B__",
+        "__B___B__",
+        "__B_B_B__",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 40,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "elem_6",
+          "amount": 35
+        },
+        {
+          "type": "clear_obstacles",
+          "amount": 16
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 10000,
+        "two_star": 20000,
+        "three_star": 37000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Лора находит новые элементы, которые помогают ей в пути.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 7,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.8,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "__I_I_I__",
+        "__I___I__",
+        "__I_I_I__",
+        "_________",
+        "__I_I_I__",
+        "__I___I__",
+        "__I_I_I__",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 40,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "elem_1",
+          "amount": 40
+        },
+        {
+          "type": "clear_obstacles",
+          "amount": 18
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 11000,
+        "two_star": 21000,
+        "three_star": 38000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Лора изучает способы очистки кристаллов от препятствий.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 8,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.75,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "__BBB____",
+        "_B___B___",
+        "B__B__B__",
+        "_B___B___",
+        "__BBB____",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 45,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "elem_2",
+          "amount": 45
+        },
+        {
+          "type": "clear_obstacles",
+          "amount": 20
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 12000,
+        "two_star": 22000,
+        "three_star": 39000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Лора впервые использует свой первый бустер.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 9,
+      "difficulty_tag": "hard",
+      "estimated_win_rate": 0.5,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "BBB_BBB__",
+        "B___B___B",
+        "B___B___B",
+        "BBB_BBB__",
+        "_________",
+        "__BBB____",
+        "_B___B___",
+        "B_____B__",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 50,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "elem_3",
+          "amount": 50
+        },
+        {
+          "type": "clear_obstacles",
+          "amount": 30
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 13000,
+        "two_star": 23000,
+        "three_star": 40000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Лора сталкивается с трудным вызовом, требующим особых навыков.",
+      "monetization_hint": "Используйте бустеры или посмотрите рекламу для дополнительной помощи."
+    },
+    {
+      "num": 10,
+      "difficulty_tag": "boss",
+      "estimated_win_rate": 0.25,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "I_I_I_I_I",
+        "_B_B_B_B_",
+        "_B_____B_",
+        "_B_I_I_B_",
+        "_I_I_I_I_",
+        "_B_I_I_B_",
+        "_B_____B_",
+        "_B_B_B_B_",
+        "I_I_I_I_I"
+      ],
+      "colors_count": 5,
+      "moves_limit": 60,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "elem_4",
+          "amount": 60
+        },
+        {
+          "type": "clear_obstacles",
+          "amount": 40
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 14000,
+        "two_star": 24000,
+        "three_star": 41000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Лора встречает первый крупный вызов — босс-уровень с уникальными схемами.",
+      "monetization_hint": "Воспользуйтесь бустерами или посмотрите рекламу, чтобы преодолеть сложные препятствия."
+    }
+  ],
+  "curve_summary": {
+    "total_levels": 10,
+    "avg_estimated_win_rate": 0.788,
+    "monetization_pressure_points": [
+      4,
+      9
+    ],
+    "narrative_arc": "Первые уровни показывают Лоре основы, затем она встречает сложные задачи, которые требуют использования бустеров, чтобы продвигаться дальше. Босс-уровень завершает первый акт, открывая путь к новым приключениям."
+  }
+}

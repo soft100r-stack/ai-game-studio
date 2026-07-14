@@ -1,0 +1,443 @@
+{
+  "levels": [
+    {
+      "num": 1,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.99,
+      "grid_size": [
+        7,
+        7
+      ],
+      "grid_layout": [
+        "_______",
+        "_______",
+        "_______",
+        "_______",
+        "_______",
+        "_______",
+        "_______"
+      ],
+      "colors_count": 3,
+      "moves_limit": 16,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_blue",
+          "amount": 10
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 2500,
+        "two_star": 7000,
+        "three_star": 15000
+      },
+      "available_boosters": [],
+      "special_rules": "Только сапфировые, изумрудные и аместистовые кристаллы. Первый матч — подсвечивается tutorial.",
+      "narrative_beat": "Аксель находит вход в библиотеку, освещает первый фрагмент и слышит призрачный шёпот.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 2,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.98,
+      "grid_size": [
+        7,
+        8
+      ],
+      "grid_layout": [
+        "_______",
+        "_______",
+        "_______",
+        "_______",
+        "_______",
+        "_______",
+        "_______",
+        "_______"
+      ],
+      "colors_count": 4,
+      "moves_limit": 18,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_green",
+          "amount": 12
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 3000,
+        "two_star": 8000,
+        "three_star": 17000
+      },
+      "available_boosters": [],
+      "special_rules": "Добавлен четвёртый цвет. Вводится подсказка о каскадах.",
+      "narrative_beat": "Открывается первый зал — зелёные водоросли подсвечивают путеводную дорожку.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 3,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.97,
+      "grid_size": [
+        8,
+        8
+      ],
+      "grid_layout": [
+        "________",
+        "________",
+        "________",
+        "________",
+        "________",
+        "________",
+        "________",
+        "________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 20,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_purple",
+          "amount": 10
+        },
+        {
+          "type": "collect_element",
+          "element_id": "crystal_gold",
+          "amount": 8
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 4000,
+        "two_star": 10000,
+        "three_star": 20000
+      },
+      "available_boosters": [],
+      "special_rules": "Впервые два типа целей. Вводится Глиф Потока — подсвечивается первый матч на 4.",
+      "narrative_beat": "Аксель встречает первого призрака-архивариуса, который учит глифам.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 4,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.96,
+      "grid_size": [
+        8,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 22,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_red",
+          "amount": 10
+        },
+        {
+          "type": "collect_element",
+          "element_id": "crystal_white",
+          "amount": 10
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 4500,
+        "two_star": 12000,
+        "three_star": 23000
+      },
+      "available_boosters": [],
+      "special_rules": "Вводится пятый цвет. Акцент на комбо: tutorial подсказывает собрать второй спец-элемент.",
+      "narrative_beat": "В глубине зала вспыхивает красный и лунный свет, пробуждая новую память.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 5,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.93,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "____I____",
+        "___III___",
+        "___I_I___",
+        "___III___",
+        "____I____",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 24,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_blue",
+          "amount": 14
+        },
+        {
+          "type": "clear_ice",
+          "amount": 9
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 5000,
+        "two_star": 14000,
+        "three_star": 26000
+      },
+      "available_boosters": [],
+      "special_rules": "Вводится лёд (I). Обязательное взаимодействие с ним. Tutorial показывает, как разбивать лёд.",
+      "narrative_beat": "Аксель очищает первую запечатанную зону, и на свету проявляются забытые письмена.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 6,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.92,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "__I___I__",
+        "__I___I__",
+        "_________",
+        "__I___I__",
+        "__I___I__",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 24,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_green",
+          "amount": 18
+        },
+        {
+          "type": "clear_ice",
+          "amount": 8
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 6000,
+        "two_star": 16000,
+        "three_star": 30000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Первая настоящая задача: Аксель очищает ряды печатей между архивами.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 7,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.9,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "__I___I__",
+        "_I_____I_",
+        "_________",
+        "_____I___",
+        "_________",
+        "___I_____",
+        "_________",
+        "_I_____I_",
+        "__I___I__"
+      ],
+      "colors_count": 5,
+      "moves_limit": 22,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_purple",
+          "amount": 20
+        },
+        {
+          "type": "clear_ice",
+          "amount": 10
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 7000,
+        "two_star": 18000,
+        "three_star": 32000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "В лабиринте кристаллов Аксель находит новый артефакт.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 8,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.9,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "___I_I___",
+        "__I___I__",
+        "_________",
+        "_I_____I_",
+        "_________",
+        "__I___I__",
+        "___I_I___",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 23,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_gold",
+          "amount": 16
+        },
+        {
+          "type": "collect_element",
+          "element_id": "crystal_white",
+          "amount": 12
+        },
+        {
+          "type": "clear_ice",
+          "amount": 10
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 8000,
+        "two_star": 20000,
+        "three_star": 35000
+      },
+      "available_boosters": [
+        "lumina_shard"
+      ],
+      "special_rules": "Впервые доступен бустер Осколок Лумина (ad/unlock).",
+      "narrative_beat": "Аксель открывает первый древний артефакт, усиливая свой путь.",
+      "monetization_hint": "На экране победы — предложение попробовать бустер бесплатно за видео."
+    },
+    {
+      "num": 9,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.78,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "__I___I__",
+        "_I_____I_",
+        "___I_I___",
+        "__I___I__",
+        "_________",
+        "__I___I__",
+        "___I_I___",
+        "_I_____I_",
+        "__I___I__"
+      ],
+      "colors_count": 6,
+      "moves_limit": 24,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_red",
+          "amount": 20
+        },
+        {
+          "type": "collect_element",
+          "element_id": "crystal_blue",
+          "amount": 14
+        },
+        {
+          "type": "clear_ice",
+          "amount": 12
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 9000,
+        "two_star": 22000,
+        "three_star": 39000
+      },
+      "available_boosters": [
+        "lumina_shard"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Архивариус рассказывает о великом потопе, открывая новые пути.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 10,
+      "difficulty_tag": "boss",
+      "estimated_win_rate": 0.26,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_I_____I_",
+        "_________",
+        "__I_I_I__",
+        "_I_____I_",
+        "___I_I___",
+        "_I_____I_",
+        "__I_I_I__",
+        "_________",
+        "_I_____I_"
+      ],
+      "colors_count": 6,
+      "moves_limit": 20,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_blue",
+          "amount": 25
+        },
+        {
+          "type": "collect_element",
+          "element_id": "crystal_purple",
+          "amount": 18
+        },
+        {
+          "type": "clear_ice",
+          "amount": 15
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 12000,
+        "two_star": 29000,
+        "three_star": 50000
+      },
+      "available_boosters": [
+        "lumina_shard"
+      ],
+      "special_rules": "Босс-уровень: уникальный визуал — кристаллы светятся в такт глубинным звукам, архивариус появляется в центре поля. Повышенные шансы на спец-элементы.",
+      "narrative_beat": "Аксель сражается с защитной проекцией древнего Архива, очищая главный зал первой главы.",
+      "monetization_hint": "После поражения — предложение купить/получить бустер или +5 ходов за рекламу."
+    }
+  ],
+  "curve_summary": {
+    "total_levels": 10,
+    "avg_estimated_win_rate": 0.849,
+    "monetization_pressure_points": [
+      8,
+      10
+    ],
+    "narrative_arc": "Погружение в подводную библиотеку: игрок учится обращаться с биолюминесцентными кристаллами и простыми спец-элементами, очищает первые печати и встречает архивариусов-призраков. К 10 уровню — масштабный конфликт с боссом-залом и первое серьёзное испытание, после которого открывается новый раздел библиотеки и усиливается мотивация узнать тайну Светоча."
+  }
+}

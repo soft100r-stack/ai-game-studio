@@ -1,0 +1,8 @@
+[general]
+config_version=4
+
+[application]
+run_main_scene="res://scripts/Main.gd"
+
+[autoload]
+GameState="res://scripts/game_state.gd"

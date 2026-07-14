@@ -1,0 +1,155 @@
+{
+  "ad_network": "AppLovin MAX | ironSource | AdMob (рекомендация)",
+  "ad_placements": [
+    {
+      "id": "placement_1",
+      "trigger": "player_lost_level AND is_hard_level",
+      "type": "rewarded",
+      "reward": "5 дополнительных ходов или 1 случайный in-game booster (например, Импульс Архивной Лампы)",
+      "frequency_cap": "не чаще 3 раз за сессию",
+      "reasoning": "Игрок сам выбирает, использовать шанс на спасение или нет, награда желанна в трудной ситуации. Не раздражает, так как появляется после реального фейла и даёт ощутимую выгоду."
+    },
+    {
+      "id": "placement_2",
+      "trigger": "level_completed AND NOT used_booster AND level_number % 4 == 0",
+      "type": "rewarded",
+      "reward": "x2 монеты за успешное прохождение уровня",
+      "frequency_cap": "не чаще 4 раз за сессию",
+      "reasoning": "Увеличивает ценность победы, не прерывает flow, мотивирует смотреть рекламу для ускорения прогресса. Опционально, не навязывается."
+    },
+    {
+      "id": "placement_3",
+      "trigger": "on_booster_select AND insufficient_coins",
+      "type": "rewarded",
+      "reward": "выбранный booster бесплатно (разово)",
+      "frequency_cap": "не чаще 2 раз за сессию",
+      "reasoning": "Позволяет попробовать бустер без траты валюты, знакомит с платным функционалом, не вызывает раздражения, так как инициатива у игрока."
+    },
+    {
+      "id": "placement_4",
+      "trigger": "between_levels AND NOT is_hard_level AND session_time > 3min",
+      "type": "interstitial",
+      "reward": "",
+      "frequency_cap": "не чаще 1 раза в 3 минуты",
+      "reasoning": "Чисто между уровнями, без навязывания в активном геймплее, не сбивает темп. Подходит для казуальной аудитории."
+    },
+    {
+      "id": "placement_5",
+      "trigger": "in_shop_screen OR in_restoration_menu",
+      "type": "banner",
+      "reward": "",
+      "frequency_cap": "постоянно, но только на этих экранах",
+      "reasoning": "Баннеры не мешают геймплею, только на нефокусных экранах. Добавляют к ARPDAU, не вредят retention."
+    }
+  ],
+  "iap_offers": [
+    {
+      "id": "iap_1",
+      "name": "Пакет Архивариуса",
+      "price_usd": 4.99,
+      "content": "500 кристаллов (hard currency), 3x Импульс Архивной Лампы, 2x Всплеск Течения, remove ads (interstitial+banner)",
+      "trigger": "после прохождения 10 уровней или при первом фейле на сложном уровне",
+      "target_conversion": 0.03
+    },
+    {
+      "id": "iap_2",
+      "name": "Стартовая Коллекция",
+      "price_usd": 1.99,
+      "content": "150 кристаллов, 2x Заряды Чернильной Перчатки",
+      "trigger": "после второго запуска игры (D2), с 40% скидкой только 24 часа",
+      "target_conversion": 0.06
+    },
+    {
+      "id": "iap_3",
+      "name": "Премиум Пропуск События",
+      "price_usd": 5.99,
+      "content": "Доступ к премиум-наградам в еженедельном ивенте: эксклюзивные декорации, редкие артефакты, 400 кристаллов",
+      "trigger": "при старте еженедельного события",
+      "target_conversion": 0.015
+    },
+    {
+      "id": "iap_4",
+      "name": "Remove Ads",
+      "price_usd": 3.49,
+      "content": "Отключение interstitial и banner рекламы (rewarded остаются)",
+      "trigger": "показывать в магазине всегда и после 5-й interstitial за сессию",
+      "target_conversion": 0.012
+    }
+  ],
+  "currency_system": {
+    "soft_currency": {
+      "name": "монеты",
+      "sources": [
+        "прохождение уровней",
+        "дневные задания",
+        "реставрация залов",
+        "ивенты",
+        "rewarded video (x2 монеты)",
+        "подарки за вход"
+      ],
+      "sinks": [
+        "покупка бустеров",
+        "дополнительные ходы",
+        "ускорение реставрации",
+        "разблокировка декора",
+        "обмен на коллекционные страницы"
+      ]
+    },
+    "hard_currency": {
+      "name": "кристаллы",
+      "sources": [
+        "IAP",
+        "ивенты",
+        "редкие сюжетные награды",
+        "уровни-прогресс milestones",
+        "подарки за retention (например, 7-дневный вход)"
+      ],
+      "sinks": [
+        "покупка премиум-бустеров",
+        "энергия/жизни",
+        "эксклюзивные декорации",
+        "ускорение реставрации",
+        "разблокировка премиум-коллекций"
+      ]
+    },
+    "energy_lives": {
+      "cap": 5,
+      "regen_minutes": 30,
+      "monetization": "покупка за кристаллы (10 кристаллов = 5 жизней), rewarded video (1 жизнь за просмотр, не чаще 4 раз/сутки), бонусы за retention"
+    }
+  },
+  "economy_balance": {
+    "coins_per_level_avg": 50,
+    "coins_needed_for_booster": 900,
+    "levels_between_free_boosters": 12,
+    "expected_dpu_percent": 3.5,
+    "expected_arpdau_usd": 0.12
+  },
+  "events": [
+    {
+      "name": "Наплыв Течений",
+      "type": "tournament",
+      "frequency": "weekly",
+      "monetization_role": "соревновательный режим с прогрессивными наградами: премиум-пропуск, бустеры, кристаллы, эксклюзивные декорации. Ускоряет расход бустеров и мотивирует покупки."
+    },
+    {
+      "name": "Коллекция Реликвий",
+      "type": "collection",
+      "frequency": "bi-weekly",
+      "monetization_role": "сбор уникальных страниц и реликвий для обмена на премиум-награды. Мотивирует тратить валюту, участвовать чаще, использовать бустеры."
+    },
+    {
+      "name": "Эксклюзивное Предложение",
+      "type": "limited_offer",
+      "frequency": "onboarding (D2, D7) и после сложных уровней",
+      "monetization_role": "стартовые и реактивационные скидки на пакеты валюты и бустеров, стимулируют конверсию в первые дни."
+    }
+  ],
+  "kpi_projections": {
+    "d1_arpdau": 0.08,
+    "d7_arpdau": 0.14,
+    "d30_arpdau": 0.19,
+    "ad_impressions_per_dau": 8,
+    "iap_conversion": 0.028
+  }
+}

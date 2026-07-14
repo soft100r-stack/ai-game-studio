@@ -1,0 +1,486 @@
+{
+  "levels": [
+    {
+      "num": 11,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.93,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 26,
+      "goals": [
+        {
+          "type": "collect_crystals",
+          "element_id": "crystal_blue",
+          "amount": 26
+        },
+        {
+          "type": "collect_crystals",
+          "element_id": "crystal_gold",
+          "amount": 18
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 7000,
+        "two_star": 18000,
+        "three_star": 34000
+      },
+      "available_boosters": [
+        "booster_lantern"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Лисель впервые входит в зал с золотыми письменами — свет кристаллов освещает карту.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 12,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.92,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "____C____",
+        "___CCC___",
+        "__CC_C___",
+        "__C___C__",
+        "_________",
+        "__C___C__",
+        "__CC_C___",
+        "___CCC___",
+        "____C____"
+      ],
+      "colors_count": 5,
+      "moves_limit": 28,
+      "goals": [
+        {
+          "type": "collect_crystals",
+          "element_id": "crystal_green",
+          "amount": 20
+        },
+        {
+          "type": "clear_algae",
+          "amount": 0
+        },
+        {
+          "type": "collect_crystals",
+          "element_id": "crystal_purple",
+          "amount": 14
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 8000,
+        "two_star": 20000,
+        "three_star": 37000
+      },
+      "available_boosters": [
+        "booster_lantern",
+        "booster_corridor"
+      ],
+      "special_rules": "На этом уровне впервые появляется Свиток Памяти (memory_scroll) после матча из 5.",
+      "narrative_beat": "Лисель находит первую часть Свитка Памяти, свет усиливается.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 13,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.75,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "___B_B___",
+        "__B___B__",
+        "_B_____B_",
+        "_________",
+        "_________",
+        "_________",
+        "_B_____B_",
+        "__B___B__",
+        "___B_B___"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_crystals",
+          "element_id": "crystal_red",
+          "amount": 16
+        },
+        {
+          "type": "collect_crystals",
+          "element_id": "crystal_blue",
+          "amount": 16
+        },
+        {
+          "type": "free_scrolls",
+          "amount": 2
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 9000,
+        "two_star": 23000,
+        "three_star": 41000
+      },
+      "available_boosters": [
+        "booster_lantern",
+        "booster_corridor"
+      ],
+      "special_rules": "",
+      "narrative_beat": "На пути к древним книгам Лисель расчищает завалы, встречая первые запечатанные свитки.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 14,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.7,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_____B___",
+        "____BB___",
+        "___BBB___",
+        "__BBBB___",
+        "___B_____",
+        "___BBBB__",
+        "___BBB___",
+        "___BB____",
+        "___B_____"
+      ],
+      "colors_count": 6,
+      "moves_limit": 32,
+      "goals": [
+        {
+          "type": "collect_crystals",
+          "element_id": "crystal_silver",
+          "amount": 25
+        },
+        {
+          "type": "free_scrolls",
+          "amount": 3
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 11000,
+        "two_star": 26500,
+        "three_star": 47000
+      },
+      "available_boosters": [
+        "booster_lantern",
+        "booster_corridor"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Лисель находит полки, заросшие кораллами, и освобождает свитки древней математики.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 15,
+      "difficulty_tag": "hard",
+      "estimated_win_rate": 0.42,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "___CIC___",
+        "__CIIC__",
+        "_CIIIC_",
+        "CIICCIIC",
+        "IIC__CII",
+        "CIICCIIC",
+        "_CIIIC_",
+        "__CIIC__",
+        "___CIC___"
+      ],
+      "colors_count": 6,
+      "moves_limit": 34,
+      "goals": [
+        {
+          "type": "clear_algae",
+          "amount": 20
+        },
+        {
+          "type": "collect_crystals",
+          "element_id": "crystal_purple",
+          "amount": 15
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 14000,
+        "two_star": 34000,
+        "three_star": 60000
+      },
+      "available_boosters": [
+        "booster_lantern",
+        "booster_corridor"
+      ],
+      "special_rules": "Впервые вводится Обрастающие Водоросли (C). Они разрастаются, если не очищать рядом.",
+      "narrative_beat": "Водоросли начинают активно разрастаться, угрожая затопить библиотеку.",
+      "monetization_hint": "После 3 неудачных попыток — предложение бустера или rewarded ad."
+    },
+    {
+      "num": 16,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.73,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "__CCC____",
+        "_C___C___",
+        "C_____C__",
+        "_________",
+        "C_____C__",
+        "_C___C___",
+        "__CCC____",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 28,
+      "goals": [
+        {
+          "type": "clear_algae",
+          "amount": 16
+        },
+        {
+          "type": "collect_crystals",
+          "element_id": "crystal_gold",
+          "amount": 18
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 10500,
+        "two_star": 22000,
+        "three_star": 39000
+      },
+      "available_boosters": [
+        "booster_lantern",
+        "booster_corridor"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Лисель раздвигает густые водоросли, открывая светящиеся кристаллы.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 17,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.68,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_B_____B_",
+        "__B___B__",
+        "___B_B___",
+        "____B____",
+        "____C____",
+        "____B____",
+        "___B_B___",
+        "__B___B__",
+        "_B_____B_"
+      ],
+      "colors_count": 6,
+      "moves_limit": 28,
+      "goals": [
+        {
+          "type": "collect_crystals",
+          "element_id": "crystal_green",
+          "amount": 20
+        },
+        {
+          "type": "clear_algae",
+          "amount": 8
+        },
+        {
+          "type": "free_scrolls",
+          "amount": 2
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 12000,
+        "two_star": 24000,
+        "three_star": 41000
+      },
+      "available_boosters": [
+        "booster_lantern",
+        "booster_corridor"
+      ],
+      "special_rules": "",
+      "narrative_beat": "В центре зала таится кристалл, запутанный в водорослях и коробках.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 18,
+      "difficulty_tag": "hard",
+      "estimated_win_rate": 0.41,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_B_C_C_B_",
+        "BC_CC_CB_",
+        "C_BB_BC_",
+        "_C___C__",
+        "C__CC__C",
+        "_C___C__",
+        "C_BB_BC_",
+        "BC_CC_CB_",
+        "_B_C_C_B_"
+      ],
+      "colors_count": 6,
+      "moves_limit": 32,
+      "goals": [
+        {
+          "type": "clear_algae",
+          "amount": 24
+        },
+        {
+          "type": "collect_crystals",
+          "element_id": "crystal_red",
+          "amount": 15
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 17000,
+        "two_star": 35000,
+        "three_star": 65000
+      },
+      "available_boosters": [
+        "booster_lantern",
+        "booster_corridor",
+        "booster_whisper"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Водоросли и завалы усиливают угрозу — Лисель ощущает приближение глубинной опасности.",
+      "monetization_hint": "После 2-й неудачи — акцент на бустер Шёпот Глубины."
+    },
+    {
+      "num": 19,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.7,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "___CCC___",
+        "__C___C__",
+        "_C_____C_",
+        "_________",
+        "_C_____C_",
+        "__C___C__",
+        "___CCC___",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 27,
+      "goals": [
+        {
+          "type": "clear_algae",
+          "amount": 16
+        },
+        {
+          "type": "collect_crystals",
+          "element_id": "crystal_silver",
+          "amount": 16
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 11000,
+        "two_star": 24000,
+        "three_star": 39000
+      },
+      "available_boosters": [
+        "booster_lantern",
+        "booster_corridor",
+        "booster_whisper"
+      ],
+      "special_rules": "",
+      "narrative_beat": "В центре зала Лисель очищает водоросли, чтобы добраться до сияющего лунного кристалла.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 20,
+      "difficulty_tag": "super_hard",
+      "estimated_win_rate": 0.26,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_BIB_BIB_",
+        "BIIBBIIBB",
+        "IIB___BII",
+        "B_____IBB",
+        "____I____",
+        "B_____IBB",
+        "IIB___BII",
+        "BIIBBIIBB",
+        "_BIB_BIB_"
+      ],
+      "colors_count": 7,
+      "moves_limit": 36,
+      "goals": [
+        {
+          "type": "clear_algae",
+          "amount": 12
+        },
+        {
+          "type": "collect_crystals",
+          "element_id": "crystal_blue",
+          "amount": 25
+        },
+        {
+          "type": "collect_crystals",
+          "element_id": "crystal_purple",
+          "amount": 25
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 22000,
+        "two_star": 42000,
+        "three_star": 85000
+      },
+      "available_boosters": [
+        "booster_lantern",
+        "booster_corridor",
+        "booster_whisper"
+      ],
+      "special_rules": "Впервые появляется лёд (I, II). 7 цветов на доске.",
+      "narrative_beat": "Лисель сталкивается с ледяным залом архива и древними ловушками — испытание на грани возможностей.",
+      "monetization_hint": "После первой неудачи — всплывающее предложение посмотреть рекламу или купить бустер для прохождения."
+    }
+  ],
+  "curve_summary": {
+    "total_levels": 10,
+    "avg_estimated_win_rate": 0.67,
+    "monetization_pressure_points": [
+      15,
+      18,
+      20
+    ],
+    "narrative_arc": "Лисель углубляется в затонувшую библиотеку: от первых светящихся залов к залам, обросшим водорослями, затем к ледяным ловушкам и сложным препятствиям. Ключевые сюжетные точки — нахождение Свитка Памяти, первое сопротивление водорослей, ледяной архив и появление новых опасных аномалий. В конце игроку предстоит супер-испытание, подготавливающее к следующей сюжетной главе."
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "codebase-memory-mcp": {
+      "command": "C:\\Users\\POLLAP\\AppData\\Roaming\\Python\\Python312\\Scripts\\codebase-memory-mcp.exe",
+      "args": [],
+      "env": {}
+    }
+  }
+}

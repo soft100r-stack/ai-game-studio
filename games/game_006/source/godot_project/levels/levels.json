@@ -1,0 +1,43 @@
+{
+  "levels": [
+    {
+      "num": 1,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.98,
+      "grid_size": [9, 9],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "____I____",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 25,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_1",
+          "amount": 20
+        },
+        {
+          "type": "clear_ice",
+          "amount": 1
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 5000,
+        "two_star": 15000,
+        "three_star": 30000
+      },
+      "available_boosters": ["booster_1"],
+      "special_rules": "первый уровень, вводящий игрока в механику сбора элементов и разбивания льда",
+      "narrative_beat": "Кэспер находит первый светящийся кристалл и объясняет основы игры",
+      "monetization_hint": ""
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Godot import-кэши (регенерируются при импорте)
+.godot/
+*.import
+
+# Логи и временное
+night_logs/
+*_run.log
+*_codeonly.log
+*.tmp
+
+# Секреты (на всякий случай — ключи в репозиторий не кладём)
+.env
+*.key
+secrets.*
+
+# ОС
+Thumbs.db
+.DS_Store

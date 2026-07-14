@@ -1,0 +1,480 @@
+{
+  "levels": [
+    {
+      "num": 11,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.78,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "___I_I___",
+        "__I___I__",
+        "_I_____I_",
+        "_________",
+        "_I_____I_",
+        "__I___I__",
+        "___I_I___",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 32,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_aurelia",
+          "amount": 36
+        },
+        {
+          "type": "clear_ice",
+          "amount": 12
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 9000,
+        "two_star": 18000,
+        "three_star": 33000
+      },
+      "available_boosters": [
+        "booster_ink_charge"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Мэйра находит первый светящийся срез кристаллов у затонувших лестниц, открывая новый зал.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 12,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.75,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "___B_B___",
+        "__B___B__",
+        "_B_____B_",
+        "_________",
+        "___I_I___",
+        "_________",
+        "_B_____B_",
+        "__B___B__",
+        "___B_B___"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_mnemos",
+          "amount": 32
+        },
+        {
+          "type": "clear_ice",
+          "amount": 6
+        },
+        {
+          "type": "collect_element",
+          "element_id": "crystal_inkara",
+          "amount": 18
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 11000,
+        "two_star": 21000,
+        "three_star": 37000
+      },
+      "available_boosters": [
+        "booster_ink_charge",
+        "booster_lumin_spark"
+      ],
+      "special_rules": "На старте появляется 1 Люминограф в случайной строке и столбце.",
+      "narrative_beat": "Впервые используется Кодекс-запечатель — игрок видит, как фолиант собирает кристаллы одного цвета.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 13,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.7,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "__IIBII__",
+        "_B_____B_",
+        "B_______B",
+        "_________",
+        "_____B___",
+        "_________",
+        "B_______B",
+        "_B_____B_",
+        "__IIBII__"
+      ],
+      "colors_count": 6,
+      "moves_limit": 28,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_floris",
+          "amount": 35
+        },
+        {
+          "type": "clear_ice",
+          "amount": 8
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 12000,
+        "two_star": 23000,
+        "three_star": 39500
+      },
+      "available_boosters": [
+        "booster_ink_charge",
+        "booster_lumin_spark"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Мэйра открывает затонувшую галерею с цветущими кристаллами Флориса, пробираясь через завалы.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 14,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.68,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "___BIB___",
+        "__I_B_I__",
+        "_I__B__I_",
+        "B_______B",
+        "__B___B__",
+        "B_______B",
+        "_I__B__I_",
+        "__I_B_I__",
+        "___BIB___"
+      ],
+      "colors_count": 6,
+      "moves_limit": 28,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_rubor",
+          "amount": 34
+        },
+        {
+          "type": "clear_ice",
+          "amount": 14
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 13000,
+        "two_star": 25000,
+        "three_star": 42000
+      },
+      "available_boosters": [
+        "booster_ink_charge",
+        "booster_lamp_glow",
+        "booster_lumin_spark"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Светильники Мэйры загораются над затопленными полками — впервые нужно использовать Импульс Лампы.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 15,
+      "difficulty_tag": "hard",
+      "estimated_win_rate": 0.43,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "___IIIII_",
+        "__IBIIBI_",
+        "_IBBBBI__",
+        "IBBBBBBI_",
+        "IIBBIBII_",
+        "IBBBBBBI_",
+        "_IBBBBI__",
+        "__IBIIBI_",
+        "___IIIII_"
+      ],
+      "colors_count": 6,
+      "moves_limit": 26,
+      "goals": [
+        {
+          "type": "clear_ice",
+          "amount": 24
+        },
+        {
+          "type": "collect_element",
+          "element_id": "crystal_amberis",
+          "amount": 24
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 20000,
+        "two_star": 35000,
+        "three_star": 50000
+      },
+      "available_boosters": [
+        "booster_ink_charge",
+        "booster_lamp_glow",
+        "booster_lumin_spark"
+      ],
+      "special_rules": "Впервые появляется Мутный Ил (I, II).",
+      "narrative_beat": "Первые залежи ила перекрывают путь к артефакту — Тиан подсказывает использовать бустеры.",
+      "monetization_hint": "После 3-й неудачи советуем попробовать booster_lamp_glow или посмотреть рекламу."
+    },
+    {
+      "num": 16,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.75,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "__I___I__",
+        "_B_____B_",
+        "_________",
+        "___I_I___",
+        "_________",
+        "_B_____B_",
+        "__I___I__",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 32,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_mnemos",
+          "amount": 36
+        },
+        {
+          "type": "clear_ice",
+          "amount": 8
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 11000,
+        "two_star": 21000,
+        "three_star": 38000
+      },
+      "available_boosters": [
+        "booster_ink_charge",
+        "booster_lamp_glow",
+        "booster_lumin_spark"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Селена рассказывает о потоках памяти — игрок получает бонус за серию удачных ходов.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 17,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.7,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "__IIBII__",
+        "_B___B__",
+        "B_____B_",
+        "____I___",
+        "___IBI__",
+        "____I___",
+        "B_____B_",
+        "_B___B__",
+        "__IIBII__"
+      ],
+      "colors_count": 6,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_inkara",
+          "amount": 28
+        },
+        {
+          "type": "clear_ice",
+          "amount": 12
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 12000,
+        "two_star": 22000,
+        "three_star": 41000
+      },
+      "available_boosters": [
+        "booster_ink_charge",
+        "booster_lamp_glow",
+        "booster_lumin_spark"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Мэйра освобождает реликвии среди ила, впервые встречая редкую коллекционную страницу.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 18,
+      "difficulty_tag": "hard",
+      "estimated_win_rate": 0.41,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_BIIBIIB_",
+        "IBBBIBBBI",
+        "IB___B__I",
+        "IBB_I_BBI",
+        "_BB___BB_",
+        "IBB_I_BBI",
+        "IB___B__I",
+        "IBBBIBBBI",
+        "_BIIBIIB_"
+      ],
+      "colors_count": 7,
+      "moves_limit": 24,
+      "goals": [
+        {
+          "type": "clear_ice",
+          "amount": 20
+        },
+        {
+          "type": "collect_element",
+          "element_id": "crystal_floris",
+          "amount": 25
+        },
+        {
+          "type": "collect_element",
+          "element_id": "crystal_amberis",
+          "amount": 13
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 22000,
+        "two_star": 39000,
+        "three_star": 57000
+      },
+      "available_boosters": [
+        "booster_ink_charge",
+        "booster_lamp_glow",
+        "booster_lumin_spark"
+      ],
+      "special_rules": "В этом уровне можно получить Фонарь Прилива (match-6).",
+      "narrative_beat": "Быстрое нарастание ила — впервые нужен Фонарь Прилива для массового освещения.",
+      "monetization_hint": "Появляется совет: используйте booster_lamp_glow или собирайте длинные линии для спец-элементов."
+    },
+    {
+      "num": 19,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.68,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "___BIB___",
+        "__I_B_I__",
+        "_I__B__I_",
+        "B_______B",
+        "__B___B__",
+        "B_______B",
+        "_I__B__I_",
+        "__I_B_I__",
+        "___BIB___"
+      ],
+      "colors_count": 7,
+      "moves_limit": 29,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_rubor",
+          "amount": 31
+        },
+        {
+          "type": "clear_ice",
+          "amount": 10
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 12000,
+        "two_star": 24000,
+        "three_star": 42000
+      },
+      "available_boosters": [
+        "booster_ink_charge",
+        "booster_lamp_glow",
+        "booster_lumin_spark"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Мэйра восстанавливает светильники в коридоре архивов — мягкие сияния помогают видеть путь.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 20,
+      "difficulty_tag": "super_hard",
+      "estimated_win_rate": 0.26,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "BIBIIBIBI",
+        "IBBBIBBBI",
+        "IBIIBIIIB",
+        "BBI___IBB",
+        "I___B___I",
+        "BBI___IBB",
+        "IBIIBIIIB",
+        "IBBBIBBBI",
+        "BIBIIBIBI"
+      ],
+      "colors_count": 7,
+      "moves_limit": 20,
+      "goals": [
+        {
+          "type": "clear_ice",
+          "amount": 32
+        },
+        {
+          "type": "collect_element",
+          "element_id": "crystal_aurelia",
+          "amount": 30
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 27000,
+        "two_star": 45000,
+        "three_star": 70000
+      },
+      "available_boosters": [
+        "booster_ink_charge",
+        "booster_lamp_glow",
+        "booster_lumin_spark"
+      ],
+      "special_rules": "Впервые появляются Запечатанные Свитки (B) — их можно открыть только спец-элементом или бустером.",
+      "narrative_beat": "Селена предупреждает: чтобы открыть новые главы, нужны коллекционные страницы. Босс: ожившая колонна памяти.",
+      "monetization_hint": "После 2-й неудачи предлагается booster_lamp_glow/rewarded ad, после 4-й — booster_ink_charge с дисконтом."
+    }
+  ],
+  "curve_summary": {
+    "total_levels": 10,
+    "avg_estimated_win_rate": 0.63,
+    "monetization_pressure_points": [
+      15,
+      18,
+      20
+    ],
+    "narrative_arc": "Серия ведёт игрока через первые глубокие архивы: от освоения первых кристаллов и освещения залов (11-13), к преодолению ила и сложных препятствий (14-15), затем к освоению новых спец-элементов и нарастающих сложностей (16-18), а кульминацией становится суперсложный уровень с боссом и запечатанными свитками (20), открывающий доступ к следующей сюжетной главе."
+  }
+}

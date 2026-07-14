@@ -1,0 +1,452 @@
+{
+  "levels": [
+    {
+      "num": 11,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.92,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "111111111",
+        "1_______1",
+        "1_______1",
+        "1_______1",
+        "1_______1",
+        "1_______1",
+        "1_______1",
+        "1_______1",
+        "111111111"
+      ],
+      "colors_count": 5,
+      "moves_limit": 25,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "elem_1",
+          "amount": 30
+        },
+        {
+          "type": "collect_X",
+          "element_id": "elem_2",
+          "amount": 20
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 5000,
+        "two_star": 15000,
+        "three_star": 30000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "narrative_beat": "Лора находит первый подсвечник, освещающий часть библиотеки.",
+      "monetization_hint": null
+    },
+    {
+      "num": 12,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.9,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "__CCC____",
+        "__CCC____",
+        "__CCC____",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 25,
+      "goals": [
+        {
+          "type": "clear_obstacles",
+          "amount": 9
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 5000,
+        "two_star": 15000,
+        "three_star": 30000
+      },
+      "available_boosters": [
+        "booster_1",
+        "booster_2"
+      ],
+      "narrative_beat": "Лора разбирается с коралловыми преградами, открывая новые свитки.",
+      "monetization_hint": null
+    },
+    {
+      "num": 13,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.75,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "___III___",
+        "__I___I__",
+        "_I_____I_",
+        "I__CCC__I",
+        "_I_____I_",
+        "__I___I__",
+        "___III___",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "clear_obstacles",
+          "amount": 9
+        },
+        {
+          "type": "collect_X",
+          "element_id": "elem_3",
+          "amount": 25
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 6000,
+        "two_star": 17000,
+        "three_star": 32000
+      },
+      "available_boosters": [
+        "booster_1",
+        "booster_2"
+      ],
+      "narrative_beat": "Лора изучает перо, записывающее тайные знания.",
+      "monetization_hint": null
+    },
+    {
+      "num": 14,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.7,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "__BBBB___",
+        "__BBBB___",
+        "__BBBB___",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "clear_obstacles",
+          "amount": 12
+        },
+        {
+          "type": "collect_X",
+          "element_id": "elem_4",
+          "amount": 20
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 7000,
+        "two_star": 18000,
+        "three_star": 34000
+      },
+      "available_boosters": [
+        "booster_1",
+        "booster_2"
+      ],
+      "narrative_beat": "Лора освобождает древние тома из коробок.",
+      "monetization_hint": null
+    },
+    {
+      "num": 15,
+      "difficulty_tag": "hard",
+      "estimated_win_rate": 0.4,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_IIIIIII_",
+        "I_______I",
+        "I_______I",
+        "I_______I",
+        "I___C___I",
+        "I_______I",
+        "I_______I",
+        "I_______I",
+        "_IIIIIII_"
+      ],
+      "colors_count": 7,
+      "moves_limit": 35,
+      "goals": [
+        {
+          "type": "clear_obstacles",
+          "amount": 16
+        },
+        {
+          "type": "collect_X",
+          "element_id": "elem_5",
+          "amount": 25
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 8000,
+        "two_star": 20000,
+        "three_star": 36000
+      },
+      "available_boosters": [
+        "booster_1",
+        "booster_2"
+      ],
+      "narrative_beat": "Лора освещает центральные залы, находя жемчужины.",
+      "monetization_hint": "Рекомендуется использование бустера для ускорения прохождения."
+    },
+    {
+      "num": 16,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.7,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_BBBBBBB_",
+        "_B_____B_",
+        "_B_____B_",
+        "_B_____B_",
+        "_BBBBBBB_",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "clear_obstacles",
+          "amount": 16
+        },
+        {
+          "type": "collect_X",
+          "element_id": "elem_6",
+          "amount": 20
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 7000,
+        "two_star": 18000,
+        "three_star": 34000
+      },
+      "available_boosters": [
+        "booster_1",
+        "booster_2"
+      ],
+      "narrative_beat": "Лора обнаруживает запечатанные секции, хранящие коралловые печати.",
+      "monetization_hint": null
+    },
+    {
+      "num": 17,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.75,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_I_____I_",
+        "_I_____I_",
+        "_I_____I_",
+        "_________",
+        "_________",
+        "_I_____I_",
+        "_I_____I_",
+        "_________"
+      ],
+      "colors_count": 6,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "elem_1",
+          "amount": 30
+        },
+        {
+          "type": "collect_X",
+          "element_id": "elem_2",
+          "amount": 30
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 6000,
+        "two_star": 17000,
+        "three_star": 32000
+      },
+      "available_boosters": [
+        "booster_1",
+        "booster_2"
+      ],
+      "narrative_beat": "Лора собирает кристаллы и свитки для работы в библиотеке.",
+      "monetization_hint": null
+    },
+    {
+      "num": 18,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.7,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_BBBBBBB_",
+        "B_______B",
+        "B_______B",
+        "_BBBBBBB_",
+        "_________",
+        "_BBBBBBB_",
+        "B_______B",
+        "B_______B",
+        "_BBBBBBB_"
+      ],
+      "colors_count": 7,
+      "moves_limit": 35,
+      "goals": [
+        {
+          "type": "clear_obstacles",
+          "amount": 20
+        },
+        {
+          "type": "collect_X",
+          "element_id": "elem_3",
+          "amount": 25
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 8000,
+        "two_star": 20000,
+        "three_star": 36000
+      },
+      "available_boosters": [
+        "booster_1",
+        "booster_2",
+        "booster_3"
+      ],
+      "narrative_beat": "Лора пробивается через завалы, усиливая свет в библиотеке.",
+      "monetization_hint": null
+    },
+    {
+      "num": 19,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.68,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "IIIIIIIII",
+        "I_______I",
+        "I_______I",
+        "I_______I",
+        "I_______I",
+        "I_______I",
+        "I_______I",
+        "I_______I",
+        "IIIIIIIII"
+      ],
+      "colors_count": 6,
+      "moves_limit": 35,
+      "goals": [
+        {
+          "type": "clear_obstacles",
+          "amount": 28
+        },
+        {
+          "type": "collect_X",
+          "element_id": "elem_4",
+          "amount": 25
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 9000,
+        "two_star": 22000,
+        "three_star": 38000
+      },
+      "available_boosters": [
+        "booster_1",
+        "booster_2",
+        "booster_3"
+      ],
+      "narrative_beat": "Лора освобождает древние тома из ледяных захватов.",
+      "monetization_hint": null
+    },
+    {
+      "num": 20,
+      "difficulty_tag": "super_hard",
+      "estimated_win_rate": 0.25,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "BBBBBBBBB",
+        "B_______B",
+        "B_______B",
+        "B___C___B",
+        "B_______B",
+        "B___C___B",
+        "B_______B",
+        "B_______B",
+        "BBBBBBBBB"
+      ],
+      "colors_count": 7,
+      "moves_limit": 40,
+      "goals": [
+        {
+          "type": "clear_obstacles",
+          "amount": 32
+        },
+        {
+          "type": "collect_X",
+          "element_id": "elem_5",
+          "amount": 30
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 10000,
+        "two_star": 25000,
+        "three_star": 40000
+      },
+      "available_boosters": [
+        "booster_1",
+        "booster_2",
+        "booster_3"
+      ],
+      "narrative_beat": "Лора сталкивается с последним испытанием перед новой секцией.",
+      "monetization_hint": "Подтолкнуть игрока к использованию бустеров и rewarded ads для ускорения прохождения."
+    }
+  ],
+  "curve_summary": {
+    "total_levels": 10,
+    "avg_estimated_win_rate": 0.65,
+    "monetization_pressure_points": [
+      15,
+      20
+    ],
+    "narrative_arc": "Лора постепенно исследует и освещает секции библиотеки, преодолевая препятствия и находя сокровища знаний."
+  }
+}

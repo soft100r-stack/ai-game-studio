@@ -1,0 +1,431 @@
+{
+  "levels": [
+    {
+      "num": 1,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.98,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 20,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_1",
+          "amount": 10
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 1000,
+        "two_star": 3000,
+        "three_star": 5000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Майя обнаруживает первую папирусную плиту, активировав кристаллы.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 2,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.97,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "__I_I____",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 25,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_2",
+          "amount": 15
+        },
+        {
+          "type": "clear_ice",
+          "amount": 2
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 2000,
+        "two_star": 6000,
+        "three_star": 10000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Лёд скрывает часть плит, Майя учится использовать кристаллы для его разрушения.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 3,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.96,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "__I_I_I__",
+        "__I_I_I__",
+        "__I_I_I__",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_3",
+          "amount": 20
+        },
+        {
+          "type": "clear_ice",
+          "amount": 6
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 3000,
+        "two_star": 9000,
+        "three_star": 15000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Майя находит первый спец-элемент, который помогает ей быстрее очищать лёд.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 4,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.95,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "__I_I_I__",
+        "__I_I_I__",
+        "__I_I_I__",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 25,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_4",
+          "amount": 25
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 3500,
+        "two_star": 10500,
+        "three_star": 17500
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Майя получает больше опыта, собирая новые виды кристаллов.",
+      "monetization_hint": "Слегка увеличить сложность, чтобы побудить использовать спец-элементы."
+    },
+    {
+      "num": 5,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.94,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_5",
+          "amount": 30
+        },
+        {
+          "type": "clear_ice",
+          "amount": 12
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 4000,
+        "two_star": 12000,
+        "three_star": 20000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Майя открывает доступ к новым залам библиотеки.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 6,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.92,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 35,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_6",
+          "amount": 35
+        },
+        {
+          "type": "clear_ice",
+          "amount": 20
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 5000,
+        "two_star": 15000,
+        "three_star": 25000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Майя находит способ использовать свет кристаллов для освещения больших пространств.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 7,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.9,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_"
+      ],
+      "colors_count": 5,
+      "moves_limit": 40,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_1",
+          "amount": 40
+        },
+        {
+          "type": "clear_ice",
+          "amount": 32
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 6000,
+        "two_star": 18000,
+        "three_star": 30000
+      },
+      "available_boosters": [],
+      "special_rules": "",
+      "narrative_beat": "Майя продвигается дальше в глубины, сталкиваясь с новыми испытаниями.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 8,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.85,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_"
+      ],
+      "colors_count": 5,
+      "moves_limit": 45,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_2",
+          "amount": 50
+        },
+        {
+          "type": "clear_ice",
+          "amount": 40
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 7000,
+        "two_star": 21000,
+        "three_star": 35000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Майя изучает древние тексты, открывая новую магию.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 9,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.8,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_"
+      ],
+      "colors_count": 6,
+      "moves_limit": 50,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_3",
+          "amount": 60
+        },
+        {
+          "type": "clear_ice",
+          "amount": 50
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 8000,
+        "two_star": 24000,
+        "three_star": 40000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Майя начинает понимать связи между кристаллами и древними артефактами.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 10,
+      "difficulty_tag": "boss",
+      "estimated_win_rate": 0.25,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_",
+        "_I_I_I_I_"
+      ],
+      "colors_count": 6,
+      "moves_limit": 60,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "elem_4",
+          "amount": 70
+        },
+        {
+          "type": "clear_ice",
+          "amount": 60
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 10000,
+        "two_star": 30000,
+        "three_star": 50000
+      },
+      "available_boosters": [
+        "booster_1"
+      ],
+      "special_rules": "На этом уровне игрок должен использовать все свои навыки, чтобы справиться с большим количеством льда. Майя сталкивается с древним защитником библиотеки.",
+      "narrative_beat": "Майя встречает древнего стража, который защищает секреты последнего зала.",
+      "monetization_hint": "Стимулировать использование бустеров для преодоления сложности."
+    }
+  ],
+  "curve_summary": {
+    "total_levels": 10,
+    "avg_estimated_win_rate": 0.81,
+    "monetization_pressure_points": [
+      4,
+      10
+    ],
+    "narrative_arc": "Первые уровни вводят игрока в мир Тайны Глубинной Библиотеки, обучая основам и механикам. С каждым уровнем Майя раскрывает больше секретов, сталкивается с новыми вызовами и постепенно приближается к главной тайне. Босс-уровень вводит серьёзное испытание, требуя от игрока использования навыков и ресурсов, чтобы победить древнего стража."
+  }
+}

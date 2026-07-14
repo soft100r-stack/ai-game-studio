@@ -1,0 +1,23 @@
+; Engine configuration file.
+; Godot 4.x project generated fully in code.
+config_version=5
+
+[application]
+config/name="Тайны Подводного Архива"
+run/main_scene="res://scripts/Main.gd"
+config/features=PackedStringArray("4.3", "Mobile")
+
+[autoload]
+GameState="*res://scripts/game_state.gd"
+AdManager="*res://scripts/ad_manager.gd"
+
+[display]
+window/size/viewport_width=720
+window/size/viewport_height=1280
+window/handheld/orientation=1
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[rendering]
+renderer/rendering_method="mobile"
+textures/canvas_textures/default_texture_filter=0

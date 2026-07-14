@@ -1,0 +1,421 @@
+{
+  "levels": [
+    {
+      "num": 1,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.98,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "___1_____",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 25,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "crystal_blue",
+          "amount": 10
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 3000,
+        "two_star": 6000,
+        "three_star": 10000
+      },
+      "available_boosters": [],
+      "special_rules": "Объяснение механики сбора кристаллов.",
+      "narrative_beat": "Элиза обнаруживает первый кристалл, который светится в темноте.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 2,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.98,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "_________",
+        "___1____I",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 25,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "crystal_green",
+          "amount": 10
+        },
+        {
+          "type": "clear_ice",
+          "amount": 1
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 3000,
+        "two_star": 6000,
+        "three_star": 10000
+      },
+      "available_boosters": [],
+      "special_rules": "Объяснение механики разрушения льда.",
+      "narrative_beat": "Элиза использует кристаллы, чтобы очистить ледяную преграду.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 3,
+      "difficulty_tag": "tutorial",
+      "estimated_win_rate": 0.95,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "____1____",
+        "_________",
+        "___I____I",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 25,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "crystal_red",
+          "amount": 15
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 4000,
+        "two_star": 8000,
+        "three_star": 12000
+      },
+      "available_boosters": [
+        "booster_light_beacon"
+      ],
+      "special_rules": "Объяснение механики специальных элементов.",
+      "narrative_beat": "Элиза находит свиток, который открывает новые силы.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 4,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.9,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "____1____",
+        "___I____I",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 25,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "crystal_yellow",
+          "amount": 15
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 5000,
+        "two_star": 10000,
+        "three_star": 15000
+      },
+      "available_boosters": [],
+      "special_rules": "Используйте сферы света для освещения.",
+      "narrative_beat": "Элиза использует новые кристаллы, чтобы восстановить свет.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 5,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.9,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "____1____",
+        "___I____I",
+        "_________",
+        "____II___",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "crystal_purple",
+          "amount": 10
+        },
+        {
+          "type": "clear_ice",
+          "amount": 2
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 6000,
+        "two_star": 12000,
+        "three_star": 18000
+      },
+      "available_boosters": [],
+      "special_rules": "Соберите кристаллы, чтобы разбить лед.",
+      "narrative_beat": "Элиза чувствует, как лед начинает таять.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 6,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.8,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "___1____",
+        "___B____",
+        "___I____I",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_X",
+          "element_id": "crystal_white",
+          "amount": 10
+        },
+        {
+          "type": "collect_X",
+          "element_id": "crystal_yellow",
+          "amount": 10
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 7000,
+        "two_star": 14000,
+        "three_star": 21000
+      },
+      "available_boosters": [
+        "booster_tide_wave"
+      ],
+      "special_rules": "Преодолейте препятствия, используя новые кристаллы.",
+      "narrative_beat": "Элиза сталкивается с первой преградой на своем пути.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 7,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.75,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "___1____",
+        "___B____",
+        "____I___I",
+        "_________",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "clear_dark_mist",
+          "amount": 2
+        },
+        {
+          "type": "collect_X",
+          "element_id": "crystal_blue",
+          "amount": 12
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 8000,
+        "two_star": 16000,
+        "three_star": 24000
+      },
+      "available_boosters": [],
+      "special_rules": "Используйте свет для борьбы с темным туманом.",
+      "narrative_beat": "Элиза понимает, что темный туман - это преграда на ее пути.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 8,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.7,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "___1____",
+        "___B____",
+        "____I___I",
+        "_________",
+        "___C____",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "clear_dark_mist",
+          "amount": 3
+        },
+        {
+          "type": "collect_X",
+          "element_id": "crystal_green",
+          "amount": 12
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 9000,
+        "two_star": 18000,
+        "three_star": 27000
+      },
+      "available_boosters": [
+        "booster_time_scroll"
+      ],
+      "special_rules": "Собирайте кристаллы, чтобы очистить туман.",
+      "narrative_beat": "Элиза использует свои знания, чтобы устранить туман.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 9,
+      "difficulty_tag": "hard",
+      "estimated_win_rate": 0.4,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "___1____",
+        "___B____",
+        "____I___I",
+        "___C____C",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "escort",
+          "amount": 1
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 10000,
+        "two_star": 20000,
+        "three_star": 30000
+      },
+      "available_boosters": [
+        "booster_fishing_net"
+      ],
+      "special_rules": "Доведите манускрипт до низа доски.",
+      "narrative_beat": "Элиза следует за манускриптом, чтобы восстановить знания.",
+      "monetization_hint": "Используйте бустер перед достижением конца уровня."
+    },
+    {
+      "num": 10,
+      "difficulty_tag": "super_hard",
+      "estimated_win_rate": 0.25,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "___B____",
+        "___1____",
+        "___B____",
+        "____I___I",
+        "___C____C",
+        "____I____",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "unlock_knowledge",
+          "amount": 3
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 12000,
+        "two_star": 24000,
+        "three_star": 36000
+      },
+      "available_boosters": [
+        "booster_light_beacon"
+      ],
+      "special_rules": "Открывайте тайные знания с помощью кристаллов.",
+      "narrative_beat": "Элиза открывает последние тайны библиотеки.",
+      "monetization_hint": "Используйте бустер перед началом уровня."
+    }
+  ],
+  "curve_summary": {
+    "total_levels": 10,
+    "avg_estimated_win_rate": 0.65,
+    "monetization_pressure_points": [
+      9
+    ],
+    "narrative_arc": "Элиза изучает библиотеку, сталкиваясь с препятствиями и открывая новые тайны знаний."
+  }
+}

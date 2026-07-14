@@ -1,0 +1,462 @@
+{
+  "levels": [
+    {
+      "num": 11,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.92,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_________",
+        "_________",
+        "___I_I___",
+        "__I___I__",
+        "___I_I___",
+        "_________",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_blue",
+          "amount": 30
+        },
+        {
+          "type": "clear_ice",
+          "amount": 8
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 6000,
+        "two_star": 16000,
+        "three_star": 32000
+      },
+      "available_boosters": [
+        "lumina_shard"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Аксель находит первую печать, покрывающую древние полки. Биолюминесцентные кристаллы начинают освещать путь между архивами.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 12,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.8,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "_I____I__",
+        "__I__I___",
+        "___II____",
+        "___II____",
+        "__I__I___",
+        "_I____I__",
+        "_________",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 28,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_purple",
+          "amount": 24
+        },
+        {
+          "type": "clear_ice",
+          "amount": 12
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 7000,
+        "two_star": 17000,
+        "three_star": 35000
+      },
+      "available_boosters": [
+        "lumina_shard",
+        "tidal_scroll"
+      ],
+      "special_rules": "",
+      "narrative_beat": "В библиотеке усиливается свет — Аксель встречает первый поток, который помогает быстро очищать линии.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 13,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.88,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "___I_I___",
+        "__I___I__",
+        "_I____I__",
+        "_________",
+        "___I_I___",
+        "_________",
+        "_I____I__",
+        "__I___I__",
+        "___I_I___"
+      ],
+      "colors_count": 5,
+      "moves_limit": 30,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_red",
+          "amount": 32
+        },
+        {
+          "type": "clear_ice",
+          "amount": 10
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 8000,
+        "two_star": 18000,
+        "three_star": 36000
+      },
+      "available_boosters": [
+        "lumina_shard",
+        "tidal_scroll"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Первые реликвии активируют новые ряды света, подсказывая путь к скрытым коридорам.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 14,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.74,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_I__I__I_",
+        "_________",
+        "__II_II__",
+        "_________",
+        "___II____",
+        "_________",
+        "__II_II__",
+        "_________",
+        "_I__I__I_"
+      ],
+      "colors_count": 6,
+      "moves_limit": 26,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_gold",
+          "amount": 26
+        },
+        {
+          "type": "clear_ice",
+          "amount": 16
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 9000,
+        "two_star": 20000,
+        "three_star": 40000
+      },
+      "available_boosters": [
+        "lumina_shard",
+        "tidal_scroll"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Всплеск света открывает коридор с двойными печатями, Аксель слышит отголоски древних голосов.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 15,
+      "difficulty_tag": "hard",
+      "estimated_win_rate": 0.42,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "___IIIII_",
+        "__IIIII__",
+        "_IIIII___",
+        "__IIII___",
+        "___I_I___",
+        "__IIII___",
+        "_IIIII___",
+        "__IIIII__",
+        "___IIIII_"
+      ],
+      "colors_count": 6,
+      "moves_limit": 22,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_white",
+          "amount": 18
+        },
+        {
+          "type": "clear_ice",
+          "amount": 25
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 11000,
+        "two_star": 22000,
+        "three_star": 42000
+      },
+      "available_boosters": [
+        "lumina_shard",
+        "tidal_scroll"
+      ],
+      "special_rules": "Впервые появляется Морозная Печать (II) — требуется два удара для снятия.",
+      "narrative_beat": "Аксель сталкивается с древней Морозной Печатью, замораживающей хранилища. Требуется расчётливость и бустеры!",
+      "monetization_hint": "В конце уровня показывать кнопку 'Свиток Прилива' (tidal_scroll) при нехватке ходов; предложение посмотреть rewarded ad."
+    },
+    {
+      "num": 16,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.9,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "__I___I__",
+        "_I_____I_",
+        "_________",
+        "__I___I__",
+        "_________",
+        "_I_____I_",
+        "__I___I__",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 28,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_green",
+          "amount": 32
+        },
+        {
+          "type": "clear_ice",
+          "amount": 8
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 7000,
+        "two_star": 17000,
+        "three_star": 35000
+      },
+      "available_boosters": [
+        "lumina_shard",
+        "tidal_scroll"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Морозные Печати частично рассеиваются, открывая новые маршруты к тайным отсекам.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 17,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.72,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "___II____",
+        "_II__II__",
+        "___II____",
+        "__II_II__",
+        "____I____",
+        "__II_II__",
+        "___II____",
+        "_II__II__",
+        "___II____"
+      ],
+      "colors_count": 6,
+      "moves_limit": 24,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_blue",
+          "amount": 24
+        },
+        {
+          "type": "clear_ice",
+          "amount": 18
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 9000,
+        "two_star": 20000,
+        "three_star": 40000
+      },
+      "available_boosters": [
+        "lumina_shard",
+        "tidal_scroll"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Аксель обнаруживает двойные морозы, спрятанные между рядами архивных полок.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 18,
+      "difficulty_tag": "easy",
+      "estimated_win_rate": 0.87,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_________",
+        "____I____",
+        "__I___I__",
+        "_________",
+        "____I____",
+        "_________",
+        "__I___I__",
+        "____I____",
+        "_________"
+      ],
+      "colors_count": 5,
+      "moves_limit": 27,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_gold",
+          "amount": 30
+        },
+        {
+          "type": "clear_ice",
+          "amount": 8
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 8000,
+        "two_star": 18000,
+        "three_star": 37000
+      },
+      "available_boosters": [
+        "lumina_shard",
+        "tidal_scroll"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Потоки света медленно рассеивают лед, открывая новые фрагменты древних рукописей.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 19,
+      "difficulty_tag": "medium",
+      "estimated_win_rate": 0.68,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "__II_II__",
+        "_II___II_",
+        "___II____",
+        "__I___I__",
+        "___II____",
+        "__I___I__",
+        "___II____",
+        "_II___II_",
+        "__II_II__"
+      ],
+      "colors_count": 6,
+      "moves_limit": 23,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_purple",
+          "amount": 24
+        },
+        {
+          "type": "clear_ice",
+          "amount": 14
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 10000,
+        "two_star": 21000,
+        "three_star": 42000
+      },
+      "available_boosters": [
+        "lumina_shard",
+        "tidal_scroll"
+      ],
+      "special_rules": "",
+      "narrative_beat": "Внутри архивных туннелей встречаются особо плотные участки Морозных Печатей.",
+      "monetization_hint": ""
+    },
+    {
+      "num": 20,
+      "difficulty_tag": "hard",
+      "estimated_win_rate": 0.26,
+      "grid_size": [
+        9,
+        9
+      ],
+      "grid_layout": [
+        "_II_II_II",
+        "II_____II",
+        "I_II_II_I",
+        "___II___",
+        "__II_II__",
+        "___II___",
+        "I_II_II_I",
+        "II_____II",
+        "_II_II_II"
+      ],
+      "colors_count": 6,
+      "moves_limit": 19,
+      "goals": [
+        {
+          "type": "collect_element",
+          "element_id": "crystal_white",
+          "amount": 16
+        },
+        {
+          "type": "clear_ice",
+          "amount": 32
+        }
+      ],
+      "star_thresholds": {
+        "one_star": 12000,
+        "two_star": 24000,
+        "three_star": 45000
+      },
+      "available_boosters": [
+        "lumina_shard",
+        "tidal_scroll"
+      ],
+      "special_rules": "Двойные Морозные Печати по краям и центру, минимальный запас ходов. Необходимо активно использовать спец-элементы.",
+      "narrative_beat": "Ключ к следующему залу спрятан в ледяном сердце архива. Аксель должен разрушить все печати, чтобы продолжить путь.",
+      "monetization_hint": "Предложение 'Свиток Прилива' (tidal_scroll) после неудачной попытки; баннер с rewarded ad на доп. ходы."
+    }
+  ],
+  "curve_summary": {
+    "total_levels": 10,
+    "avg_estimated_win_rate": 0.719,
+    "monetization_pressure_points": [
+      15,
+      20
+    ],
+    "narrative_arc": "Эта десятка уровней ведёт игрока глубже в подводную библиотеку: от первых локальных морозных препятствий и мягких волн света — к настоящему ледяному испытанию. В середине (уровень 15) впервые встречается Морозная Печать, усложняя задачу и подталкивая к использованию бустеров. К 20 уровню сложность достигает пика: плотные двойные печати, мало ходов, яркая кульминация главы — игрок ощущает прогресс и вызов, но удержание поддерживается волнами облегчения между сложными моментами."
+  }
+}

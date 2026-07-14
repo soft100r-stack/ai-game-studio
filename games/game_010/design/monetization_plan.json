@@ -1,0 +1,148 @@
+{
+  "ad_network": "AppLovin MAX | ironSource | AdMob (рекомендация)",
+  "ad_placements": [
+    {
+      "id": "rw_booster_shop",
+      "trigger": "player_opens_booster_shop AND not_enough_coins_for_selected_booster",
+      "type": "rewarded",
+      "reward": "1 выбранный бустер бесплатно",
+      "frequency_cap": "не чаще 4 раз за сессию",
+      "reasoning": "Игрок сам выбирает — если не хватает монет, может посмотреть рекламу ради нужного бустера. Вовлечённость и добровольность, ощущение помощи, не ломает экономику."
+    },
+    {
+      "id": "rw_extra_moves",
+      "trigger": "player_lost_level AND moves_left_to_goal <= 5 AND not_on_boss_level",
+      "type": "rewarded",
+      "reward": "+5 ходов на этом уровне",
+      "frequency_cap": "не чаще 3 раз за сессию",
+      "reasoning": "Честная точка давления: игрок почти прошёл, сам решает — потратить монеты, посмотреть рекламу или выйти. Не раздражает, т.к. предлагается только при близком проигрыше."
+    },
+    {
+      "id": "rw_daily_puzzle",
+      "trigger": "player_completes_daily_puzzle",
+      "type": "rewarded",
+      "reward": "редкая коллекционная биолюминесцентная сущность или фрагмент древности",
+      "frequency_cap": "1 раз в сутки",
+      "reasoning": "Коллекционный прогресс и ивенты — сильная мотивация именно для целевой аудитории, ощущение награды за вовлечённость, не мешает core loop."
+    },
+    {
+      "id": "is_between_levels",
+      "trigger": "player_completes_level OR player_fails_level",
+      "type": "interstitial",
+      "reward": null,
+      "frequency_cap": "не чаще 1 раз в 3 минуты, максимум 5 за сессию",
+      "reasoning": "Только на границах уровней, не в геймплее. Не чаще, чем нужно, не раздражает, привычно для матч-3."
+    },
+    {
+      "id": "banner_main_menu",
+      "trigger": "player_on_main_menu OR player_in_shop",
+      "type": "banner",
+      "reward": null,
+      "frequency_cap": "постоянно, только на неигровых экранах",
+      "reasoning": "Лёгкая монетизация фона, баннер не мешает геймплею, не раздражает, не ломает атмосферу."
+    }
+  ],
+  "iap_offers": [
+    {
+      "id": "iap_starter_pack",
+      "name": "Пак Исследователя",
+      "price_usd": 2.99,
+      "content": "150 кристаллов (hard currency), 1 Реликвия Исследователя, 2 Фонаря Лисели, remove ads (interstitial & banner) на 3 дня",
+      "trigger": "первый запуск магазина или после 3 проигрышей за сессию",
+      "target_conversion": 0.045
+    },
+    {
+      "id": "iap_remove_ads",
+      "name": "Убрать рекламу",
+      "price_usd": 4.99,
+      "content": "Полное отключение interstitial и banner рекламы (rewarded остаётся)",
+      "trigger": "после 10+ уровней или при 2-3 интерстициалях за сессию",
+      "target_conversion": 0.015
+    },
+    {
+      "id": "iap_event_pass",
+      "name": "Пропуск Зала Тайн",
+      "price_usd": 5.99,
+      "content": "Доступ к премиальным наградам и эксклюзивным коллекционным сущностям в ивенте недели",
+      "trigger": "при старте event/tournament",
+      "target_conversion": 0.02
+    },
+    {
+      "id": "iap_hard_currency_pack",
+      "name": "Запас Кристаллов",
+      "price_usd": 4.99,
+      "content": "500 кристаллов (hard currency)",
+      "trigger": "открытие магазина или попытка купить бустер без валюты",
+      "target_conversion": 0.01
+    }
+  ],
+  "currency_system": {
+    "soft_currency": {
+      "name": "Монеты",
+      "sources": [
+        "прохождение уровней",
+        "ежедневные задания",
+        "ивенты",
+        "коллекции"
+      ],
+      "sinks": [
+        "покупка бустеров",
+        "разблокировка мета-прогресса",
+        "продление энергии"
+      ]
+    },
+    "hard_currency": {
+      "name": "Кристаллы",
+      "sources": [
+        "IAP",
+        "ивенты (ограниченно)",
+        "редкие награды за прогресс/достижения"
+      ],
+      "sinks": [
+        "покупка премиум бустеров",
+        "эксклюзивные коллекционные сущности",
+        "ускорение восстановления энергии",
+        "открытие премиум-контента на мета-карте"
+      ]
+    },
+    "energy_lives": {
+      "cap": 5,
+      "regen_minutes": 30,
+      "monetization": "1 жизнь = 20 кристаллов; пак 5 жизней = 80 кристаллов; можно получить 1 жизнь за rewarded video (не чаще 3 раз/день)"
+    }
+  },
+  "economy_balance": {
+    "coins_per_level_avg": 50,
+    "coins_needed_for_booster": 900,
+    "levels_between_free_boosters": 12,
+    "expected_dpu_percent": 3.5,
+    "expected_arpdau_usd": 0.12
+  },
+  "events": [
+    {
+      "name": "Зал Тайн",
+      "type": "tournament",
+      "frequency": "weekly",
+      "monetization_role": "Продвигает event pass и коллекционные сущности. Повышает вовлечённость и удержание, мотивирует покупки премиум-пропуска и hard currency."
+    },
+    {
+      "name": "Глубоководная Коллекция",
+      "type": "collection",
+      "frequency": "bi-weekly",
+      "monetization_role": "Коллекционные сущности доступны за прогресс и IAP. Некоторые — только через rewarded video или premium pass."
+    },
+    {
+      "name": "Ограниченное предложение: Свет Фонаря",
+      "type": "limited_offer",
+      "frequency": "при первом проигрыше на сложном уровне или после 5 дней retention",
+      "monetization_role": "Мотивирует первую покупку (стартовый пак или бустеры), даёт временную скидку, конвертирует вовлечённых."
+    }
+  ],
+  "kpi_projections": {
+    "d1_arpdau": 0.08,
+    "d7_arpdau": 0.14,
+    "d30_arpdau": 0.19,
+    "ad_impressions_per_dau": 8,
+    "iap_conversion": 0.028
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "ad_network": "AdMob",
+  "ad_placements": [
+    {
+      "id": "placement_1",
+      "trigger": "player_lost_level AND is_hard_level",
+      "type": "rewarded",
+      "reward": "1 extra move",
+      "frequency_cap": "не чаще 5 раз за сессию",
+      "reasoning": "Игроки, проигравшие на сложных уровнях, могут захотеть получить дополнительный ход, чтобы завершить уровень. Это предложение не навязчиво и мотивирует игроков, поскольку они получают шанс завершить трудный уровень."
+    },
+    {
+      "id": "placement_2",
+      "trigger": "player_completed_level",
+      "type": "interstitial",
+      "frequency_cap": "не чаще 3 раз за сессию",
+      "reasoning": "Показ рекламы после завершения уровня не прерывает игровой процесс и позволяет игроку расслабиться после достижения цели."
+    },
+    {
+      "id": "placement_3",
+      "trigger": "player_needs_coins_for_booster AND player_out_of_coins",
+      "type": "rewarded",
+      "reward": "50 coins",
+      "frequency_cap": "не чаще 3 раз за сессию",
+      "reasoning": "Предложение посмотреть рекламу для получения монет, когда игрок нуждается в бустере, привлекает внимание и помогает избежать фрустрации от нехватки ресурсов."
+    }
+  ],
+  "iap_offers": [
+    {
+      "id": "iap_1",
+      "name": "Стартовый Пак Исследователя",
+      "price_usd": 4.99,
+      "content": "500 coins, 5 boosters, 1 exclusive avatar",
+      "trigger": "после завершения первого уровня",
+      "target_conversion": 0.03
+    },
+    {
+      "id": "iap_2",
+      "name": "Премиум Путь Архивариуса",
+      "price_usd": 9.99,
+      "content": "Доступ к премиум наградам в еженедельных событиях",
+      "trigger": "при первом участии в событии",
+      "target_conversion": 0.02
+    }
+  ],
+  "currency_system": {
+    "soft_currency": {
+      "name": "coins",
+      "sources": [
+        "завершение уровней",
+        "ежедневные награды",
+        "выполнение квестов"
+      ],
+      "sinks": [
+        "покупка бустеров",
+        "восстановление энергии"
+      ]
+    },
+    "hard_currency": {
+      "name": "gems",
+      "sources": [
+        "покупка за реальные деньги",
+        "редкие награды в событиях"
+      ],
+      "sinks": [
+        "покупка премиум бустеров",
+        "ускорение восстановления энергии"
+      ]
+    },
+    "energy_lives": {
+      "cap": 5,
+      "regen_minutes": 30,
+      "monetization": "возможность покупки полного восстановления за 1 gem"
+    }
+  },
+  "economy_balance": {
+    "coins_per_level_avg": 50,
+    "coins_needed_for_booster": 900,
+    "levels_between_free_boosters": 12,
+    "expected_dpu_percent": 3.5,
+    "expected_arpdau_usd": 0.12
+  },
+  "events": [
+    {
+      "name": "Архивное Состязание",
+      "type": "tournament",
+      "frequency": "weekly",
+      "monetization_role": "стимулирует покупку премиум доступа и участие в соревнованиях для получения редких наград"
+    }
+  ],
+  "kpi_projections": {
+    "d1_arpdau": 0.08,
+    "d7_arpdau": 0.14,
+    "d30_arpdau": 0.19,
+    "ad_impressions_per_dau": 8,
+    "iap_conversion": 0.028
+  }
+}
