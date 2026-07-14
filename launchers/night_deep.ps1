@@ -25,9 +25,10 @@ $env:PYTHONUTF8 = "1"
 $env:PYTHONIOENCODING = "utf-8"
 $env:PYTHONUNBUFFERED = "1"
 $env:STUDIO_GENRE = $Game.genre
-$env:PYTHONPATH = (Split-Path $PSScriptRoot -Parent)  # чтобы `-m ai_game_studio.main` находился
+$pkg = Split-Path $PSScriptRoot -Parent               # корень пакета (launchers/ лежит в нём)
+$env:PYTHONPATH = (Split-Path $pkg -Parent)           # внешняя папка для `-m ai_game_studio.main`
 
-Set-Location $PSScriptRoot
+Set-Location $pkg
 New-Item -ItemType Directory -Force -Path "night_logs" | Out-Null
 $start = Get-Date
 $deadline = $start.AddHours($MaxHours)

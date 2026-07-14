@@ -1,8 +1,9 @@
-# Универсальная запускалка игр студии.
+﻿# Универсальная запускалка игр студии.
 # Показывает все собранные игры, даёт выбрать и запускает выбранную в Godot 4.
 $ErrorActionPreference = "Stop"
 $godot = "C:\Users\POLLAP\Godot\Godot_v4.3-stable_win64.exe"
-$root  = Join-Path $PSScriptRoot "games"
+# launcher лежит в launchers/, игры — на уровень выше (в корне пакета)
+$root  = Join-Path (Split-Path $PSScriptRoot -Parent) "games"
 
 if (-not (Test-Path $godot)) { Write-Host "Godot не найден: $godot"; Read-Host "Enter для выхода"; exit }
 if (-not (Test-Path $root))  { Write-Host "Папки games нет — игр пока не создано."; Read-Host "Enter"; exit }

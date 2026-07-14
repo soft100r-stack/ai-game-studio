@@ -157,18 +157,33 @@ games/<id>/
 
 ---
 
+## 🗂️ Структура проекта
+
+```
+ai_game_studio/
+├── main.py · remember.py       точки входа (python -m ai_game_studio.main / .remember)
+├── README.md · requirements.txt · studio_memory.json
+├── agents/                     🧠 код 26 агентов (+ studio_memory.py)
+├── prompts/                    📝 промты по отделам (game_design, art, audio,
+│                               quality, monetization, dev) — загрузчик ищет рекурсивно
+├── night/                      🌙 автономная ночь (night_auto, encoding_fix)
+├── launchers/                  ▶️ все запускалки (.bat / .ps1)
+└── games/                      🎮 сгенерированные игры
+```
+
 ## ▶️ Как запустить игру
 
-- **Меню всех игр:** двойной клик по `ЗАПУСК ИГР.bat` → выбрать номер
+- **Меню всех игр:** двойной клик по `launchers/ЗАПУСК ИГР.bat` → выбрать номер
 - **Одну игру:** `games/<id>/ИГРАТЬ.bat`
 - **Вручную:** `godot --path games/<id>/source/godot_project`
 
 ---
 
-## 🌙 Ночная подготовка
+## 🌙 Ночная подготовка (папка `launchers/`)
 
-- `НОЧНАЯ ПОДГОТОВКА.bat` → `night_deep.ps1`: **одна игра, максимум качества** (qwen2.5:7b + `DEEP`)
-- `night_prep.ps1`: быстрый дизайн **многих игр** разом
+- `АВТОНОЧЬ.bat` / `АВТОНОЧЬ без кода.bat`: **одна игра автономно** (самолечение + утренний отчёт)
+- `НОЧНАЯ ПОДГОТОВКА.bat` → `night_deep.ps1`: одна игра, максимум качества (qwen2.5:7b + `DEEP`)
+- `night_prep.ps1`: быстрый дизайн многих игр разом
 
 ---
 
