@@ -1,0 +1,115 @@
+{
+  "power_ups": [
+    {
+      "id": "luminescent_chord",
+      "name": "Luminescent Chord",
+      "type": "active",
+      "effect": "Clears a cross-shaped area of tiles centered on any chosen mycelium tile, instantly removing Dream Shadows and charging the jazz_meter by 15%.",
+      "cost": "25 clue_energy",
+      "unlock": "Available after reaching Chapter 2: The Stolen Lullaby",
+      "input": "Tap power-up icon, then tap target tile on board"
+    },
+    {
+      "id": "veil_ripper",
+      "name": "Veil Ripper",
+      "type": "active",
+      "effect": "Destroys all Obscura Veils on the board, revealing hidden tiles beneath and granting a small chance to spawn Evidence Mushrooms in their place.",
+      "cost": "1 intuition",
+      "unlock": "Unlock after clearing your first Obscura Veil",
+      "input": "Tap power-up icon"
+    },
+    {
+      "id": "synesthesia_blossom",
+      "name": "Synesthesia Blossom",
+      "type": "consumable",
+      "effect": "Transforms all tiles of one color into Jazz Note Spores for the next 3 turns, massively boosting rhythm scoring and jazz_meter gain.",
+      "cost": "2 dream_fragments",
+      "unlock": "Rare drop from rhythm-perfect levels or jazz festival events",
+      "input": "Tap power-up icon, then select a color"
+    },
+    {
+      "id": "Obscura Echo",
+      "name": "Obscura Echo",
+      "type": "passive",
+      "effect": "For the duration of a level, every 5th combo chain triggers a random narrative hint (revealing a hidden clue or suspect fragment), but also adds a minor obstacle tile to the board.",
+      "cost": "3 intuition",
+      "unlock": "Reward for completing a case with all clues found",
+      "input": "Passive (no input)"
+    },
+    {
+      "id": "Jazzman's Inspiration",
+      "name": "Jazzman's Inspiration",
+      "type": "active",
+      "effect": "Refills the jazz_meter to full and makes all abilities free for the next 3 turns (costs no clue_energy/intuitions).",
+      "cost": "5 dream_fragments",
+      "unlock": "Special reward from solving a mystery with perfect rhythm accuracy",
+      "input": "Tap power-up icon"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "sporeboard_enhancement",
+      "name": "Sporeboard Enhancement",
+      "improves": "Office upgrades: Increases the number of intuition uses available per level and visual style of detective office.",
+      "tiers": 3,
+      "cost_curve": "Cost in dream_fragments increases by 2 each tier (2 → 4 → 6)."
+    },
+    {
+      "id": "jazz_meter_modulator",
+      "name": "Jazz Meter Modulator",
+      "improves": "Jazz_meter: Each tier slows jazz_meter drain and boosts bonus effects from rhythm-perfect matches.",
+      "tiers": 3,
+      "cost_curve": "Costs 250, 600, and 1500 clue_energy per tier."
+    },
+    {
+      "id": "mycelium_relay",
+      "name": "Mycelium Relay",
+      "improves": "Tile pool: Increases the chance for Mycelium Strand (wild card) and Evidence Mushroom tiles to appear",
+      "tiers": 3,
+      "cost_curve": "Costs 1, 3, and 7 dream_fragments per tier."
+    },
+    {
+      "id": "memory_archive",
+      "name": "Memory Archive",
+      "improves": "Meta progression: Increases story fragment storage, unlocking extra suspect profiles and hidden jazz tracks.",
+      "tiers": 3,
+      "cost_curve": "Costs 4, 8, and 16 dream_fragments per tier."
+    }
+  ],
+  "synergies": [
+    {
+      "combo": "Synesthesia Blossom + Jazz Note Spore chains",
+      "result": "All matches involving Jazz Note Spores during effect also clear adjacent obstacles and spawn bonus clue_energy pickups.",
+      "why_fun": "Makes rhythm-perfect play explosive and rewarding, chaining power-ups in a satisfying jazz solo moment."
+    },
+    {
+      "combo": "Obscura Echo + Noir Insight (high combo chain)",
+      "result": "Noir Insight now also reveals a hidden tile under any remaining Obscura Veil, occasionally unlocking secret story branches.",
+      "why_fun": "Encourages high-skill combo play and risk/reward, with narrative surprises and rare clues as payoff."
+    },
+    {
+      "combo": "Veil Ripper + Spore Grow ability",
+      "result": "Each tile uncovered by Veil Ripper has a 50% chance to be instantly transformed into an Evidence Mushroom by Spore Grow if used in the same turn.",
+      "why_fun": "Promotes tactical planning, huge narrative progress bursts, and visually dramatic board clears."
+    }
+  ],
+  "economy": {
+    "currency_name": "dream_fragments",
+    "sources": [
+      "Matching Evidence Mushroom tiles",
+      "Completing narrative objectives",
+      "Solving cases and daily challenges",
+      "Rare drops from perfect rhythm streaks",
+      "Meta-progression unlocks"
+    ],
+    "sinks": [
+      "Purchasing/upgrading boosters",
+      "Office and jazz venue upgrades",
+      "Unlocking new narrative branches, suspect profiles, and décor",
+      "Activating rare consumables in levels",
+      "Expanding memory archive"
+    ],
+    "balance_principle": "Dream Fragments are capped per case to encourage replay and mastery; rare drops and event bonuses provide soft catch-up. Most upgrades scale in cost to allow new players to progress while keeping late-game challenge and scarcity. Clue_energy (secondary, session-based currency) is session-limited to prevent hoarding, while intuition is a tight, consumable resource for tactical depth.",
+    "starter_grant": 0
+  }
+}

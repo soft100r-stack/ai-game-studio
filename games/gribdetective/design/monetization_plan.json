@@ -1,0 +1,158 @@
+{
+  "ad_network": "AppLovin MAX | ironSource | AdMob (recommended)",
+  "ad_placements": [
+    {
+      "id": "placement_1",
+      "trigger": "level_failed AND (level_is_hard OR player_out_of_intuition)",
+      "type": "rewarded",
+      "reward": "1 extra intuition (retry or shuffle)",
+      "frequency_cap": "no more than 3 times per session",
+      "reasoning": "Players are motivated to continue after a tough loss, especially on hard or narrative-critical levels. Extra intuition is a natural, desirable reward. Thematic: Morchella 'tunes in' to the city's whispers for one more insight."
+    },
+    {
+      "id": "placement_2",
+      "trigger": "level_completed AND (first_time_victory OR perfect_rhythm_streak)",
+      "type": "rewarded",
+      "reward": "1-3 bonus dream_fragments (scales with performance)",
+      "frequency_cap": "no more than 4 times per session",
+      "reasoning": "Encourages skillful play and rhythm mastery. Feels like a celebratory encore, not a grind. Tied to the core loop and meta progression, so players WANT to engage for faster upgrades/unlocks."
+    },
+    {
+      "id": "placement_3",
+      "trigger": "player_enters_daily_sporebeat_challenge",
+      "type": "rewarded",
+      "reward": "Random rare booster (e.g., Synesthesia Blossom) for the challenge run",
+      "frequency_cap": "once per daily challenge",
+      "reasoning": "Daily event = routine engagement. Reward is appealing but optional, fits the jazz improvisation theme (randomness), and doesn't block progress."
+    },
+    {
+      "id": "placement_4",
+      "trigger": "level_pack_completed (case_solved)",
+      "type": "interstitial",
+      "reward": null,
+      "frequency_cap": "no more than 1 per 3 minutes, only at case/pack boundaries",
+      "reasoning": "Interstitials only after major narrative beats. No disruption of gameplay or immersion, minimal retention impact."
+    },
+    {
+      "id": "placement_5",
+      "trigger": "player_in_office_screen OR in_jazz_venue_customization",
+      "type": "banner",
+      "reward": null,
+      "frequency_cap": "persistent, but only in non-gameplay menus",
+      "reasoning": "Non-intrusive, only shown when player is customizing or managing meta. Never interrupts puzzle or story."
+    }
+  ],
+  "iap_offers": [
+    {
+      "id": "iap_1",
+      "name": "Jazz Noir Starter Pack",
+      "price_usd": 2.99,
+      "content": "500 clue_energy, 5 dream_fragments, 2 Synesthesia Blossom boosters, unique office décor (Neon Spore Lamp)",
+      "trigger": "after completing tutorial (first office unlock)",
+      "target_conversion": 0.045
+    },
+    {
+      "id": "iap_2",
+      "name": "Detective's Dream Bundle",
+      "price_usd": 9.99,
+      "content": "1500 clue_energy, 20 dream_fragments, 5 Veil Ripper boosters, exclusive jazz soundtrack track, rare avatar frame",
+      "trigger": "after first major case solved (Chapter 2)",
+      "target_conversion": 0.02
+    },
+    {
+      "id": "iap_3",
+      "name": "Remove Ads: Noir Mode",
+      "price_usd": 4.99,
+      "content": "Removes interstitials and banners, +1 daily rewarded video for dream_fragments, exclusive 'Noir Detective' office skin",
+      "trigger": "shown after 3rd session or after 5th interstitial",
+      "target_conversion": 0.025
+    },
+    {
+      "id": "iap_4",
+      "name": "Festival Pass: Neon Jazz Festival",
+      "price_usd": 5.99,
+      "content": "Unlocks premium reward track in limited-time collection event: extra boosters, rare décor, exclusive suspect profile",
+      "trigger": "on first entry to festival event",
+      "target_conversion": 0.035
+    },
+    {
+      "id": "iap_5",
+      "name": "Dream Fragment Pack",
+      "price_usd": 1.99,
+      "content": "10 dream_fragments",
+      "trigger": "any time from store, or offer if player is <2 dream_fragments from an upgrade",
+      "target_conversion": 0.03
+    }
+  ],
+  "currency_system": {
+    "soft_currency": {
+      "name": "Clue Energy",
+      "sources": [
+        "Matching regular tiles",
+        "Level completion rewards",
+        "Daily logins",
+        "Narrative milestones"
+      ],
+      "sinks": [
+        "Using power-ups/boosters",
+        "Upgrading Jazz Meter Modulator",
+        "Unlocking meta content (low-tier office décor)"
+      ]
+    },
+    "hard_currency": {
+      "name": "Dream Fragments",
+      "sources": [
+        "Matching Evidence Mushroom tiles",
+        "Story/case completion",
+        "Daily challenges",
+        "IAP",
+        "Rewarded video"
+      ],
+      "sinks": [
+        "Upgrading boosters",
+        "High-tier office/jazz venue décor",
+        "Unlocking narrative branches or suspect profiles",
+        "Activating rare consumables"
+      ]
+    },
+    "energy_lives": {
+      "cap": 5,
+      "regen_minutes": 30,
+      "monetization": "Extra lives sold in packs: 3 for $0.99, or via rewarded video (watch to refill 1 life, max 2 times/day)"
+    }
+  },
+  "economy_balance": {
+    "coins_per_level_avg": 55,
+    "coins_needed_for_booster": 900,
+    "levels_between_free_boosters": 12,
+    "expected_dpu_percent": 3.5,
+    "expected_arpdau_usd": 0.12
+  },
+  "events": [
+    {
+      "name": "Neon Jazz Festival",
+      "type": "collection",
+      "frequency": "monthly",
+      "monetization_role": "Drives Festival Pass sales, increases engagement via exclusive décor/boosters, and timed collection rewards."
+    },
+    {
+      "name": "Dream Fragment Hunt",
+      "type": "tournament",
+      "frequency": "weekly",
+      "monetization_role": "Leaderboard prizes include rare boosters and dream_fragments, encouraging IAP for event progress and extra attempts."
+    },
+    {
+      "name": "Noir Night Limited Offer",
+      "type": "limited_offer",
+      "frequency": "bi-weekly",
+      "monetization_role": "Time-limited bundles with exclusive décor, boosters, and currency. Creates FOMO and ARPPU spikes."
+    }
+  ],
+  "kpi_projections": {
+    "d1_arpdau": 0.08,
+    "d7_arpdau": 0.14,
+    "d30_arpdau": 0.19,
+    "ad_impressions_per_dau": 8,
+    "iap_conversion": 0.028
+  }
+}

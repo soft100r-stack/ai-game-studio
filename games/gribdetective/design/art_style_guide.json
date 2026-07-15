@@ -1,0 +1,450 @@
+{
+  "visual_direction": {
+    "style": "Hyper-stylized painterly 2.5D with deep noir shadowing, neon bioluminescent glows, and organic details. Visuals channel the layered, luminous atmosphere of Gris and the tactile painterly surfaces of Playrix games, but with a darker, surreal fungal twist. All objects feel carved, grown, or woven from living mycelium and spores.",
+    "mood": "Mysterious, immersive, jazz-dreamlike, pulsing with moody noir tension and surreal wonder.",
+    "inspirations": [
+      "Gris",
+      "Playrix Homescapes (for board readability and surface lushness)",
+      "Crypt of the NecroDancer (for musical VFX and color pops)",
+      "Mushroom/cave bioluminescence photography",
+      "Blade Runner cityscapes (for neon reflections)"
+    ]
+  },
+  "camera": {
+    "perspective": "isometric_30",
+    "board_angle": "Game board floats as a raised, gently beveled platform angled 30° from horizontal, giving depth and slight parallax on interaction.",
+    "meta_scene_angle": "Meta-locations (detective office, jazz clubs, city streets) shown in 2.5D isometric 30°, with multi-layered parallax backgrounds (dripping stalactites, glowing city, animated spores drifting)."
+  },
+  "color_palette": {
+    "primary": [
+      "#1B1327",
+      "#273455",
+      "#44B9E4",
+      "#E55FCB",
+      "#53F29D",
+      "#E8E856"
+    ],
+    "secondary": [
+      "#5C3E99",
+      "#17283B",
+      "#F29BB4"
+    ],
+    "accent": [
+      "#EFC158",
+      "#F78E39",
+      "#A0ECF2"
+    ],
+    "background_gradient": [
+      "#18182C",
+      "#311C40"
+    ],
+    "philosophy": "Deep blues and violets (#1B1327, #273455) evoke underground nocturne while neon cyan, magenta, acid-lime, and gold (#44B9E4, #E55FCB, #53F29D, #E8E856) recall bioluminescent spores. Accents are saturated and luminous, always surrounded by softened occlusion and rim glows to enhance mood. Gradients and glows create strong visual contrast, focusing attention on interactive elements."
+  },
+  "lighting": {
+    "key_light": "Soft, cold white-blue overhead (30° angle), mimicking fungal bioluminescence; hue #B8E7FF.",
+    "fill_light": "Subtle purple fill from the bottom left (#7349A8), simulating reflected cave light.",
+    "rim_light": "Sharp, saturated neon rim glows on tile edges and character silhouettes. Color adapts to adjacent tile type (tile inherits closest accent color for rim, e.g., #44B9E4 or #E55FCB).",
+    "shadows": "Soft-edged, diffused shadows in deep blue-violet (#242040), with faint colored glow on contact edges for magical depth."
+  },
+  "tile_design": {
+    "shape": "custom: rounded-corner, slightly irregular hexagon (biological cell-like with asymmetry, not geometric regularity)",
+    "size_px": 128,
+    "bevel": "Pronounced, multi-layered bevel—edges 'puff' outward, with a waxy, living translucency; rim glows visible especially on neon-highlighted sides.",
+    "material": "Semi-translucent organic: surfaces shimmer like fresh mushroom skin with wet, spongy gloss, faint mycelial vein patterns visible beneath surface. Each tile slightly pulses in brightness/radius to jazz beat.",
+    "shine": "Specular highlight (sharp crescent in top right), animated glow pulse synced to music rhythm; very soft internal glow that grows on matches/combos. Evidence tiles have slow ripple shimmer."
+  },
+  "special_elements_visual": [
+    {
+      "element_id": "glow_spore_blue",
+      "description": "Tile: Custom rounded hex with mycelium vein pattern; core color #44B9E4 with cyan glow, subtle inner pulse, faint floating spore motes animated inside. Surface is dewy and cool, with sharp rim highlight."
+    },
+    {
+      "element_id": "glow_spore_pink",
+      "description": "Same shape; core #E55FCB, magenta neon glow, animated faint 'heartbeat' pulses from center outward. Edges catch violet rim."
+    },
+    {
+      "element_id": "glow_spore_green",
+      "description": "Same as above, but core #53F29D, acid-lime glowing aura, subtle swaying internal threads that drift on rhythm."
+    },
+    {
+      "element_id": "glow_spore_gold",
+      "description": "Core #E8E856, gold glow, crackled mycelium veins visible, sparkles animate on match. Slightly more radiant than others, hints of internal motes."
+    },
+    {
+      "element_id": "mycelium_strand",
+      "description": "Wild card tile. Shape is a gnarled, twisting bundle of pale translucent mycelium threads winding together (form is more radial, less regular), animated with blue-white pulses running along threads. Core color: #A0ECF2, rim-caught highlights, slow spiral twist idle animation."
+    },
+    {
+      "element_id": "dream_shadow",
+      "description": "Obstacle tile. Wispy, semi-opaque dark indigo-black haze (#18182C) swirling over tile, with ragged edges, faintly animated—like a drifting shadow. Underneath, barely visible, the main tile glints with lost color. Occasional glimmer of #E55FCB or #44B9E4 for tension."
+    },
+    {
+      "element_id": "obscura_veil",
+      "description": "Obstacle tile. Translucent, waving curtain of shadow stitched with flickering bioluminescent runes (faint #5C3E99 and #EFC158). The veil animates as a slow, vertical shimmer, sometimes echoing silhouette forms. Veil has a soft ethereal outline; tiles behind seem warped and distant."
+    },
+    {
+      "element_id": "evidence_mushroom",
+      "description": "Bonus tile. Large, domed cap with gills visible—cap is #F29BB4 with white-gold (#EFC158) bioluminescent dots. Rim glows with animated rainbow sheen. Animated spore drift rises from cap; pulse and ripple VFX on spawn/match."
+    },
+    {
+      "element_id": "jazz_note_spore",
+      "description": "Special tile. Regular tile shape, but with a stylized neon-blue (#44B9E4) musical note growing inside, sprouting from the mycelium pattern. Animated musical note pulses on beat; sparkles and faint soundwave rings radiate outward. Rim glows with #E8E856 accent."
+    }
+  ],
+  "board_frame": {
+    "material": "Sculpted, semi-translucent polished mycelium with embedded glowing spores—ivory base with veins of #44B9E4, #E55FCB, #E8E856 softly glowing along edges.",
+    "decorations": "Clustering cap mushrooms (varied sizes) on upper corners and bottom edge; tiny hanging stalactites with dripping dew in lower corners, jazz club brass filigree set into sides (antique, weathered gold #EFC158).",
+    "integration": "Frame visually touts itself as sprouting from the meta-location's foreground, blending with roots/props of the metascene—occasional animated spore drift from frame into scene, sometimes background shadows cross frame for depth."
+  },
+  "meta_scene": {
+    "location": "Detective Morchella's office—'Sporeboard': A sunken stone chamber wreathed in soft blue fog, walls lined with bookcases overgrown by glowing mycelium. Neon fungal lamps (hanging clusters, #44B9E4, #E55FCB) cast colored pools of light over a gnarled organic desk. Windows carved through thick cave rock reveal glimpses of noir city, drifting spores, and distant jazz venues.",
+    "props": [
+      "Oversized organic desk with spore-lamp and scattered luminous clues",
+      "Bioluminescent file cabinets shaped like clustered mushroom shelves",
+      "Woven mycelium trenchcoat rack (with Morchella's iconic coat)",
+      "Antique rotary phone made from amber and wood ear fungus",
+      "Wall pinboard covered in neon-threaded case notes",
+      "Deep armchair grown from soft polypore cap",
+      "Jazz gramophone, grown from trumpet-shaped fungi, spinning gently"
+    ],
+    "npcs_style": "Fungal denizens blend humanoid and mycelium forms—limbs and faces are semi-cartooned but with strong surface texturing (like Playrix people but more organic): large expressive eyes, glowing pupils, subtle cap/veil hats, clothing woven from bioluminescent mycelium. Glowing rim highlights and soft inner glows reflect their mood/state.",
+    "animation_hooks": "Spore motes drifting, jazz gramophone spinning, candle flames flicker, fog wafts in through windows, neon signs blink in city background, book pages flutter when clues found, mushroom lamps pulse softly to jazz beat."
+  },
+  "ui_style": {
+    "font_primary": "Rounded geometric sans-serif with deco-noir embellishments, e.g., 'Montserrat SemiBold' with custom glyph alternates: all-caps for headers, standard for body. Font is white or cyan (#A0ECF2) on dark backgrounds.",
+    "font_display": "Custom display font inspired by 1920s jazz club neon signs: Art Deco but hand-drawn, with glowing effect (#E55FCB or #44B9E4 glow outer stroke, #EFC158 for highlight text).",
+    "buttons": "Irregular rounded rectangles with beveled/organic outline, surface pattern: faint mycelium veining in base color. Idle: deep purple-blue (#273455) with neon glow accent (color keyed to context: e.g., #E55FCB for actions, #44B9E4 for confirm). Highlighted: higher brightness and bloom. Pressed: contracts, rim glows intensify.",
+    "hud_frame": "Panels and inventory: semi-translucent dark backgrounds (#18182C, 80% opacity), rimmed by glowing neon outline (#E55FCB or #44B9E4, animated faint pulse). Corners decorated with tiny mushroom cluster icons."
+  },
+  "vfx": {
+    "match_burst": "A spill of colored bioluminescent particles matching tile color; pulse of light travels outward, faint musical ripple (visual staff lines). Internal tile glow surges then fades. Ambient glow along tile rim intensifies for 0.2s.",
+    "special_creation": "Spawn: Animated spiral of neon mycelium threads wraps tile, culminating in a flash of accent color and release of several drifting spore motes (heightened particle count, slow fade).",
+    "combo_climax": "Board-wide blue-violet flash, all matched tiles send arcing neon threads to the combo center; center erupts in a cluster of colored musical notes and spore motes. Small visual 'beat-pulse' shakes tiles in rhythm.",
+    "particle_system": "Glowing motes (#E55FCB, #44B9E4, #53F29D), slow-drifting spore clouds, tiny crescent musical notes, faint 'jazz beats' as expanding translucent rings. All particles have low-contrast drop-shadows for depth."
+  },
+  "asset_list": [
+    {
+      "asset_id": "player_avatar_idle",
+      "type": "sprite_sheet",
+      "resolution": "512x512",
+      "frames": 12,
+      "description": "Detective Morchella, three-quarter isometric pose, trench coat woven from glowing mycelium, cyan glowing eyes, subtle idle breathing and head tilt; rim-lit with neon blue accent. Style: painterly, detailed surface texturing, animated coat threads."
+    },
+    {
+      "asset_id": "tile_glow_spore_blue",
+      "type": "sprite",
+      "resolution": "256x256",
+      "description": "Blue Glow Spore tile (see special_elements_visual), rounded organic hex, cyan neon rim, mycelium internal veining, surface gloss, animated subtle inner pulse, wet highlights."
+    },
+    {
+      "asset_id": "tile_glow_spore_pink",
+      "type": "sprite",
+      "resolution": "256x256",
+      "description": "Pink Glow Spore tile, magenta neon accent, rounded hex, animated heartbeats, rim and shine as described."
+    },
+    {
+      "asset_id": "tile_glow_spore_green",
+      "type": "sprite",
+      "resolution": "256x256",
+      "description": "Green Glow Spore tile, acid-lime glow, slightly warping threads, animated to sway gently in sync with music."
+    },
+    {
+      "asset_id": "tile_glow_spore_gold",
+      "type": "sprite",
+      "resolution": "256x256",
+      "description": "Gold Glow Spore tile, brighter gold glow, finely crackled veins under surface, animated sparkles."
+    },
+    {
+      "asset_id": "tile_mycelium_strand",
+      "type": "sprite",
+      "resolution": "256x256",
+      "description": "Mycelium Strand wild card tile: tangled twisting semi-translucent threads with blue-white pulses, subtle spiral animate idle."
+    },
+    {
+      "asset_id": "tile_dream_shadow",
+      "type": "sprite",
+      "resolution": "256x256",
+      "description": "Dream Shadow obstacle: swirling black-indigo mist with fractal wispy edges, half-obscuring underlying tile colors, animated."
+    },
+    {
+      "asset_id": "tile_obscura_veil",
+      "type": "sprite",
+      "resolution": "256x256",
+      "description": "Obscura Veil: vertical flowing shadow veil, embedded flickering glyphs, slight transparency, animated shimmer, glowing outline."
+    },
+    {
+      "asset_id": "tile_evidence_mushroom",
+      "type": "sprite",
+      "resolution": "256x256",
+      "description": "Evidence Mushroom: large domed cap, pinkish-lavender, white-gold bioluminescent dots, rim rainbow sheen, spore cloud animates from top."
+    },
+    {
+      "asset_id": "tile_jazz_note_spore",
+      "type": "sprite",
+      "resolution": "256x256",
+      "description": "Jazz Note Spore: regular tile shape, luminous neon musical note shape sprouting inside, pulses and sparkles, blue/yellow rim."
+    },
+    {
+      "asset_id": "booster_luminescent_chord",
+      "type": "icon_sprite",
+      "resolution": "128x128",
+      "description": "Icon: crossing beams of neon (> shape) made from glowing mycelium strands, blue and magenta, framed by golden ring. Core pulses on activation."
+    },
+    {
+      "asset_id": "booster_veil_ripper",
+      "type": "icon_sprite",
+      "resolution": "128x128",
+      "description": "Icon: A set of sharp golden (amber) claws tearing through a translucent purple veil, bioluminescent fragments flying off."
+    },
+    {
+      "asset_id": "booster_synesthesia_blossom",
+      "type": "icon_sprite",
+      "resolution": "128x128",
+      "description": "Icon: A mushroom cap bursting with swirling rainbow aura, concentric colored soundwaves radiating outward; cap is semi-abstract with musical note etched in gills."
+    },
+    {
+      "asset_id": "booster_obscura_echo",
+      "type": "icon_sprite",
+      "resolution": "128x128",
+      "description": "Icon: A dark shadowy mask shape, interlaced with flickering neon 'echo' lines, one side rim-lit in gold."
+    },
+    {
+      "asset_id": "booster_jazzmans_inspiration",
+      "type": "icon_sprite",
+      "resolution": "128x128",
+      "description": "Icon: A stylized trumpet fungus blasting a golden-blue musical beam, surrounded by animated sparkles and radiant musical notes."
+    },
+    {
+      "asset_id": "hud_jazz_meter",
+      "type": "sprite",
+      "resolution": "256x64",
+      "description": "Horizontal tube, slightly organic shape, filled with animated flowing blue/pink light, musical symbols drift along fill, tips capped with golden mushroom motifs."
+    },
+    {
+      "asset_id": "hud_clue_energy",
+      "type": "icon_sprite",
+      "resolution": "64x64",
+      "description": "Icon: swirling mycelium spiral around a glowing cyan orb, trailing spores."
+    },
+    {
+      "asset_id": "hud_dream_fragments",
+      "type": "icon_sprite",
+      "resolution": "64x64",
+      "description": "Icon: faceted glassy droplet holding fragment of mushroom cap inside, surface crack glows gold."
+    },
+    {
+      "asset_id": "meta_bg_office",
+      "type": "background_sprite",
+      "resolution": "1920x1080",
+      "description": "Detective office scene as described above: glowing bookshelves, neon-lit desk, trenchcoat rack, jazz gramophone, animated fog and distant city lights. Multiple parallax layers for depth."
+    },
+    {
+      "asset_id": "npcs_lady_amanita_idle",
+      "type": "sprite_sheet",
+      "resolution": "512x512",
+      "frames": 10,
+      "description": "Lady Amanita in tall wide mushroom hat, spore-veiled fringe, elegant mycelium-woven dress, rim-lit, subtle hand and head gestures. Luminous texture work."
+    },
+    {
+      "asset_id": "npcs_sporelock_idle",
+      "type": "sprite_sheet",
+      "resolution": "512x512",
+      "frames": 10,
+      "description": "Sporelock: rotund, amber-rimmed polypore vest, carved monocle, expressive hands. Gentle idle sway animation, surface modeled to look like layered ancient fungus."
+    },
+    {
+      "asset_id": "npcs_obscura_idle",
+      "type": "sprite_sheet",
+      "resolution": "512x512",
+      "frames": 12,
+      "description": "Obscura: amorphous, robe shape constantly morphs, flickering bioluminescent patterns, silhouette shifts with pulses of shadow and color. No face, only hints of movement under folds."
+    }
+  ],
+  "sprite_spec": {
+    "tile_shape": "custom: rounded-corner, slightly irregular hexagon (resembling a living fungal cell, asymmetric and soft-edged, no strict geometric regularity)",
+    "tile_size_px": 128,
+    "material": "semi-translucent organic (like wet mushroom skin with a subtle spongy gloss and internal glowing mycelial vein patterns), visually luminous and bioluminescent per tile type",
+    "render_recipe": "Layered painterly: (1) Deep indigo-violet shadowed underlay → (2) main body color with vertical organic gradient (darker at base, lightest at top right) → (3) mycelial vein pattern overlay (contrasting brights, partially translucent, softly branching) → (4) sharp neon rim glow adaptive to tile color (accent color, strongest on upper right and lower left corners) → (5) specular crescent highlight on top right (sharp, semi-oval, animated pulse) → (6) faint internal bioluminescent glow (soft blurred spread, pulsing per combo) → (7) icon motif overlay (where relevant: distinct symbol, internal pattern, or animated element) → (8) floating spore/cell motes or particle FX (for special/bonus tiles).  Bevel is outward, layered, and waxy; all lighting has subtle blue-violet core ambient and magenta/cyan edge reflect.",
+    "tiles": [
+      {
+        "element_id": "glow_spore_blue",
+        "name": "Blue Glow Spore",
+        "base_hex": "#44B9E4",
+        "highlight_hex": "#A0ECF2",
+        "glow_hex": "#44B9E4",
+        "icon_motif": "Filamentous cyan mycelium network radiating from tile center, subtle floating cyan spore motes."
+      },
+      {
+        "element_id": "glow_spore_pink",
+        "name": "Pink Glow Spore",
+        "base_hex": "#E55FCB",
+        "highlight_hex": "#F29BB4",
+        "glow_hex": "#E55FCB",
+        "icon_motif": "Central pulsing magenta circle with faint heart-shaped mycelial threads, animated heartbeat pulse."
+      },
+      {
+        "element_id": "glow_spore_green",
+        "name": "Green Glow Spore",
+        "base_hex": "#53F29D",
+        "highlight_hex": "#E8E856",
+        "glow_hex": "#53F29D",
+        "icon_motif": "Acid-lime bioluminescent core with drifting, swaying thin mycelium strands, animated gentle weave."
+      },
+      {
+        "element_id": "glow_spore_gold",
+        "name": "Gold Glow Spore",
+        "base_hex": "#E8E856",
+        "highlight_hex": "#EFC158",
+        "glow_hex": "#E8E856",
+        "icon_motif": "Crackled gold-white mycelium vein web, clusters of tiny glinting spore motes, subtle inner sparkles."
+      },
+      {
+        "element_id": "mycelium_strand",
+        "name": "Mycelium Strand",
+        "base_hex": "#A0ECF2",
+        "highlight_hex": "#EFC158",
+        "glow_hex": "#44B9E4",
+        "icon_motif": "Twisting bundle of semi-translucent pale blue threads spiraling outward from tile core, animated blue-white pulse along strands."
+      }
+    ],
+    "special_tiles": [
+      {
+        "special_id": "dream_shadow",
+        "look": "Wispy, animated black-indigo semi-opaque haze swirling above tile, ragged fractal edges; tile beneath is obscured but faintly glints lost color, rare flashes of magenta or cyan.",
+        "fx_hint": "Subtle swirling wisp animation; faint blue-violet glow at contact edge; opacity briefly drops when hit/damaged."
+      },
+      {
+        "special_id": "obscura_veil",
+        "look": "Rippling, translucent shadow veil over tile, stitched vertically with flickering bioluminescent glyphs (deep purple #5C3E99 and neon gold #EFC158); veil shimmers in vertical motion, tile below appears warped and distant.",
+        "fx_hint": "Soft outline shimmer, animated veil movement, glyphs pulse on rhythm."
+      },
+      {
+        "special_id": "evidence_mushroom",
+        "look": "Large, domed mushroom cap overlays tile, cap colored #F29BB4 with clusters of glowing white-gold dots (#EFC158). Gills visible, rim glows with animated rainbow sheen; base tile retains bioluminescent underlight.",
+        "fx_hint": "Animated spore dust drifts up; rim pulses rainbow on combo; slow ripple passes across cap."
+      },
+      {
+        "special_id": "jazz_note_spore",
+        "look": "Regular tile shape, neon-blue musical note (eighth note, #44B9E4 with #E8E856 rim) growing from center mycelium node; note pulses in size and brightness to the music, with radiating faint blue/yellow sparkles.",
+        "fx_hint": "Musical note pulses on rhythm; faint soundwave rings expand from icon; rim light flashes on match/activation."
+      }
+    ]
+  },
+  "environment_spec": {
+    "gameplay_background": {
+      "gradient_hex": [
+        "#18182C",
+        "#311C40"
+      ],
+      "ambient_elements": "Animated drifting spore motes: render as gently floating, semi-transparent circles and ellipses in #E55FCB, #44B9E4, and #53F29D, with low-opacity blurred outer glow. Motion: slow sinusoidal vertical drift, minor random scale pulsation. Occasionally, faint vertical neon streaks (#E8E856, 7% opacity) arc downward, simulating distant glowing stalactite drips. Sporadic, wide soft-edged spotlights (radial gradient, center #1B1327 → edge transparent) gently pulse at low opacity for depth. All particles apply additive blend and vary layer depth/parallax by speed.",
+      "board_frame": {
+        "material": "Polished, semi-translucent mycelium polymer with subtle waxy sheen and embedded glowing vein patterns.",
+        "frame_hex": "#EFC158",
+        "decor": "Upper corners: clusters of cap mushrooms in layered painterly style (overlap, hand-drawn cap silhouettes, pale stems); bottom edge: twisted mycelium roots carved into the frame, with tiny animated dew drops (radial gradients, refractive white-gold glints). Sides: embossed vintage brass filigree in #EFC158, occasional animated golden spores drift outwards. All decorative elements lightly rim-lit with accent neon glows (#44B9E4 or #E55FCB, alternate per session)."
+      }
+    },
+    "lobby_screen": {
+      "description": "Detective's office interior at dusk: layered parallax of stone bookcases overgrown with blue and magenta glowing mycelium. Neon fungal lamps hang, casting colored pools of soft light. Desk (foreground): gnarled, organic, surfaced with scattered bioluminescent clues. Windows in the back reveal distant city night, animated with shimmering spores and flickering jazz club signs. Ambient blue fog drifts from window base. Camera: isometric 30°, slight parallax when tilting device/mouse.",
+      "background_hex": [
+        "#18182C",
+        "#273455"
+      ],
+      "title_treatment": "Game title floats in mid-upper screen, letterforms drawn in an Art Deco-inspired custom font, white core (#A0ECF2) with thick outer neon glow (animated gradient from #44B9E4 left to #E55FCB right). Soft golden rim highlight (#EFC158) pulses subtly on music beat. Below title, tagline in smaller, cyan sans-serif, glows in sync with jazz meter.",
+      "focal_prop": "Central: Detective Morchella's desk—organic, carved from tangled mycelium, topped with glowing spore-lamp, a rotary 'mushroom' phone, and open neon-lit case files. Desk surface gently pulses with cyan light. Jazz gramophone (trumpet-shaped fungus), spinning gently on right side.",
+      "play_button_style": "Irregular rounded rectangle, painterly beveled edge (slightly lumpy/organic), base gradient #273455 → #44B9E4, rimmed with animated magenta glow (#E55FCB). On hover/tap, button 'puffs' outward, rim bloom intensifies. Centered text: all-caps, custom neon font, white with gold drop shadow. Button emits faint drifting spore motes on idle."
+    },
+    "meta_location": {
+      "description": "Detective Morchella’s Office—‘Sporeboard’: sunken stone chamber shrouded in soft blue fog, walls lined with bookcases overgrown by glowing mycelium and neon fungal lamps. Organic desk, jazz gramophone, and pinboard with glowing threads. Distant noir cityscape visible through carved rock windows.",
+      "restoration_stages": [
+        "Stage 1: Room is dark, few lamps flicker, shelves are bare patchwork of rock and dead wood, only basic desk and single spore-lamp (dim cyan) are present. Distant city lights barely visible. Thin, pale mycelium veining along floor.",
+        "Stage 2: Additional neon fungal lamps illuminate, bioluminescent books and curios fill bookcases, animated spore clouds drift softly. Desk upgrades: more clues/papers, jazz gramophone present, trenchcoat rack appears. Windows pulse with stronger city neon and drifting spores.",
+        "Stage 3: Lush, vibrant chamber—bookcases overflow with glowing tomes and objects, animated golden and magenta mycelium patterns crawl over all surfaces. Desk covered with bioluminescent files, phone, and trophies. Pinboard shines with interconnecting neon threads; jazz club signs glow in window. Ambient fog pulses to music, parallax background layers shimmer, rare spore motes drift into the foreground."
+      ]
+    }
+  },
+  "vfx_spec": {
+    "match_burst": {
+      "description": "On successful match, each matched tile emits a pulse of colored light and a spray of bioluminescent particles—both inherit the tile's core color (e.g. #44B9E4 for blue Glow Spore). Particles use CPUParticles2D: emission shape is a loose circular burst, 15-22 particles, each glowing with soft additive blend and a faint, low-opacity drop shadow. Simultaneously, a quick scale-tween (1.0 → 1.18 → 0.0) with EASE_OUT over 0.25s is applied to the tile sprite and a rim glow intensity fades in then out. A subtle expanding ellipse (drawn with draw_arc, fading alpha, color: tile+white, 0.15 opacity) radiates from tile center, lasting 0.17s. Visualized music staff lines (thin horizontal glow lines, 1-2 per match) pulse outward from the center briefly.",
+      "duration_s": 0.25,
+      "color_source": "core color/hex of the matched tile",
+      "motion": "scale: 1.0→1.18 (0.1s, EASE_OUT) then 1.18→0.0 (0.15s, linear); alpha of main sprite fades to 0. Rim glow intensity increases (tween), then fades."
+    },
+    "cascade": {
+      "description": "Tiles above empty spaces drop using a vertical Tween. Easing is EASE_OUT_BOUNCE for a natural, 'spongy' feel (think mushroom bouncing). Each tile's drop is offset by a random delay (0.02–0.06s per tile), so chains feel organic, not strictly linear. When a tile lands, a quick squish-stretch (scale Y: 1.0→0.85→1.07→1.0, EASE_OUT, duration 0.15s) is triggered, with a soft radial glow ('spore landing') fading in/out. Tiny trail of 4–6 glowing motes (CPUParticles2D, color: secondary palette) briefly follows the tile's path.",
+      "tween_easing": "EASE_OUT_BOUNCE",
+      "duration_s": 0.3
+    },
+    "special_creation": {
+      "description": "When a special element (e.g. Evidence Mushroom, Jazz Note Spore) spawns, a spiral of neon mycelium threads (drawn with draw_arc/draw_polyline, color: accent palette, variable alpha) wraps upwards from the tile base. At climax (~0.24s), a flash: tile rim glows to max intensity (Tween) for 0.16s. 12–18 spore motes (CPUParticles2D, glow color based on special) drift slowly away (lifetime 0.5–1.2s, low initial velocity, fade out). For Jazz Note Spore, faint soundwave rings (expanding transparent ellipses, modulate: blue/yellow, alpha 0.1) pulse outward.",
+      "flash": "Animated spiral (drawn lines), rim glow pulse, then emission of glowing spore particles"
+    },
+    "combo_climax": {
+      "description": "On large combos (chain ≥5), board momentarily flashes with a blue-violet neon wash (modulate overlay: #273455 with additive #44B9E4, alpha 0.24, tween in/out in 0.14s). All matched tiles send arcing, animated neon threads (draw_polyline, color sampled from tile, glow additive, 0.12 thickness) toward board center. At the center, a CPUParticles2D cluster of musical notes (cyan, magenta, gold) and glowing motes erupts for 0.5s. All board tiles rhythmically shake (Tween: 8px random offset, EASE_IN_OUT, 0.08s), then settle. Faint, large-scale expanding rings (draw_arc, low alpha, color: #E8E856) ripple outward.",
+      "screenshake": true,
+      "particles": "CPUParticles2D: neon musical notes (polygon shape) and glowing spore motes, colors sampled per combo, 20–32 particles, lifetime 0.4–0.7s"
+    },
+    "booster_activation": {
+      "description": "Activating a booster triggers a quick surge of rim light around all affected tiles (Tween: rim glow intensity 1.0→2.0→0.0, 0.22s, color keyed to booster type). An expanding sporewave ring (drawn ellipse with pulsing glow, color: booster accent) radiates from the touched area. For area effects (e.g. Luminescent Chord), crossed neon beams (draw_line, animated width, glow blur, blue/magenta) sweep across the board. When obstacles are cleared, a vanishing wisp (CPUParticles2D, color: #E55FCB/#44B9E4) spirals up then fades. All booster effects synchronize with a pulse in background ambient lighting (Tween: background modulate intensity +0.12 for 0.12s).",
+      "booster": "Effects use booster palette accent for glow and wave color; cross-board effects staggered with 0.04s ripple delay per tile"
+    },
+    "juice_rules": [
+      "All motion uses nonlinear tweens (EASE_OUT, EASE_IN_OUT, BOUNCE or ELASTIC for snaps and landings)",
+      "Particle bursts always have a short fade-in and longer fade-out (alpha curve), additive blend, and low-opacity shadow for depth",
+      "Every match, drop, or special trigger pulses rim glow (Tween: intensity up→down; color adapts to adjacent strongest accent)",
+      "Short per-tile event delays (0.03–0.07s) for cascades, effects feel organic (not perfectly simultaneous); chain reactions stagger for 'musical' rhythm",
+      "On landing, tiles squish/scale and release a brief radial glow; on removal, scale/alpha shrinks to 0 with quick fade",
+      "Specials and combos always emit ambient spore motes (drifting particles), with color and velocity variance",
+      "All major VFX pulses (e.g. combo, special, booster) briefly brighten background ambient and board rim lighting, then fade",
+      "Effects reinforce 'organic' feel: subtle size/position jitter, mild stretching, and drifting motes—everything in motion, never static"
+    ]
+  },
+  "ui_spec": {
+    "palette": {
+      "ui_primary_hex": "#273455",
+      "ui_accent_hex": "#44B9E4",
+      "text_hex": "#A0ECF2",
+      "panel_hex": "#18182C"
+    },
+    "typography": {
+      "title_style": "All-caps, custom Art Deco-inspired display font. Core fill is pure white (#FFFFFF) with thick neon outer glow: left side #44B9E4, right side #E55FCB. Text has a subtle gold rim (#EFC158), and a soft vertical gradient (brighter top). Letters are rounded, geometric, with stylized deco cuts and minor irregularity to mimic hand-painted neon sign tubes. Glow softly pulses in sync to soundtrack rhythm.",
+      "hud_style": "Numbers: heavy, rounded sans-serif ('Montserrat SemiBold'), in #A0ECF2 with a 2px cyan glow (#44B9E4), drop-shadow in deep blue (#1B1327, 40% opacity) for clarity. Digits are slightly condensed, highly legible even at small sizes. Critical counters (moves, coins) animate with gentle scale 'pop' on change. For HUD icons/labels: mixed-case, 90% weight, cyan or white."
+    },
+    "hud": {
+      "moves_counter": "Irregular rounded rectangle frame, semi-translucent dark base (#18182C, 80% opacity) rimmed with animated neon glow (#44B9E4 pulse). Left: animated icon—a spore-capped hourglass (base #EFC158, rim-lit #44B9E4). Right: big number in #A0ECF2, 2px outer glow. Counter background softly pulses brighter as moves decrease. Tiny mycelium tendrils curl into corners.",
+      "goal_display": "Organic panel: Floating vertically-beveled 'slip' of translucent mycelium (see panel_hex), rimmed with neon pink glow (#E55FCB). Contains: left—a painterly rendered target icon (e.g., evidence mushroom cap, jazz note spore), right—goal number in bold cyan (#A0ECF2, 3px glow). Panel edges decorated with tiny glowing spore motes (cyan/magenta). Animated gentle up/down parallax. If multiple goals, stack panels with alternating rim glow color.",
+      "coins_display": "Beveled oval, base #273455, with inner radial gradient (center #EFC158, outer transparent). Coin icon: painterly golden mushroom coin (waxy cap, rim-lit #E55FCB). Number: white (#FFFFFF) with soft pink outline (#E55FCB), heavy drop-shadow (#1B1327, 50% opacity). On coin gain: burst of golden spore particles, quick scale and brightness flash."
+    },
+    "buttons": {
+      "shape": "Organic rounded rectangle (slightly asymmetric), hand-drawn contour (irregular, no perfect symmetry), beveled painterly edge.",
+      "normal": "Base gradient: deep blue-violet (#273455 at base, upward to #44B9E4 at top right). Faint mycelium vein pattern overlays in subtle lighter blue. Rim: neon glow (context-driven)—e.g., #E55FCB for actions, #44B9E4 for confirm/advance. Idle glow pulses subtly, surface has soft gloss (translucent white highlight, 30% opacity) in top right.",
+      "pressed": "Button contracts by 7%, rim glow intensifies and blooms (opacity doubles, hue shifts toward rim color: #E55FCB/#44B9E4). Surface pattern darkens, highlight shrinks. Quick animated spore motes burst outward (see vfx), then fade.",
+      "corner_radius_px": 16
+    },
+    "booster_icons": [
+      {
+        "booster_id": "luminescent_chord",
+        "icon_recipe": "Draw two crossing mycelium beams (one #44B9E4, one #E55FCB), painterly wider at center. Beams formed from soft-edged, semi-translucent strands, glowing outward with light additive blur. Center: overlaid golden ring (#EFC158), rim-lit, with subtle specular shine. Behind beams, a hint of spore clouds (low-opacity, #53F29D/white). All lines have a 2px rim glow, center pulses at 1Hz to match beat."
+      },
+      {
+        "booster_id": "veil_ripper",
+        "icon_recipe": "Base: semi-transparent purple veil (rounded vertical rectangle, #5C3E99, 70% opacity), soft blurred edges. From bottom left, three amber-gold claws (#EFC158, rim-lit #F29BB4) arc upward, sharply tearing the veil—jagged torn lines, each edge rim-glowed in pink (#E55FCB). Around tear, fly out tiny spore motes (3–5, #44B9E4, blurred)."
+      },
+      {
+        "booster_id": "synesthesia_blossom",
+        "icon_recipe": "Center: painterly mushroom cap (half-ellipse, base gradient #F29BB4 to #EFC158). Cap has concentric swirling rainbow auras: draw 3–4 semi-transparent rings (cyan, magenta, green, gold), each offset and blurred outward. Below cap, from gills, a neon blue (#44B9E4) musical note is etched. Background: faint radial burst of soundwave ripples (circular, 15% opacity, alternating color)."
+      },
+      {
+        "booster_id": "obscura_echo",
+        "icon_recipe": "Main: semi-abstract dark mask (rounded but asymmetric, deep blue-black #18182C base, 90% opacity), left side rim-lit gold (#EFC158, 3px glow). Across mask, thin flickering neon lines (draw as jagged polylines, animated, in #44B9E4 and #E55FCB) curve/echo horizontally. Lower right: faint spore cloud, #E55FCB, 20% opacity."
+      },
+      {
+        "booster_id": "jazzmans_inspiration",
+        "icon_recipe": "Shape: stylized trumpet fungus (wider mushroom bell, gradient #EFC158 center, rim-lit #44B9E4) held angled to upper right. From bell, a painterly blue-gold beam (gradient #44B9E4 to #EFC158) bursts outward—beam has embedded musical notes (tiny, white, glowing). Around fungus, 4–6 animated sparkles and gold motes drift upward. Dark purple drop-shadow behind icon for contrast."
+      }
+    ],
+    "panels": {
+      "win_panel": "Organic, beveled rounded rectangle with painterly contour (deep blue-violet #273455, vertical gradient toward #44B9E4 top right). Rimmed with thick neon glow: animated gradient from cyan (#44B9E4) left to pink (#E55FCB) right, pulsing every 1.2s. Upper corners decorated with golden mushroom cap clusters (waxy, rim-lit #EFC158). Center title: large deco font, white core with pink-cyan neon outer stroke. Under panel, drifting spore motes animate upward. Buttons below panel use accent colors. Tiny soundwave rings (faint, animated) radiate from panel center at win.",
+      "lose_panel": "Same base shape/panel as win, but rim glow is deep magenta (#E55FCB) with a desaturated blue-violet shadow (#1B1327, 70% opacity) overlay. Upper left corner has a cracked mushroom cap (gradient #F29BB4, internal gold crack, subtle spore leak effect). Title text: bold white with red-magenta outer glow, slight waviness to letterforms (as if drooping). Panel background subtly ripples (shader: sine offset, low amplitude). Subtle falling spore particles (semi-transparent, #44B9E4, slow drift) add atmosphere."
+    }
+  }
+}

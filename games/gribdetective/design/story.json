@@ -1,0 +1,247 @@
+{
+  "intro_cutscene": [
+    "Jazz seeps through the cracks and neon spores rain from the cavern ceiling. Each droplet paints ripples of color across the stone.",
+    "MORCHELLA (VO): In the city’s underbelly, you don’t chase the light. You chase what’s left behind.",
+    "A shadowy figure glides through the mist—her hat wide, veil of spores trailing—a legend lost in midnight blue.",
+    "A hush falls. Lady Amanita’s song is silent. The city stirs, unease blooming.",
+    "A whisper in the mycelium pulls me in: 'A dream’s gone missing. Without it, even neon fades.'",
+    "I slip past the velvet curtain. Fungal jazz swells. Beneath the music, the city’s secrets tremble.",
+    "Tutorial overlay: Tap to the beat—grow your first clue from the pulsing mycelium. Every rhythm, a memory rising from the dark."
+  ],
+  "chapter_scenes": [
+    {
+      "chapter": 1,
+      "before_lines": [
+        "Blue haze and velvet shadows. The Spore & Velvet club smells of lost nights and memories on the brink.",
+        "MORCHELLA: Every corner hides a secret—or a staff member who thinks they’re a secret."
+      ],
+      "after_lines": [
+        "Beneath smudged bar-glass, a shivering spore-glow. My first fragment: a sliver of forgotten song.",
+        "MORCHELLA: These aren’t thefts. They’re siphons. The city’s dreams are bleeding out."
+      ],
+      "speaker_map": {
+        "Blue haze and velvet shadows. The Spore & Velvet club smells of lost nights and memories on the brink.": "Narrator",
+        "MORCHELLA: Every corner hides a secret—or a staff member who thinks they’re a secret.": "Morchella",
+        "Beneath smudged bar-glass, a shivering spore-glow. My first fragment: a sliver of forgotten song.": "Narrator",
+        "MORCHELLA: These aren’t thefts. They’re siphons. The city’s dreams are bleeding out.": "Morchella"
+      }
+    },
+    {
+      "chapter": 2,
+      "before_lines": [
+        "Lichen Market thrums under neon nets. Vendors hawk memories, not wares.",
+        "LADY AMANITA: Even the mushrooms barter for dreams here. Keep your thoughts close, detective."
+      ],
+      "after_lines": [
+        "An Echo Cap pulsing in my palm—proof dreams are traded citywide.",
+        "MORCHELLA: Someone’s stealing refrains, not just verses. The whole city’s going silent."
+      ],
+      "speaker_map": {
+        "Lichen Market thrums under neon nets. Vendors hawk memories, not wares.": "Narrator",
+        "LADY AMANITA: Even the mushrooms barter for dreams here. Keep your thoughts close, detective.": "Lady Amanita",
+        "An Echo Cap pulsing in my palm—proof dreams are traded citywide.": "Narrator",
+        "MORCHELLA: Someone’s stealing refrains, not just verses. The whole city’s going silent.": "Morchella"
+      }
+    },
+    {
+      "chapter": 3,
+      "before_lines": [
+        "Jazz reverberates through the alleys—syncopation stitched by sporelight. The festival should be euphoric, but fear lingers beneath the melody.",
+        "SPORELOCK: Music bends the truth, if you let it. What will you let go, Morchella?"
+      ],
+      "after_lines": [
+        "From behind a shifting mask, Obscura’s voice slides between trumpet notes.",
+        "OBSCURA: What is memory but a song you keep playing for yourself?",
+        "MORCHELLA: Maybe. But I don’t dance to someone else’s tune."
+      ],
+      "speaker_map": {
+        "Jazz reverberates through the alleys—syncopation stitched by sporelight. The festival should be euphoric, but fear lingers beneath the melody.": "Narrator",
+        "SPORELOCK: Music bends the truth, if you let it. What will you let go, Morchella?": "Sporelock",
+        "From behind a shifting mask, Obscura’s voice slides between trumpet notes.": "Narrator",
+        "OBSCURA: What is memory but a song you keep playing for yourself?": "The Obscura",
+        "MORCHELLA: Maybe. But I don’t dance to someone else’s tune.": "Morchella"
+      }
+    },
+    {
+      "chapter": 4,
+      "before_lines": [
+        "Below the city’s roots, time warps in mycelium coils—dreams leak, reality loses its grip.",
+        "LADY AMANITA: Even if my last dream fades, I’ll use it to light your way."
+      ],
+      "after_lines": [
+        "Her melody glimmers and breaks—a sacrifice echoing through the deepest spores.",
+        "MORCHELLA: Some dreams burn out so others can bloom."
+      ],
+      "speaker_map": {
+        "Below the city’s roots, time warps in mycelium coils—dreams leak, reality loses its grip.": "Narrator",
+        "LADY AMANITA: Even if my last dream fades, I’ll use it to light your way.": "Lady Amanita",
+        "Her melody glimmers and breaks—a sacrifice echoing through the deepest spores.": "Narrator",
+        "MORCHELLA: Some dreams burn out so others can bloom.": "Morchella"
+      }
+    },
+    {
+      "chapter": 5,
+      "before_lines": [
+        "Ancient stone opens—a stage of memory. The city’s heart pulses, fragile, silent.",
+        "SPORELOCK: The last clue is always the hardest to let grow, child."
+      ],
+      "after_lines": [
+        "I hold my forgotten dream—its rhythm aches. All around, the city waits—dim, breathless.",
+        "OBSCURA: Release yourself. Join us in the soft hush of oblivion.",
+        "MORCHELLA: No more silence. Play it loud—let every spore remember."
+      ],
+      "speaker_map": {
+        "Ancient stone opens—a stage of memory. The city’s heart pulses, fragile, silent.": "Narrator",
+        "SPORELOCK: The last clue is always the hardest to let grow, child.": "Sporelock",
+        "I hold my forgotten dream—its rhythm aches. All around, the city waits—dim, breathless.": "Narrator",
+        "OBSCURA: Release yourself. Join us in the soft hush of oblivion.": "The Obscura",
+        "MORCHELLA: No more silence. Play it loud—let every spore remember.": "Morchella"
+      }
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "dlg_1",
+      "trigger": "First clue growth at the jazz club",
+      "lines": [
+        {
+          "speaker": "Morchella",
+          "text": "Every dream leaves a ripple. Even the lost ones.",
+          "emotion": "thoughtful"
+        },
+        {
+          "speaker": "Lady Amanita",
+          "text": "Someone walked off with my voice. Can you hear what I can’t?",
+          "emotion": "vulnerable"
+        },
+        {
+          "speaker": "Morchella",
+          "text": "I hear the spores humming, Lady. They’re uneasy tonight.",
+          "emotion": "wary"
+        }
+      ]
+    },
+    {
+      "id": "dlg_2",
+      "trigger": "Unlocking Sporelock in Lichen Market",
+      "lines": [
+        {
+          "speaker": "Sporelock",
+          "text": "Ah, another stray in the spores. Looking for truth or just a way out?",
+          "emotion": "sardonic"
+        },
+        {
+          "speaker": "Morchella",
+          "text": "Funny thing about mazes—eventually you find the center.",
+          "emotion": "dry"
+        },
+        {
+          "speaker": "Sporelock",
+          "text": "Or you become the walls. Follow me, if you can keep up.",
+          "emotion": "challenging"
+        }
+      ]
+    },
+    {
+      "id": "dlg_3",
+      "trigger": "First encounter with Obscura",
+      "lines": [
+        {
+          "speaker": "The Obscura",
+          "text": "You taste of unsung melodies and half-remembered nights, detective.",
+          "emotion": "seductive"
+        },
+        {
+          "speaker": "Morchella",
+          "text": "I’ll keep my flavor. Someone’s got to remember the tune.",
+          "emotion": "defiant"
+        },
+        {
+          "speaker": "The Obscura",
+          "text": "Why chase echoes when forgetting is so sweet?",
+          "emotion": "tempting"
+        }
+      ]
+    },
+    {
+      "id": "dlg_4",
+      "trigger": "After Lady Amanita’s sacrifice",
+      "lines": [
+        {
+          "speaker": "Lady Amanita",
+          "text": "No curtain call for me. If the city sings again, remember my chorus.",
+          "emotion": "resigned"
+        },
+        {
+          "speaker": "Morchella",
+          "text": "Without your melody, this place is just stone and spores.",
+          "emotion": "grieving"
+        }
+      ]
+    },
+    {
+      "id": "dlg_5",
+      "trigger": "Final decision with Obscura",
+      "lines": [
+        {
+          "speaker": "The Obscura",
+          "text": "Give up your dream. The city can glow, but you—darkness suits you.",
+          "emotion": "commanding"
+        },
+        {
+          "speaker": "Morchella",
+          "text": "Let the city shine. Even if I’m just another echo.",
+          "emotion": "resolute"
+        }
+      ]
+    }
+  ],
+  "level_flavor": [
+    {
+      "level_range": "1-5",
+      "flavor_text": "Dive deeper—each spore pulse unlocks a new shade of neon and a sharper secret. Don’t lose the rhythm; the city is listening."
+    },
+    {
+      "level_range": "6-10",
+      "flavor_text": "Dreams shimmer in back alleys and silent booths. Trust the groove—your intuition is your only lantern."
+    },
+    {
+      "level_range": "11-15",
+      "flavor_text": "The beat tangles. Reality fractures—yet every clue is another note in the city’s unfinished song."
+    }
+  ],
+  "reward_captions": [
+    {
+      "reward": "Bioluminescent Clue",
+      "caption": "You nurtured a truth until it pulsed with light."
+    },
+    {
+      "reward": "Office Upgrade",
+      "caption": "A sanctuary woven from memory and neon—decorate your inner sanctum."
+    },
+    {
+      "reward": "Echo Cap Fungus",
+      "caption": "A rare echo—evidence that even silence leaves traces."
+    },
+    {
+      "reward": "Custom Jazz Track",
+      "caption": "A new improvisation for your soundtrack—let the rhythm guide your roots."
+    },
+    {
+      "reward": "Advanced Mycelium Growth",
+      "caption": "Your intuition now reaches the city’s forgotten veins."
+    },
+    {
+      "reward": "Dream-Fragment Collection",
+      "caption": "Patchwork memories, stitched together, awaken the city’s imagination."
+    }
+  ],
+  "ending": [
+    "City lights bloom, one spore-lamp at a time—a symphony rebuilt from memory.",
+    "Lady Amanita’s melody haunts the alleys, vivid as the day she first sang.",
+    "SPORELOCK: Only a fool thinks a city is ever truly saved. But tonight, we remember.",
+    "Morchella stands in the neon rain, trench coat glowing, eyes lost somewhere between sorrow and hope.",
+    "MORCHELLA: Every dream costs something. But in Neon Mycelium, the rhythm goes on.",
+    "Credits melt into improvised jazz, spores drifting, the city alive and dreaming again."
+  ]
+}

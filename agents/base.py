@@ -147,14 +147,19 @@ class BaseAgent:
         if force_json:
             sys_prompt = f"{system}\n\nОтвечай ТОЛЬКО валидным JSON, без пояснений и без ```."
 
-        resp = self._claude_client.messages.create(
+        # Стриминг обязателен для больших max_tokens (иначе SDK падает на >10 мин).
+        # Копим текст по кускам — работает и для короткого, и для длинного (код) ответа.
+        parts = []
+        with self._claude_client.messages.stream(
             model=CLAUDE_MODEL,
             max_tokens=self.max_tokens,
             temperature=self.temperature,
             system=sys_prompt,
             messages=[{"role": "user", "content": user_message}],
-        )
-        return "".join(b.text for b in resp.content if b.type == "text")
+        ) as stream:
+            for chunk in stream.text_stream:
+                parts.append(chunk)
+        return "".join(parts)
 
     def _post_openai(self, system: str, user_message: str, force_json: bool) -> str:
         if self._openai_client is None:

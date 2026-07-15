@@ -1,0 +1,135 @@
+{
+  "game_type": "Match-3 puzzle (narrative, roguelike progression, rhythm/jazz thematic integration)",
+  "core_loop": "Player matches glowing fungal tiles (spores, mycelium, bioluminescent clues) on a grid to grow and connect mycelium trails. Each match generates 'clue energy.' Growing longer chains or combos uncovers narrative dream fragments, powering detective abilities and advancing the case. Occasionally, special tiles spawn unique obstacles or help, all in sync with the ambient jazz rhythm.",
+  "controls": "On mobile: swipe (drag finger) to connect 3+ matching adjacent tiles in straight or branching lines; tap/hold to activate detective abilities or boosters; tap UI for narrative/dialogue choices.",
+  "player": {
+    "avatar": "Detective Morchella (visualized as a portrait, but player manipulates the mycelium grid as Morchella's 'intuition')",
+    "stats_or_resources": [
+      {
+        "id": "clue_energy",
+        "start": 0,
+        "role": "accumulates as player matches tiles, spent on abilities and progress"
+      },
+      {
+        "id": "jazz_meter",
+        "start": 0,
+        "role": "fills with matches synced to rhythm, unlocks bonus effects"
+      },
+      {
+        "id": "dream_fragments",
+        "start": 0,
+        "role": "collect to unlock story beats and meta progression"
+      },
+      {
+        "id": "intuition",
+        "start": 3,
+        "role": "limited actions per level (e.g., retries, shuffle, hints)"
+      }
+    ],
+    "abilities": [
+      {
+        "id": "pulse_reveal",
+        "name": "Pulse Reveal",
+        "effect": "Highlights all clue tiles of one type and allows instant collection for bonus clue energy.",
+        "input": "Tap ability button when charged"
+      },
+      {
+        "id": "syncopate",
+        "name": "Syncopate",
+        "effect": "Removes one layer from all obstacle tiles (e.g. Dream Shadows, Obscura Veils) in sync with jazz beat.",
+        "input": "Tap ability button; more powerful if activated on rhythm peak"
+      },
+      {
+        "id": "spore_grow",
+        "name": "Spore Grow",
+        "effect": "Transforms random basic tiles into rare 'evidence mushrooms' for higher points.",
+        "input": "Tap ability button when enough clue_energy"
+      },
+      {
+        "id": "noir_insight",
+        "name": "Noir Insight",
+        "effect": "Reveals a hidden suspect (meta clue, for narrative progression); only usable after large combo.",
+        "input": "Appears as popup after 6+ match chain"
+      }
+    ]
+  },
+  "entities": [
+    {
+      "id": "glow_spore",
+      "name": "Glow Spore",
+      "role": "tile",
+      "behavior": "Basic matchable, comes in several neon colors (blue, pink, green, gold), grows when matched.",
+      "intro": "Always present"
+    },
+    {
+      "id": "mycelium_strand",
+      "name": "Mycelium Strand",
+      "role": "tile (rare)",
+      "behavior": "Acts as a wild card, connects any color.",
+      "intro": "Randomly introduced as reward or via abilities"
+    },
+    {
+      "id": "dream_shadow",
+      "name": "Dream Shadow",
+      "role": "obstacle",
+      "behavior": "Blocks tiles; must be cleared by adjacent matches or by abilities.",
+      "intro": "Appears mid-level, especially after making several matches without combos"
+    },
+    {
+      "id": "obscura_veil",
+      "name": "Obscura Veil",
+      "role": "obstacle",
+      "behavior": "Obscures tiles under it; only removed by specific matches or rhythm abilities.",
+      "intro": "Appears in advanced levels/districts"
+    },
+    {
+      "id": "evidence_mushroom",
+      "name": "Evidence Mushroom",
+      "role": "bonus tile",
+      "behavior": "Yields dream fragments when matched; triggers story cutscenes.",
+      "intro": "Spawned by abilities, high combos, or narrative moments"
+    },
+    {
+      "id": "jazz_note_spore",
+      "name": "Jazz Note Spore",
+      "role": "special tile",
+      "behavior": "When matched on beat, explodes for area effect, charging jazz_meter.",
+      "intro": "Appears when player stays in rhythm for multiple turns"
+    }
+  ],
+  "systems": [
+    {
+      "name": "Tile Matching (Mycelium Growth)",
+      "description": "Classic match-3 (min. 3 adjacent) with branching allowed (not just straight lines), matches add to clue_energy, trigger cascades, and grow visible mycelium paths across the grid.",
+      "why_core": "Core engagement/puzzle-solving loop, thematic connection of clues and growth"
+    },
+    {
+      "name": "Rhythm Sync",
+      "description": "Ambient jazz sets a beat; matching tiles in sync with beat (visual/audio cues) fills jazz_meter, enabling stronger abilities and bonus tiles.",
+      "why_core": "Deeply ties puzzle to narrative world, makes play feel immersive and musical"
+    },
+    {
+      "name": "Obstacles & Hazards",
+      "description": "Obstacles (e.g. Dream Shadows, Obscura Veils) block mycelium, require creative use of matches and abilities to clear.",
+      "why_core": "Adds tactical challenge and narrative pressure/urgency"
+    },
+    {
+      "name": "Narrative Events",
+      "description": "Matching special tiles or meeting level goals triggers story cutscenes (dialogue, clues revealed, suspects interrogated).",
+      "why_core": "Delivers core story, emotional hooks, and sense of progression"
+    },
+    {
+      "name": "Meta Collection (Dream Fragments & Curios)",
+      "description": "Completing levels/cases collects unique fragments and curios, unlocking city districts, office upgrades, jazz venues.",
+      "why_core": "Drives long-term retention and narrative depth"
+    }
+  ],
+  "progression": "Players unlock new districts (chapters) by solving cases (completing level packs), gaining access to new tile types, obstacles, abilities, and jazz soundtracks. Collecting dream fragments unlocks suspect profiles, story cutscenes, and customizable office upgrades. Success in rhythm/beat-matching unlocks rare boosters and special narrative branches. Roguelike elements: some levels and events are randomized; failure may lock out some clues temporarily, altering story paths.",
+  "win_lose": {
+    "win": "Win by collecting enough clue_energy or dream_fragments before running out of moves/turns or before darkness spreads (timer). Some narrative levels may require clearing all obstacles or matching specific 'evidence' tiles.",
+    "lose": "Lose if moves run out without sufficient clues, or if darkness overtakes the board (un-cleared obstacles fill grid), or if the jazz_meter drops too low (for rhythm challenge levels).",
+    "scoring": "Score based on clue_energy, dream_fragments collected, number of moves left, number and length of combos, and rhythm accuracy. High scores unlock narrative rewards, collectibles, and new challenges."
+  },
+  "session_length_min": 8,
+  "why_fun": "The fun comes from the fusion of classic satisfying match-3 chain-building with a fresh, atmospheric rhythm twist: matching to the jazz beat adds flow-state delight, while uncovering clues and story fragments gives every match narrative weight. Unpredictable obstacles and roguelike narrative choices add tension and replay value, and the unique noir-fungal world makes every session visually and emotionally memorable."
+}

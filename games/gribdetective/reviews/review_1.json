@@ -1,0 +1,94 @@
+{
+  "overall_score": 6.5,
+  "scores": {
+    "originality": 5,
+    "mechanics_depth": 7,
+    "art_direction": 8,
+    "level_design": 6,
+    "monetization_health": 7,
+    "retention_potential": 6,
+    "market_fit": 7
+  },
+  "critical_issues": [
+    {
+      "severity": "major",
+      "area": "concept",
+      "issue": "Despite lavish worldbuilding, the core gameplay is still a reskinned match-3 with rhythm integration. The 'neon fungal noir' setting is unique, but the puzzle core does not fundamentally innovate beyond genre standards.",
+      "impact": "Game will be perceived as 'just another match-3' by genre-savvy players, risking poor word of mouth and low organic retention.",
+      "required_fix": "Design at least one core mechanic that cannot be mapped 1:1 to standard match-3s—e.g., spatially persistent mycelium networks that affect subsequent levels, or rhythm-based board mutations that change the puzzle structure."
+    },
+    {
+      "severity": "major",
+      "area": "mechanics",
+      "issue": "Tile types and boosters, while themed, are functionally direct analogs to classic match-3 (wilds, bombs, color changers, etc.). The rhythm layer is mostly a score multiplier, not a true game-changer.",
+      "impact": "Theme integration feels skin-deep. Players will quickly recognize the underlying mechanics and may disengage if they expect true innovation.",
+      "required_fix": "Deepen rhythm integration: make rhythm accuracy a requirement for certain actions (e.g., only allow special moves or clue collection on-beat), or introduce unique puzzle fails/states based on rhythm misses. Explore unique tile interactions that only make sense in this setting (e.g., tiles that 'grow' over time if left untouched, or mycelium chains that persist between turns)."
+    },
+    {
+      "severity": "minor",
+      "area": "art",
+      "issue": "Art direction is strong and detailed, but the spec borders on overkill—risking asset production bottlenecks and visual clutter, especially on mobile screens.",
+      "impact": "Production will be slow, and the board may lose clarity during busy effects or on smaller devices.",
+      "required_fix": "Audit all tile and VFX specs for clarity at real device scale. Prioritize readability and reduce simultaneous on-board effects. Prepare fallback/minimalist versions for low-end devices."
+    },
+    {
+      "severity": "major",
+      "area": "levels",
+      "issue": "Difficulty curve is generally correct, but estimated challenge values are barely increasing between early levels (0.2 → 0.23 → 0.28...) and then spike at level 8+ (0.4 → 0.48 → 0.52). Level 10 (hard, 0.49) is easier than level 9 (boss, 0.52), breaking the expected win-rate curve.",
+      "impact": "Players may plateau or churn after a spike, and boss levels will feel unfair or anticlimactic. The curve does not match best practices for progression pacing.",
+      "required_fix": "Re-balance challenge values: ensure each level is at least marginally more difficult than the last (except for intentional 'breather' levels, which should be clearly labeled and explained). Adjust moves/goals for each level to smooth out the spikes and avoid regressions."
+    },
+    {
+      "severity": "minor",
+      "area": "boosters",
+      "issue": "All five boosters are well-themed, but some effects are convoluted (Obscura Echo: random narrative hint + obstacle penalty) or overlap with core abilities. Pricing/rarity is not clearly tuned to their power.",
+      "impact": "Players may not understand which booster to use or may hoard/ignore less impactful ones. Monetization and engagement with boosters could be suboptimal.",
+      "required_fix": "Clarify and simplify booster effects. Tune rarity/cost so the most powerful (e.g., Jazzman's Inspiration) are truly rare and feel impactful. Tooltips and onboarding for each booster must be explicit."
+    },
+    {
+      "severity": "minor",
+      "area": "meta/retention",
+      "issue": "Meta progression (office upgrades, décor, collections) is mostly cosmetic or narrative. There is no strong compulsion loop for daily/weekly return beyond event FOMO.",
+      "impact": "Retention may underperform, especially after narrative completion or for players not invested in cosmetics.",
+      "required_fix": "Add persistent meta progression that influences gameplay—e.g., permanent power unlocks, daily/weekly evolving board modifiers, or a light roguelike meta (e.g., office upgrades that change starting board states or unlock passive bonuses)."
+    },
+    {
+      "severity": "minor",
+      "area": "monetization",
+      "issue": "Monetization is balanced and not aggressive, but the hard currency (dream_fragments) is used for both meta and in-level power, risking late-game pay-to-win perception if progression stalls.",
+      "impact": "Whales may buy through content, while F2P players could feel blocked or forced toward ads.",
+      "required_fix": "Clearly separate currencies for meta (cosmetic/story) and gameplay (boosters/power), or introduce gates that cannot be bypassed by spending. Ensure all core progression can be achieved without IAP/ads."
+    },
+    {
+      "severity": "minor",
+      "area": "first minute",
+      "issue": "While the intro is cinematic, the first minute is heavy on narrative setup before gameplay. The initial puzzle is a barebones match-3; the 'wow' moment is delayed.",
+      "impact": "Risk of early drop-off for impatient players or those expecting instant engagement.",
+      "required_fix": "Compress intro: start with immediate, visually striking gameplay (e.g., a rhythm-boosted board event or unique tile interaction) before any dialogue or cutscenes. Ensure first puzzle showcases at least one unique mechanic."
+    }
+  ],
+  "improvement_directives": {
+    "product": [
+      "Challenge the team to deliver a mechanic or system that cannot be mapped to classic match-3 (see above). If not, re-position the game as a premium narrative puzzler, not F2P."
+    ],
+    "designer": [
+      "Redesign the rhythm layer: make rhythm accuracy not just a bonus, but a key to unlocking certain moves or clues. Prototype at least two mechanics that use rhythm as a fail state, not just a multiplier.",
+      "Audit and rebalance early and mid-game level goals/moves to ensure a consistent, non-regressive difficulty curve. Add clearly marked 'breather' levels if needed."
+    ],
+    "art_director": [
+      "Run all tile and VFX designs at 128px and 256px on real mobile screens. Remove or simplify details that do not read at scale. Prepare a 'clarity mode' for low-end or accessibility users.",
+      "Ensure all tile shapes, icons, and rim glows are visually distinct even for colorblind users."
+    ],
+    "level_designer": [
+      "Rework challenge values and moves/goals for levels 7–10 to ensure no regression in difficulty. Add at least one level between current 8 and 9 to smooth the boss spike.",
+      "Introduce more level variety: e.g., levels with persistent obstacles, rhythm-specific hazards, or evolving board states."
+    ],
+    "monetization": [
+      "Separate currencies for meta vs. gameplay progression, or at minimum, add hard limits on how much dream_fragments can be spent to bypass gameplay.",
+      "Add a non-cosmetic meta progression reward for daily/weekly engagement (e.g., permanent power unlocks, unique boosters only available through regular play).",
+      "Ensure all IAP offers are clearly signposted and do not interrupt gameplay or narrative flow."
+    ]
+  },
+  "verdict": "NEEDS_REVISION",
+  "confidence": 0.85
+}

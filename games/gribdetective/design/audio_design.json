@@ -1,0 +1,84 @@
+{
+  "audio_direction": {
+    "mood": "Mysterious, dreamy, pulse-driven with an undercurrent of noir tension. The soundscape feels organic yet surreal—like a midnight jazz speakeasy tangled in glowing roots.",
+    "palette": "Muted electric pianos, soft brushed jazz drums, upright bass (synthetic), sparse neon-glassy mallet tones, filtered noise as cave ambience, gentle e-piano chords, grainy synth pads for atmosphere, bioluminescent 'ping' accents. All sounds should shimmer, echo, or pulse, evoking neon-lit mycelium and secretive underground life.",
+    "reference_vibe": "Imagine Angelo Badalamenti’s Twin Peaks with a twist of lo-fi jazz and synth, mixed with the bioluminescent whimsy of Gris and the rhythmical tension of a noir club at 2AM."
+  },
+  "music": [
+    {
+      "scene": "lobby",
+      "mood": "Dreamy noir lounge—calm, mysterious, slightly melancholic, inviting investigation.",
+      "tempo_bpm": 82,
+      "loop": true,
+      "key_scale": "D minor jazz (D Dorian, add chromatic passing tones)",
+      "procedural_hint": "Generate a 4-bar loop: e-piano plays ii-V-i in D minor (Em7b5 - A7b9 - Dm9), syncopate chords gently. Add upright bass: root-walk with swung timing. Overlay soft triangle wave mallet notes (randomized arpeggio on Dm9). Light brushed drum: snare rim on 2/4, hi-hat tick 8th notes. Optionally, fade in subtle filtered white noise as cavern air."
+    },
+    {
+      "scene": "gameplay",
+      "mood": "Moody, grooving, subtly tense but hypnotic. Keeps player in a jazz-flow state.",
+      "tempo_bpm": 98,
+      "loop": true,
+      "key_scale": "G minor blues scale",
+      "procedural_hint": "Eight-bar loop: Electric piano comping Gm7 (i), Cm7 (iv), D7alt (V), with short 7th/9th voicings. Syncopate with swung 16th-note hi-hat pattern and deep, synthetic upright bass walking G–F–E-flat–D. Add triangle or sine lead: slow call-and-response melody (three notes per bar, echo/reverb). Intermittent 'spore ping' accents: short, glassy sine pings at random beats."
+    },
+    {
+      "scene": "win",
+      "mood": "Triumphant yet mysterious—like solving a riddle in a moonlit club.",
+      "tempo_bpm": 105,
+      "loop": false,
+      "key_scale": "C major with jazzy extensions",
+      "procedural_hint": "4-bar phrase: Major 7th e-piano arpeggio (Cmaj7 - G13 - Dm9 - Fmaj7). Accent with short, upward sine glissando (400→900Hz, 0.3s), jazz brush stinger (snare+ride), and a sparkling mallet run (random notes C–E–G–B with reverb). All instruments fade quickly for a clean, hopeful finish."
+    },
+    {
+      "scene": "lose",
+      "mood": "Somber, unresolved, gently dissonant—captures a noir setback without harshness.",
+      "tempo_bpm": 74,
+      "loop": false,
+      "key_scale": "F# Locrian (dark jazz feel)",
+      "procedural_hint": "2-bar phrase: Low sine bass drones on F#-G, e-piano plays clusters (F#min7b5, G7alt); add single, echoing triangle note (F#) at the end. White noise 'hiss' swell (0.6s, fade out), simulating the city dimming."
+    }
+  ],
+  "sfx": [
+    {
+      "id": "match",
+      "when": "When player connects 3+ glowing fungal tiles (basic match).",
+      "feel": "Soft, glassy, bioluminescent ping—rewarding and organic, evoking spores lighting up.",
+      "synth_recipe": "waveform: sine; freq: 600Hz->1000Hz upward slide; duration: 0.18s; envelope: fast attack (0.01s), short decay (0.06s), smooth release (0.11s); add subtle stereo delay (40ms); lowpass filter at 2.2kHz for roundness."
+    },
+    {
+      "id": "tap_button",
+      "when": "Any UI button tap (menus, dialogs, abilities).",
+      "feel": "Crisp, minimal, tactile—a dry yet organic click with subtle jazz flavor.",
+      "synth_recipe": "waveform: triangle; freq: 850Hz; duration: 0.09s; envelope: instant attack (0), decay 0.02s, release 0.07s; add very light velocity-randomization; optionally overlay weak filtered noise burst (30ms)."
+    },
+    {
+      "id": "special_element",
+      "when": "Spawn or match of a special tile (e.g. Evidence Mushroom, Jazz Note Spore).",
+      "feel": "Magical, twinkly, mysterious—like a neon droplet echoing in a cavern.",
+      "synth_recipe": "waveform: sine; freq: 1100Hz, then quick arpeggio 1100-1400-1700Hz (3 notes, 0.03s apart); total duration: 0.18s; envelope: attack 0.02s, decay 0.06s, release 0.10s; reverb tail (short, 0.15s); wet level 50%."
+    },
+    {
+      "id": "win",
+      "when": "Level completed successfully.",
+      "feel": "Bright, lush, uplifting resonance—like a room lighting up with jazz applause.",
+      "synth_recipe": "waveform: sine+triangle (mixed); freq: C5-E5-G5 (chord, 3 notes triggered at once); duration: 0.35s; envelope: attack 0.01s, decay 0.12s, release 0.22s; add gentle stereo chorus effect; quick white noise burst (40ms) for sparkle."
+    },
+    {
+      "id": "lose",
+      "when": "Level fails (out of moves, darkness overcomes the grid).",
+      "feel": "Soft, minor, dissolving—like a memory fading in a jazz-blue mist.",
+      "synth_recipe": "waveform: sine; freq: 560Hz->300Hz downward slide; duration: 0.28s; envelope: attack 0.02s, decay 0.08s, release 0.18s; wet reverb (cave); lowpass filter at 1.2kHz for muffled tone."
+    },
+    {
+      "id": "booster",
+      "when": "Player activates a booster or power-up.",
+      "feel": "Energetic, jazzy flourish—evokes improvisational jazz runs powering up.",
+      "synth_recipe": "waveform: sine+triangle; freq: fast arpeggio (G4-B4-D5-F#5, 0.04s each); total duration: 0.16s; envelope: attack 0, decay 0.04s, release 0.12s; add subtle echo (delay 25ms); finish with a quick filtered noise sweep (lowpass 700->2.5kHz, 0.08s)."
+    }
+  ],
+  "mix": {
+    "master_feel": "Balanced, dreamy, and slightly lo-fi. Music is present but never drowns out SFX. SFX sit close to the player, music and ambience are slightly pushed back, with a wet, cave-y reverb overall. Avoid harsh highs; favor mellow mids and round lows.",
+    "ducking": "All SFX (match, win, special element, booster) trigger a sidechain duck on music (-6dB, 150ms attack, 300ms release) to ensure clarity of feedback.",
+    "haptics": "Vibration on: match (light tap, 20ms), booster (medium tap, 35ms), win (rapid short burst, 2x15ms spaced), lose (long single vibration, 60ms, soft). Never for UI taps."
+  }
+}

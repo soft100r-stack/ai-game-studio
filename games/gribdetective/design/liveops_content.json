@@ -1,0 +1,105 @@
+{
+  "content_budget": {
+    "target_hours": 100,
+    "total_levels": 500,
+    "avg_minutes_per_level": 4,
+    "how_math_reaches_target": "500 narrative-driven puzzle levels x 4 minutes = ~33 hours core gameplay. Remaining ~67 hours are delivered via meta progression (district, office, and jazz venue upgrades), seasonal events, deep collectible systems, story branches (alternate/secret case paths), competitive leaderboards, daily/weekly challenges, and narrative replay for secret endings. Replay value is amplified via roguelike randomization (level seeds, case order, clue placement) and evolving meta systems."
+  },
+  "meta_progression": [
+    {
+      "system": "Fungal District Expansion",
+      "description": "Unlock and renovate neon-lit city districts, each with unique visuals, story beats, and jazz venues. Districts offer new tile types, obstacles, and suspects.",
+      "depth": "10 districts, each with 4-7 upgrade stages (visual and gameplay impact)",
+      "pacing": "1 new district per 40 levels; further upgrades require collecting rare curios from events or completing narrative objectives, gradually unlocking over weeks."
+    },
+    {
+      "system": "Sporeboard Office Customization",
+      "description": "Upgrade and personalize Morchella's detective office: furniture, lighting, rare fungal décor, and jazz automata. Each upgrade provides small gameplay perks (extra intuition, hint reveals, soundtrack choices).",
+      "depth": "30+ unlockable décor/upgrades, 3-5 tiers per item type",
+      "pacing": "Unlocks via story progression and collections; higher tiers require full collections or event participation."
+    },
+    {
+      "system": "Memory Archive",
+      "description": "Archive collected dream fragments, unlocking new suspect profiles, hidden narrative scenes, and jazz tracks. Completing sets reveals backstory, secret cases, and rare cosmetic rewards.",
+      "depth": "50+ fragment sets, each with 3-7 pieces; meta-collection unlocks secret suspects/endings.",
+      "pacing": "Fragments are rare, with some only available from events or high-skill play; full archives take months to complete."
+    },
+    {
+      "system": "Detective Ability Mastery",
+      "description": "Level up core abilities (Pulse Reveal, Syncopate, etc.), unlocking new effects, shorter cooldowns, and visual upgrades.",
+      "depth": "5 abilities, each with 4 mastery tiers",
+      "pacing": "Mastery XP earned slowly from daily play, tournaments, and finishing challenging levels; tier unlocks are time-gated."
+    }
+  ],
+  "events": [
+    {
+      "name": "Nocturne Jazz Festival",
+      "type": "timed",
+      "cadence": "monthly",
+      "reward_loop": "Exclusive jazz-themed tile skins, limited festival collectibles, leaderboard placements grant rare dream fragments and unique décor",
+      "duration": "7 days"
+    },
+    {
+      "name": "Obscura's Shadow Hunt",
+      "type": "tournament",
+      "cadence": "every 2 weeks",
+      "reward_loop": "Compete to clear the most Dream Shadows; top ranks receive secret suspect profiles and consumable boosters",
+      "duration": "3 days"
+    },
+    {
+      "name": "Memory Speakeasy Crawl",
+      "type": "collection",
+      "cadence": "seasonal (quarterly)",
+      "reward_loop": "Players gather themed curios by completing festival levels; full collection unlocks a new jazz venue and special in-game soundtrack",
+      "duration": "2 weeks"
+    },
+    {
+      "name": "Dream Fade Crisis",
+      "type": "timed",
+      "cadence": "special (triggered mid-season)",
+      "reward_loop": "Community event: global progress meter for restoring city's dreams, milestone rewards grant premium clues and story cutscenes",
+      "duration": "5 days"
+    }
+  ],
+  "collections": [
+    {
+      "name": "Curios of the Lichen Market",
+      "items_count": 50,
+      "how_obtained": "Complete specific level goals, event rewards, daily challenges, rare drops from boss suspects",
+      "completion_reward": "Unlocks exclusive Lichen Market office décor set and a playable side story"
+    },
+    {
+      "name": "Echo Cap Dream Fragments",
+      "items_count": 50,
+      "how_obtained": "Fragment pieces found in story levels, rhythm-perfect chains, and as top rewards in tournaments",
+      "completion_reward": "Reveals a secret jazz track and a hidden suspect narrative arc"
+    },
+    {
+      "name": "Jazz Relic Set",
+      "items_count": 50,
+      "how_obtained": "Season pass milestones, festival participation, rare daily login streaks",
+      "completion_reward": "Exclusive protagonist customization (noir jazz-themed trench coat, animated effect)"
+    }
+  ],
+  "seasons": {
+    "structure": "Each 30-day season is themed (ex: 'Neon Dreams of the Underworld'), featuring unique cases, festival events, time-limited collectibles, and a new branch of the Memory Archive. Contains 50 progression tiers, each unlocking rewards like boosters, décor, custom jazz tracks, and premium resources. Season storylines branch and impact the world visuals for all players.",
+    "length_days": 30,
+    "season_pass_idea": "‘Dream Noir Pass’: free track offers basic boosters, décor, and collectibles; premium track provides exclusive suspect skins, animated office upgrades, and access to secret jazz venues with procedural music (flag MUSIC)."
+  },
+  "daily_engagement": [
+    "Sporebeat Daily Challenge: rhythm remix of core levels with unique modifiers and rewards",
+    "Fungal Fortune login: daily/weekly login streaks grant consumables and rare collectibles",
+    "Jazz Puzzle Assignments: rotating daily/weekly objectives (ex: clear X Dream Shadows, chain Y Jazz Note Spores on beat)",
+    "Office Upgrade Quests: micro-tasks that advance office customization or unlock visual upgrades",
+    "Dynamic News Board: in-game world events and story teasers refreshed daily"
+  ],
+  "endgame": [
+    "Weekly high-difficulty 'Obscura Remnants' levels with unique obstacles and randomized mechanics",
+    "Compete in community leaderboards for rare jazz tracks, décor, and cosmetic upgrades",
+    "Mastery challenges: earn gold stars/perfect ratings on all levels for secret endings and alternate story branches",
+    "Replay cases to unlock all narrative branches, suspect fates, and hidden jazz venues",
+    "Ongoing collection of seasonal/limited items for meta rewards and prestige status",
+    "Procedurally generated 'Final Dream' cases with increasing difficulty and rare meta drops"
+  ],
+  "retention_curve": "Compelling D1 through immediate jazz rhythm-puzzle hook and story primer. D7 supported by daily/weekly challenges, office upgrades, and early progression in collections/meta. D30 and D90 retention driven via deep meta-systems (district unlocks, customization, rare collections), recurring events/festivals, narrative replay/branching, and seasonal content updates. Alternate storylines, unpredictable event cadence, and prestige meta rewards maintain long-term engagement well beyond the core campaign."
+}

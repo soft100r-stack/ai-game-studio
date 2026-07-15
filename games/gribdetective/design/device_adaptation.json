@@ -1,0 +1,30 @@
+{
+  "reference_resolution": [
+    1080,
+    1920
+  ],
+  "stretch": {
+    "mode": "canvas_items",
+    "aspect": "expand",
+    "why": "The game's bioluminescent, atmospheric visuals and interactive mycelium board must always fill the screen edge-to-edge, immersing players in the neon-fungal noir world. 'Expand' ensures no letterboxing: the canvas stretches to fill any aspect ratio, cropping only safe, non-critical background glow, never UI or gameplay."
+  },
+  "safe_area": "Detect and respect device safe areas (notches, rounded corners, gesture bars) using OS APIs or Godot's safe margin hints. All HUD elements (score, jazz meter, clue icons) must be inset from the screen edge by the safe area margin. Never anchor UI directly at absolute 0, always offset by safe_area_top/bottom/left/right. The glowing HUD bars and buttons should visually 'hug' the safe area edge, as if illuminated by the city's neon spores, but never overlap cutouts.",
+  "anchors": {
+    "hud_top": "Anchor the top HUD (jazz meter, clues, navigation) to full width, top-aligned, with left/right insets matching safe_area_left/right. Height is fixed or proportional to reference, but always inside safe_area_top.",
+    "buttons_bottom": "Anchor main action buttons (e.g., 'Grow', 'Interrogate', 'Next Beat') to bottom center. Use horizontal center anchor, bottom-aligned, with bottom inset = safe_area_bottom + min margin. Buttons should cluster above gesture bars/notches, visually floating on a glowing mycelium patch.",
+    "board": "Center the puzzle/narrative board both vertically and horizontally within the available safe area (after HUD and buttons are placed). The board scales to fit max possible size without overlapping HUD or buttons, always maintaining aspect ratio based on current puzzle (cols x rows)."
+  },
+  "board_fit": "Calculate cell size as min((available_width / board_cols), (available_height / board_rows)), where available_width/height are the screen dimensions minus safe area and reserved HUD/button space. The board is always centered. If the board is smaller than the available area, surround it with animated neon mycelium and jazz-lit fog for thematic immersion.",
+  "orientation": "both — The game supports portrait and landscape. On orientation change, recalculate safe areas and reflow: in portrait, HUD is top/bottom, board is vertical; in landscape, HUD shifts to left/right, board is horizontal. Always maximize board size and keep critical UI visible and accessible.",
+  "device_profiles": [
+    {
+      "name": "phone 20:9",
+      "notes": "Tall, narrow screens: safe area at top/bottom is critical (camera notches, gesture bars). Board may be limited by height—ensure HUD and buttons don't crowd the board. Use vertical layout: top HUD, centered board, bottom buttons. Background neon/fog fills unused sides."
+    },
+    {
+      "name": "tablet 4:3",
+      "notes": "Wide, short screens: safe area less extreme, but board may be limited by width. Consider moving HUD to left/right edges in landscape, or using sidebars for clue collections and jazz meters. Board can be larger, but avoid stretching beyond safe area. Use extra space for animated city details (glowing fungal architecture)."
+    }
+  ],
+  "godot_settings": "In project.godot: set display/window/stretch/mode = 'canvas_items', display/window/stretch/aspect = 'expand'. Set display/window/size/width = 1080, height = 1920. Enable 'Allow Hidpi', 'Test Width/Height' for preview. Use 'Safe Margin' settings for all UI containers. Never use 'viewport' or '2d' stretch for this project."
+}

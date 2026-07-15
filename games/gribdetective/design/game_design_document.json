@@ -1,0 +1,45 @@
+{
+  "title": "Neon Mycelium: Dream Noir",
+  "tagline": "Grow the truth, one bioluminescent spore at a time.",
+  "genre": "roguelike narrative puzzle",
+  "setting": {
+    "world": "A sprawling subterranean city built by sentient fungi, illuminated by pulsating, colorful spores and tangled networks of glowing mycelium. The air is thick with jazz drifting from fungal speakeasies, and secrets lurk in the shadows of dripping stalactites. An ecosystem of dreams, memories, and bioluminescent life forms pulses beneath ancient cavernous ceilings.",
+    "era": "Futuristic-noir, but underground and organic",
+    "tone": "mysterious, moody, jazz-infused with surreal whimsy"
+  },
+  "protagonist": {
+    "name": "Detective Morchella",
+    "backstory": "Once a spore-runner hustling in the neon alleys, Morchella found purpose after solving a city-wide blackout caused by dream-thieves. Driven by intuition and an uncanny ability to 'hear' mycelium whispers, he now solves the city's strangest cases.",
+    "motivation": "Uncover the thief stealing dreams and restore the city's collective imagination before the spore-lamps go dark forever."
+  },
+  "core_hook": "Players grow and shape clues by rhythmically cultivating glowing mycelium, then piece together dream fragments to solve narrative mysteries and interrogate shadowy suspects in a shifting city.",
+  "meta_layer": {
+    "type": "story | collection | base_building",
+    "description": "Players collect unique dream fragments and fungal curios to unlock new noir jazz venues, personalized 'sporeboard' offices, and reveal deeper layers of the underground city.",
+    "progression": "Each solved mystery opens new districts, suspect types, and gives access to rarer clue-mushrooms, deepening both the city and protagonist's story via branching narrative trees."
+  },
+  "first_minute": "A cinematic intro fades in: neon spores rain over a foggy cityscape while jazz plays softly. Detective Morchella, in a trench coat made of woven mycelium, receives a whispered tip—a dream was stolen from a famous jazz singer. The player is instantly placed in the fungal club, where Morchella studies bioluminescent trails—gameplay prompts show how to tap and groove to the jazz beat, growing colored mycelium to uncover the first clue, triggering a short, stylized dream fragment cutscene.",
+  "retention_hooks": [
+    "Daily 'Sporebeat' challenges that remix core rhythm mechanics with new jazz tracks",
+    "Cliffhanger suspects: Each case ends with a mysterious new clue or hidden adversary",
+    "Limited-time dream fragment collections tied to in-game jazz festivals and noir events",
+    "Upgradable office and customizable detective 'look' with rare décor",
+    "Narrative branches and secret endings encouraging replay"
+  ],
+  "target_audience": {
+    "primary": "Young adults, 20-35, who love narrative mysteries, jazz, surreal worlds, and unique puzzle/rhythm hybrid mechanics",
+    "secondary": "Casual gamers seeking original worlds, puzzle fans, and those who enjoy light roguelike/procedural storytelling"
+  },
+  "kpi_targets": {
+    "d1_retention": 0.47,
+    "d7_retention": 0.23,
+    "d30_retention": 0.09,
+    "target_ltv_usd": 4.2,
+    "target_session_minutes": 10
+  },
+  "references": [
+    "Gris (for atmospheric aesthetic and layered storytelling)",
+    "Detective Grimoire (for quirky, interactive mysteries)",
+    "Crypt of the NecroDancer (for rhythm-based mechanics in unusual genre mashups)"
+  ]
+}

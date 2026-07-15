@@ -1,0 +1,102 @@
+{
+  "logline": "Grow luminous truths and chase stolen dreams through a noir underworld where memories pulse to jazz and only intuition can light the darkest caverns.",
+  "premise": "Beneath ancient stone and neon spores, Detective Morchella is called to solve the theft of a dream from a jazz legend—a crime threatening to unravel the city's very imagination. With each rhythmically grown mycelial clue, Morchella descends into a shifting maze of fungal suspects and surreal speakeasies, racing an unknown adversary before the spore-lamps wink out forever.",
+  "story_arc": {
+    "act1": "Morchella investigates the theft of renowned singer Lady Amanita’s dream in the decadent blue-lit 'Spore & Velvet' club, learning to cultivate and interpret glowing mycelium clues while forming uneasy alliances with quirky locals. Early cases pull Morchella deeper into the city's layered districts, revealing flickers of a bigger conspiracy and mysterious dream-fades affecting ordinary denizens.",
+    "act2": "The detective untangles a web of sabotaged jazz festivals, sentient spore-gangs, and rival memory-brokers. New suspects emerge as entire neighborhoods experience collective dream blackouts. Mycelial trails grow stranger, morphing with player choices—a secret organization, The Obscura, steps from the shadows, tempting Morchella with fragments of their own past.",
+    "act3": "With the city’s bioluminescence fading, Morchella tracks The Obscura to the city’s forgotten core, piecing together their own lost memories to confront the dream-thief orchestrating a 'great forgetting.' In a rhythm-infused showdown, Morchella must risk their own dreams to restore the city’s imagination, unlocking deep truths tied to both the city and themselves."
+  },
+  "heroes": [
+    {
+      "name": "Morchella",
+      "role": "protagonist",
+      "personality": "intuitive, understated, dry-witted",
+      "visual_hook": "trench coat woven from luminous fungal threads, glowing jazz-blue eyes",
+      "arc": "From a weary outsider haunted by dreams they cannot recall, Morchella regains faith in their intuition and connection to the city, learning to trust others and embrace fragments of their lost past.",
+      "sample_lines": [
+        "Every dream leaves a ripple. You just need to listen hard enough.",
+        "Spores always tell you the truth, if you know their tempo."
+      ]
+    },
+    {
+      "name": "Lady Amanita",
+      "role": "companion",
+      "personality": "enigmatic, proud, fiercely creative",
+      "visual_hook": "towering, wide-rimmed mushroom hat adorned with spore-veiled fringe",
+      "arc": "From a jaded cultural icon isolated by fame and fear, Lady Amanita becomes an active supporter, sharing her network and ultimately risking her voice to save the city’s dreams.",
+      "sample_lines": [
+        "Without dreams, what’s left to sing about?",
+        "People only hear my melody, but never the roots beneath."
+      ]
+    },
+    {
+      "name": "Sporelock",
+      "role": "mentor",
+      "personality": "eccentric, sharp-tongued, secretive",
+      "visual_hook": "ancient, vest-shaped polypore body, monocle carved from amber resin",
+      "arc": "Initially hiding crucial truths, Sporelock sheds cynicism as the danger grows, finally revealing the origins of the city's bioluminescence and their own culpability in past dream crimes.",
+      "sample_lines": [
+        "Only fools chase straight lines in a mycelium maze.",
+        "Secrets, like spores, are meant to drift—sometimes they land in dangerous soil."
+      ]
+    },
+    {
+      "name": "The Obscura",
+      "role": "antagonist",
+      "personality": "charismatic, manipulative, poetic",
+      "visual_hook": "faceless, shifting robe woven with flickering bioluminescent patterns, ever-morphing silhouette",
+      "arc": "A shadowy collective blending memory and dream, The Obscura tempts Morchella to join them, ultimately forcing a confrontation between surrendering to oblivion or reigniting hope.",
+      "sample_lines": [
+        "Why fear forgetting, when you could be blissfully awash in nothingness?",
+        "All light fades—only those who let go truly glow."
+      ]
+    }
+  ],
+  "player_goal": {
+    "long_term": "Uncover the true identity of the dream thief, unravel the greater conspiracy threatening the city's imagination, and restore bioluminescence to every district.",
+    "emotional_driver": "The city’s dreams and memories are on the brink of extinction, and only your intuition, rhythm, and empathy can save these uniquely surreal lives from darkness."
+  },
+  "chapter_tasks": [
+    {
+      "chapter": 1,
+      "title": "Spore & Velvet Shadows",
+      "objective": "Investigate Lady Amanita’s dream theft at the jazz club by tracking neon mycelium trails and interviewing eccentric staff.",
+      "story_beat": "Uncover the first dream fragment—proof that memories are being siphoned from artists.",
+      "reward": "Unlocks bioluminescent clue-growing mechanics and the protagonist’s office for upgrades."
+    },
+    {
+      "chapter": 2,
+      "title": "The Stolen Lullaby",
+      "objective": "Follow leads into the bustling Lichen Market, rhythm-grooving to decipher encrypted merchant spores.",
+      "story_beat": "Discover a rare 'Echo Cap' fungus, hinting that dream thefts are city-wide, not isolated.",
+      "reward": "Gains access to Sporelock, unlocking memory-detective skills and new suspects."
+    },
+    {
+      "chapter": 3,
+      "title": "Syncopated Sabotage",
+      "objective": "Thwart a sabotage attempt at a city-wide jazz festival, rescuing fellow detectives and tracing surreal clues in time with live music.",
+      "story_beat": "Confront a masked member of The Obscura, who offers Morchella a vision of their own lost memories.",
+      "reward": "Unlocks dream-fragment collection meta and customizable office décor."
+    },
+    {
+      "chapter": 4,
+      "title": "The Shadow Sporing",
+      "objective": "Infiltrate Obscura’s underground lair, solving rhythm puzzles that warp reality and reconstructing shattered dream-scapes.",
+      "story_beat": "Lady Amanita sacrifices her own remaining dream for Morchella’s survival, deepening their alliance.",
+      "reward": "Reveal of the city’s forgotten core and advanced mycelium growth powers."
+    },
+    {
+      "chapter": 5,
+      "title": "Refrain of the Forgotten",
+      "objective": "Piece together the city’s collective memory, facing The Obscura in a final, jazz-driven battle of dreams.",
+      "story_beat": "Morchella chooses between reclaiming their own lost dream or sacrificing it to restore the city’s future.",
+      "reward": "Unlocks secret endings, new replay branches, and full city bioluminescence restoration."
+    }
+  ],
+  "recurring_motifs": [
+    "Glowing, branching mycelium as interconnected memory and truth",
+    "Dreams as jazz improvisations—fluid, hidden, essential for life",
+    "Neon as hope flickering in the dark"
+  ],
+  "tone_of_voice": "Moody, poetic, laced with noir wit and pulses of surreal whimsy"
+}
