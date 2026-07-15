@@ -42,7 +42,9 @@ OLLAMA_CODE_MODEL = os.environ.get("OLLAMA_CODE_MODEL", os.environ.get("OLLAMA_M
 # Язык ответов студии. English — самый надёжный для LLM (нет «съезда» языков) и глобальный рынок.
 STUDIO_LANG = os.environ.get("STUDIO_LANG", "English")
 
-CLAUDE_MODEL = os.environ.get("CLAUDE_MODEL", "claude-fable-5")  # код через Fable 5
+# claude-sonnet-5 — надёжный кодер. Fable 5 (reasoning+thinking) на больших код-запросах
+# отдаёт пустой ответ и не берёт temperature — для одношаговой генерации кода не годится.
+CLAUDE_MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5")
 OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
 # Ретраи на вызов (сетевые сбои). При 17 агентах шанс блипа выше — держим запас.
 MAX_RETRIES = int(os.environ.get("MAX_RETRIES", "6"))
