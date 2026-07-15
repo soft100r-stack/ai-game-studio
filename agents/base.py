@@ -155,8 +155,9 @@ class BaseAgent:
             system=sys_prompt,
             messages=[{"role": "user", "content": user_message}],
         )
-        # Fable 5 и подобные не принимают temperature (deprecated) — не шлём его им.
-        if "fable" not in CLAUDE_MODEL.lower():
+        # Новые Claude (5-е поколение: sonnet-5, fable-5, ...) НЕ принимают temperature
+        # (deprecated → 400). По умолчанию не шлём; для старых моделей можно включить env.
+        if os.environ.get("CLAUDE_SEND_TEMPERATURE"):
             kwargs["temperature"] = self.temperature
         # Стриминг обязателен для больших max_tokens (иначе SDK падает на >10 мин).
         parts = []
