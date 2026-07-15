@@ -1,0 +1,71 @@
+{
+  "style_suffix": "in the style of a mobile game puzzle sprite, painterly vector with organic softness, deep indigo-violet underlighting, neon rim glow, clean soft-edged silhouette, centered on transparent background, no text, no watermark, subtle blue-violet core ambient light, magenta/cyan edge reflect, waxy beveled feel",
+  "textures": [
+    {
+      "id": "glow_spore_blue",
+      "role": "tile",
+      "transparent": true,
+      "prompt": "A single rounded hexagonal tile, edges slightly irregular and softened like a living fungal cell. The main body is semi-translucent, wet-looking mushroom skin with a spongy gloss, vertical gradient from deep indigo-violet at the base to bright cyan-blue (#44B9E4) at the top right. Contrasting pale cyan mycelium veins branch to the edges, partially translucent, layered painterly style. Sharp neon cyan rim glow (accent color: #44B9E4) strongest on upper right and lower left. Specular crescent highlight on top right. Internal bioluminescent glow, softly pulsing and blurred. Overlay: filamentous cyan mycelium network radiates from the tile center, with subtle floating cyan spore motes. Bevel is outward and waxy. Centered, clean edges, transparent background."
+    },
+    {
+      "id": "glow_spore_pink",
+      "role": "tile",
+      "transparent": true,
+      "prompt": "A single soft-edged, asymmetrical rounded hexagon tile, appearing organic and slightly irregular. Main body is semi-translucent wet mushroom skin, vertical gradient from deep indigo-violet base to vibrant magenta-pink (#E55FCB) at the top right. Internal soft branching veins in light pink and white, partially translucent. Neon pink rim glow (accent color: #E55FCB), strongest on upper right and lower left. Sharp semi-oval specular highlight top right. Soft, blurred pulsing bioluminescence inside. Overlay: central pulsing magenta circle with subtle heart-shaped mycelial threads extending outward, and a faint heartbeat visual pulse. Outward waxy beveled edge, painterly-light style. Centered, crisp silhouette, transparent background."
+    },
+    {
+      "id": "glow_spore_green",
+      "role": "tile",
+      "transparent": true,
+      "prompt": "An organic, slightly asymmetric rounded hexagon tile resembling a living fungal cell. The body is semi-translucent mushroom skin, with a vertical gradient from deep indigo-violet at base to acid-lime green (#53F29D) at the top right, spongy soft gloss. Glowing green rim light (accent color: #53F29D) with sharpest glow at upper right and lower left corners. Fine lime-green mycelial veins sweep through, softly branching and partly translucent. Specular bright highlight at top right. Faint internal bioluminescent glow. Overlay: core has a brilliant acid-lime bioluminescent center with drifting, gently swaying thin mycelium strands, animated gentle weave. Waxy beveled edge. Centered, no text, transparent background."
+    },
+    {
+      "id": "glow_spore_gold",
+      "role": "tile",
+      "transparent": true,
+      "prompt": "A single rounded, slightly irregular hexagonal tile, organic and soft-edged like a fungal cell. Main body: semi-translucent mushroom skin, vertical gradient from deep indigo-violet at base to glowing gold-yellow (#E8E856) at top right, with subtle outward waxy bevel and painterly gloss. Neon gold rim glow (accent color: #E8E856), strongest on upper right and lower left. Crackled gold-white mycelium vein web overlays the body, branching throughout. Clusters of tiny glinting gold spore motes sparkle inside, subtle internal bioluminescent glow, specular crescent highlight on top right. Clear, centered, on transparent background."
+    },
+    {
+      "id": "mycelium_strand",
+      "role": "tile",
+      "transparent": true,
+      "prompt": "A rounded-corner, asymmetric hexagon tile, semi-translucent with spongy-gloss mushroom texture. Main color is pale blue-cyan (#A0ECF2) blended with soft gold highlight (#EFC158), vertical gradient. Neon cyan rim glow (#44B9E4) strongest on upper right and lower left. Internal painterly branching white and blue mycelial veins. Specular crescent highlight top right, faint bioluminescent inner glow. Overlay: a twisting bundle of semi-translucent pale blue threads spirals out from the core, with a blue-white pulse of light moving along the strands. Transparent background, soft bevel, centered."
+    },
+    {
+      "id": "dream_shadow",
+      "role": "obstacle",
+      "transparent": true,
+      "prompt": "A swirling, wispy haze floats above the tile center—black-indigo and semi-opaque, with ragged, fractal smoky edges, animated. The haze partially obscures the tile beneath, but faint flashes of lost magenta and cyan light glint below. A subtle, softly pulsing blue-violet glow rims the contact edges. No hard borders, the wisp visually floats and drifts. Transparent background, centered, clean fade at edges."
+    },
+    {
+      "id": "obscura_veil",
+      "role": "obstacle",
+      "transparent": true,
+      "prompt": "A rippling, vertical translucent shadow veil overlays a rounded hexagonal tile, stitched with flickering bioluminescent glyphs in deep purple (#5C3E99) and neon gold (#EFC158). The veil lightly shimmers with vertical motion, distorting the partially visible tile below to appear warped and distant. Soft outline shimmer, rhythmic pulses in the patterns, subtle painterly blur. Transparent background, centered, clean border."
+    },
+    {
+      "id": "evidence_mushroom",
+      "role": "bonus_tile",
+      "transparent": true,
+      "prompt": "A large, domed mushroom cap overlays the center of a rounded hexagonal tile. The cap is soft pastel pink (#F29BB4) dotted with clusters of glowing white-gold spots (#EFC158). Mushroom gills are visible underneath. The rim of the cap glows with a shifting, animated rainbow sheen, and a faint bioluminescent underlight colors the base tile. Drifting spore dust animates upwards, the rim pulses with color on combo. Painterly, semi-organic, soft edges, centered, transparent background."
+    },
+    {
+      "id": "jazz_note_spore",
+      "role": "special_tile",
+      "transparent": true,
+      "prompt": "A single rounded hexagonal tile, painterly-textured with a semi-translucent, organic mushroom feel. Overlay: a neon-blue musical eighth note (#44B9E4) with a bright gold rim (#E8E856), growing upward from the tile's center mycelium node. The musical note pulses in size and brightness, with faint blue/yellow sparkles radiating from its core. Background tile is subtly lit and fits the overall neon fungal style. Outward waxy bevel, centered, transparent background."
+    },
+    {
+      "id": "bg_game",
+      "role": "background",
+      "transparent": false,
+      "prompt": "A moody, atmospheric mural of a sprawling subterranean city built entirely from bioluminescent fungi. Tangled networks of glowing mycelium crisscross massive cavern halls, with shimmering neon spores raining gently through deep indigo and violet fog. Soft reflections illuminate organic stone facades and mushroom towers, small glowing windows dotting the undercity. The style is painterly, color-rich, saturated with pulses of blue, magenta, gold, and green light. Jazz speakeasy neon signage in fungal motifs is visible in the midground, all immersed in subtle drifting mist. No UI elements, no text, fills a 16:9 landscape, intricate and glowing, not photorealistic."
+    },
+    {
+      "id": "bg_lobby",
+      "role": "background",
+      "transparent": false,
+      "prompt": "Interior of a detective's office carved into living mycelium, dimly lit with glowing bioluminescent veins across organic walls. Jazz-era furnishings woven from fungal fibers—spore-lamp on desk, scattered bioluminescent curios, mushroom-shaped coat rack, and a bulletin board of glowing dream fragments and suspect silhouettes. Tone is deep noir with surreal organic twists, saturated blues and purples, pulsing warm accent lights, atmospheric, painterly. Central area is clear for overlays, no text."
+    }
+  ]
+}

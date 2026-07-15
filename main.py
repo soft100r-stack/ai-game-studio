@@ -309,9 +309,17 @@ def run_code_only(game_id: str):
     levels_files = sorted(glob.glob(os.path.join(game_dir, "levels", "levels_*.json")))
     levels = _load_json(levels_files[0]) if levels_files else {"levels": []}
 
+    # Текстуры (флаг TEXTURES) — генерим PNG в проект, чтобы код взял их как Sprite2D.
+    # Если уже сгенерены ранее — переиспользуем манифест.
+    textures = _opt_json(os.path.join(design, "texture_manifest.json"))
+    if os.environ.get("TEXTURES") and not textures:
+        print("[CodeOnly] Генерация текстур (PNG-спрайты)...")
+        textures = TextureArtistAgent().run(game_dir, gdd, mechanics, art_style)
+
     DeveloperAgent().run(game_dir, gdd, mechanics, art_style, levels, monetization,
                          narrative=narrative, boosters=boosters,
-                         story=story, liveops=liveops, device=device, audio=audio)
+                         story=story, liveops=liveops, device=device, audio=audio,
+                         textures=textures)
     _write_launcher(game_dir)
     print(f"\nГОТОВО (только код). Проект: {os.path.join(game_dir, 'source', 'godot_project')}")
 
