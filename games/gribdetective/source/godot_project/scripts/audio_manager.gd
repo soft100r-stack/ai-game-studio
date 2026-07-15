@@ -1,127 +1,123 @@
 extends Node
 
-var current_music_scene: String = ""
+var sfx_player: AudioStreamPlayer
 var music_player: AudioStreamPlayer
-var master_volume_db: float = -10.0
+var current_music: String = ''
 
 func _ready() -> void:
+	sfx_player = AudioStreamPlayer.new()
 	music_player = AudioStreamPlayer.new()
-	music_player.name = "ProceduralMusicPlayer"
-	music_player.volume_db = -22.0
+	music_player.volume_db = -18.0
+	sfx_player.volume_db = -7.0
+	add_child(sfx_player)
 	add_child(music_player)
 
-func play_music(scene: String) -> void:
-	if current_music_scene == scene and music_player.playing:
+func play_sfx(id: String) -> void:
+	if sfx_player == null:
 		return
-	current_music_scene = scene
-	var base_freq: float = 146.83
-	if scene == "gameplay":
-		base_freq = 196.0
-	elif scene == "win":
-		base_freq = 261.63
-	elif scene == "lose":
-		base_freq = 185.0
-	music_player.stop()
-	music_player.stream = _make_loop_stream(base_freq, scene)
+	var stream: AudioStreamWAV
+	match id:
+		'match':
+			stream = _make_tone(600.0, 1000.0, 0.18, 0.55)
+		'tap_button':
+			stream = _make_tone(850.0, 820.0, 0.09, 0.35)
+		'special_element':
+			stream = _make_chord([1100.0, 1400.0, 1700.0], 0.18, 0.45)
+		'win':
+			stream = _make_chord([523.25, 659.25, 783.99], 0.35, 0.55)
+		'lose':
+			stream = _make_tone(560.0, 300.0, 0.28, 0.45)
+		'booster':
+			stream = _make_chord([392.0, 493.88, 587.33, 739.99], 0.18, 0.45)
+		_:
+			stream = _make_tone(600.0, 600.0, 0.08, 0.25)
+	if stream != null:
+		sfx_player.stream = stream
+		sfx_player.play()
+
+func play_music(scene: String) -> void:
+	if music_player == null or current_music == scene:
+		return
+	current_music = scene
+	var base: float = 146.83
+	if scene == 'gameplay':
+		base = 196.0
+	elif scene == 'win':
+		base = 261.63
+	elif scene == 'lose':
+		base = 185.0
+	music_player.stream = _make_loop_drone(base, scene != 'win' and scene != 'lose')
 	music_player.play()
 
 func stop_music() -> void:
-	if is_instance_valid(music_player):
+	if music_player != null:
 		music_player.stop()
+	current_music = ''
 
-func play_sfx(id: String) -> void:
-	var player: AudioStreamPlayer = AudioStreamPlayer.new()
-	player.volume_db = master_volume_db
-	add_child(player)
-	player.stream = _make_sfx_stream(id)
-	player.finished.connect(Callable(player, "queue_free"))
-	player.play()
-
-func _make_loop_stream(base_freq: float, scene: String) -> AudioStreamWAV:
-	var rate: int = 22050
-	var seconds: float = 4.0
-	if scene == "win" or scene == "lose":
-		seconds = 2.0
-	var frames: int = int(rate * seconds)
+func _make_tone(start_hz: float, end_hz: float, duration: float, volume: float) -> AudioStreamWAV:
+	var sample_rate: int = 22050
+	var frames: int = int(duration * float(sample_rate))
 	var data: PackedByteArray = PackedByteArray()
 	data.resize(frames * 2)
-	var chord: Array[float] = [1.0, 1.2, 1.5, 2.0]
-	if scene == "gameplay":
-		chord = [1.0, 1.189, 1.334, 1.782]
-	elif scene == "lose":
-		chord = [1.0, 1.06, 1.414]
-	for i in range(frames):
-		var t: float = float(i) / float(rate)
-		var pulse: float = 0.55 + 0.45 * sin(TAU * 0.85 * t)
-		var sample: float = 0.0
-		for m in chord:
-			sample += sin(TAU * base_freq * m * t) * 0.08
-		sample += sin(TAU * base_freq * 0.5 * t) * 0.12 * pulse
-		if scene == "gameplay":
-			sample += sin(TAU * base_freq * 2.0 * t) * 0.035 * (0.5 + 0.5 * sin(TAU * 3.2 * t))
-		var v: int = clampi(int(sample * 32767.0), -32768, 32767)
-		data.encode_s16(i * 2, v)
+	for i: int in range(frames):
+		var t: float = float(i) / float(sample_rate)
+		var k: float = float(i) / max(1.0, float(frames - 1))
+		var freq: float = lerpf(start_hz, end_hz, k)
+		var env: float = sin(k * PI)
+		var sample: int = int(sin(TAU * freq * t) * env * volume * 32767.0)
+		data.encode_s16(i * 2, sample)
 	var wav: AudioStreamWAV = AudioStreamWAV.new()
 	wav.format = AudioStreamWAV.FORMAT_16_BITS
-	wav.mix_rate = rate
+	wav.mix_rate = sample_rate
 	wav.stereo = false
 	wav.data = data
-	wav.loop_mode = AudioStreamWAV.LOOP_FORWARD
-	wav.loop_begin = 0
-	wav.loop_end = frames
 	return wav
 
-func _make_sfx_stream(id: String) -> AudioStreamWAV:
-	var rate: int = 44100
-	var duration: float = 0.18
-	var start_freq: float = 850.0
-	var end_freq: float = 850.0
-	if id == "match":
-		duration = 0.18
-		start_freq = 600.0
-		end_freq = 1000.0
-	elif id == "special_element":
-		duration = 0.24
-		start_freq = 1100.0
-		end_freq = 1700.0
-	elif id == "win":
-		duration = 0.42
-		start_freq = 523.25
-		end_freq = 783.99
-	elif id == "lose":
-		duration = 0.32
-		start_freq = 560.0
-		end_freq = 300.0
-	elif id == "booster":
-		duration = 0.22
-		start_freq = 392.0
-		end_freq = 740.0
-	elif id == "tap_button":
-		duration = 0.09
-		start_freq = 850.0
-		end_freq = 850.0
-	var frames: int = int(rate * duration)
+func _make_chord(freqs: Array[float], duration: float, volume: float) -> AudioStreamWAV:
+	var sample_rate: int = 22050
+	var frames: int = int(duration * float(sample_rate))
 	var data: PackedByteArray = PackedByteArray()
 	data.resize(frames * 2)
-	for i in range(frames):
-		var p: float = float(i) / float(max(frames - 1, 1))
-		var freq: float = lerpf(start_freq, end_freq, p)
-		if id == "booster":
-			var arp: Array[float] = [392.0, 493.88, 587.33, 739.99]
-			freq = arp[min(int(p * 4.0), 3)]
-		var env: float = min(p / 0.08, 1.0) * pow(1.0 - p, 1.7)
-		if id == "tap_button":
-			env = pow(1.0 - p, 2.0)
-		var wave: float = sin(TAU * freq * float(i) / float(rate))
-		if id == "tap_button" or id == "booster":
-			wave = asin(sin(TAU * freq * float(i) / float(rate))) * 0.6366
-		if id == "win":
-			wave = (sin(TAU * 523.25 * float(i) / float(rate)) + sin(TAU * 659.25 * float(i) / float(rate)) + sin(TAU * 783.99 * float(i) / float(rate))) / 3.0
-		var v: int = clampi(int(wave * env * 22000.0), -32768, 32767)
-		data.encode_s16(i * 2, v)
+	for i: int in range(frames):
+		var t: float = float(i) / float(sample_rate)
+		var k: float = float(i) / max(1.0, float(frames - 1))
+		var env: float = sin(k * PI)
+		var mixed: float = 0.0
+		for freq: float in freqs:
+			mixed += sin(TAU * freq * t)
+		mixed /= float(freqs.size())
+		var sample: int = int(mixed * env * volume * 32767.0)
+		data.encode_s16(i * 2, sample)
 	var wav: AudioStreamWAV = AudioStreamWAV.new()
 	wav.format = AudioStreamWAV.FORMAT_16_BITS
-	wav.mix_rate = rate
+	wav.mix_rate = sample_rate
 	wav.stereo = false
+	wav.data = data
+	return wav
+
+func _make_loop_drone(base_hz: float, should_loop: bool) -> AudioStreamWAV:
+	var sample_rate: int = 22050
+	var duration: float = 4.0
+	var frames: int = int(duration * float(sample_rate))
+	var data: PackedByteArray = PackedByteArray()
+	data.resize(frames * 2)
+	var freqs: Array[float] = [base_hz, base_hz * 1.5, base_hz * 2.0, base_hz * 2.25]
+	for i: int in range(frames):
+		var t: float = float(i) / float(sample_rate)
+		var bar: float = fmod(t, 1.0)
+		var env: float = 0.35 + 0.35 * sin(TAU * bar)
+		var mixed: float = 0.0
+		for freq: float in freqs:
+			mixed += sin(TAU * freq * t) * 0.25
+		mixed += sin(TAU * base_hz * 0.5 * t) * 0.35
+		var sample: int = int(mixed * env * 0.35 * 32767.0)
+		data.encode_s16(i * 2, sample)
+	var wav: AudioStreamWAV = AudioStreamWAV.new()
+	wav.format = AudioStreamWAV.FORMAT_16_BITS
+	wav.mix_rate = sample_rate
+	wav.stereo = false
+	wav.loop_mode = AudioStreamWAV.LOOP_FORWARD if should_loop else AudioStreamWAV.LOOP_DISABLED
+	wav.loop_begin = 0
+	wav.loop_end = frames
 	wav.data = data
 	return wav

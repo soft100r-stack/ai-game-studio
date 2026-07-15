@@ -1,526 +1,513 @@
 extends Node2D
 
 var content_data: Dictionary = {}
-var levels: Array = []
-var story_data: Dictionary = {}
+var texture_manifest: Dictionary = {}
+var current_level: Dictionary = {}
+var board: MyceliumBoard
 var ui_layer: CanvasLayer
-var ui_root: Control
-var board: NeonMyceliumBoard
-var top_panel: PanelContainer
-var bottom_panel: PanelContainer
-var lobby_panel: Control
-var overlay_panel: PanelContainer
-var title_label: Label
-var stats_label: Label
-var goal_label: Label
-var message_label: Label
-var selected_level_index: int = 0
-var current_stats: Dictionary = {}
-var pending_story_lines: Array[String] = []
-var pending_story_callback: Callable = Callable()
-var story_line_index: int = 0
+var root_ui: Control
+var bg_node: Control
+var hud_top: PanelContainer
+var hud_label: Label
+var story_panel: PanelContainer
+var story_label: Label
+var status_label: Label
+var bottom_bar: HBoxContainer
+var state: String = 'lobby'
+var free_booster_turns: int = 0
+var safe_margin: Rect2 = Rect2(28, 28, 28, 28)
 
 func _ready() -> void:
 	_load_content()
-	_create_ui_root()
-	AudioManager.play_music("lobby")
-	show_lobby()
-	get_viewport().size_changed.connect(_layout_all)
-	queue_redraw()
-
-func _draw() -> void:
-	var size: Vector2 = get_viewport_rect().size
-	var top: Color = Color("#18182C")
-	var bottom: Color = Color("#311C40")
-	draw_rect(Rect2(Vector2.ZERO, size), top, true)
-	for i in range(36):
-		var x: float = fmod(float(i * 173) + float(Time.get_ticks_msec()) * (0.006 + float(i % 5) * 0.002), size.x + 120.0) - 60.0
-		var y: float = fmod(float(i * 251) + sin(float(Time.get_ticks_msec()) * 0.0007 + float(i)) * 80.0, size.y)
-		var c: Color = [Color("#44B9E4"), Color("#E55FCB"), Color("#53F29D"), Color("#E8E856")][i % 4]
-		c.a = 0.10
-		draw_circle(Vector2(x, y), 3.0 + float(i % 4), c)
-	# Office silhouettes and noir windows.
-	draw_rect(Rect2(size.x * 0.08, size.y * 0.08, size.x * 0.84, size.y * 0.22), Color(0.08, 0.07, 0.15, 0.35), true)
-	for i in range(5):
-		var wx: float = size.x * (0.14 + float(i) * 0.17)
-		draw_rect(Rect2(wx, size.y * 0.11, size.x * 0.08, size.y * 0.13), Color(0.12, 0.20, 0.32, 0.65), true)
-		draw_rect(Rect2(wx + 5.0, size.y * 0.12, size.x * 0.08 - 10.0, size.y * 0.02), Color(0.27, 0.73, 0.89, 0.22), true)
-	# Morchella's organic desk in the lobby/game background.
-	var desk_y: float = size.y * 0.82
-	draw_circle(Vector2(size.x * 0.5, desk_y), size.x * 0.28, Color(0.12, 0.08, 0.14, 0.45))
-	draw_rect(Rect2(size.x * 0.25, desk_y - 28.0, size.x * 0.5, 60.0), Color("#273455"), true)
-	draw_circle(Vector2(size.x * 0.68, desk_y - 42.0), 28.0, Color("#EFC158"))
-	draw_circle(Vector2(size.x * 0.68, desk_y - 42.0), 18.0, Color("#44B9E4"))
-
-func _process(_delta: float) -> void:
-	queue_redraw()
-
-func _load_content() -> void:
-	var file: FileAccess = FileAccess.open("res://data/content.json", FileAccess.READ)
-	if file == null:
-		content_data = {}
-		levels = []
-		story_data = {}
-		return
-	var parsed: Variant = JSON.parse_string(file.get_as_text())
-	if typeof(parsed) == TYPE_DICTIONARY:
-		content_data = parsed
-		levels = Array(content_data.get("levels", []))
-		story_data = Dictionary(content_data.get("story", {}))
-
-func _create_ui_root() -> void:
 	ui_layer = CanvasLayer.new()
 	add_child(ui_layer)
-	ui_root = Control.new()
-	ui_root.name = "AdaptiveUIRoot"
-	ui_root.set_anchors_preset(Control.PRESET_FULL_RECT)
-	ui_layer.add_child(ui_root)
+	root_ui = Control.new()
+	root_ui.set_anchors_preset(Control.PRESET_FULL_RECT)
+	ui_layer.add_child(root_ui)
+	get_viewport().size_changed.connect(_on_resized)
+	GameState.changed.connect(_refresh_lobby_if_needed)
+	AdManager.rewarded_completed.connect(_on_rewarded_completed)
+	show_lobby()
 
-func _clear_ui() -> void:
-	for child in ui_root.get_children():
+func _load_content() -> void:
+	var file: FileAccess = FileAccess.open('res://data/content.json', FileAccess.READ)
+	if file != null:
+		var parsed: Variant = JSON.parse_string(file.get_as_text())
+		if typeof(parsed) == TYPE_DICTIONARY:
+			content_data = parsed
+	texture_manifest = content_data.get('texture_manifest', {})
+
+func show_lobby() -> void:
+	state = 'lobby'
+	AudioManager.play_music('lobby')
+	_clear_scene()
+	_add_background('bg_lobby', Color('#18182C'))
+	var panel: VBoxContainer = VBoxContainer.new()
+	panel.set_anchors_preset(Control.PRESET_FULL_RECT)
+	panel.offset_left = 44
+	panel.offset_right = -44
+	panel.offset_top = 70
+	panel.offset_bottom = -60
+	panel.alignment = BoxContainer.ALIGNMENT_CENTER
+	panel.add_theme_constant_override('separation', 24)
+	root_ui.add_child(panel)
+	var title: Label = _make_label('NEON MYCELIUM\nDREAM NOIR', 54, Color('#A0ECF2'), HORIZONTAL_ALIGNMENT_CENTER)
+	panel.add_child(title)
+	var tag: Label = _make_label('Grow the truth, one bioluminescent spore at a time.', 25, Color('#EFC158'), HORIZONTAL_ALIGNMENT_CENTER)
+	panel.add_child(tag)
+	var story: Label = _make_label(_lobby_story_text(), 24, Color.WHITE, HORIZONTAL_ALIGNMENT_CENTER)
+	story.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	panel.add_child(story)
+	var progress: Label = _make_label('Case Level: %d / 10    Dream Fragments: %d    Stored Clue Energy: %d' % [GameState.highest_unlocked_level, GameState.dream_fragments, GameState.total_clue_energy], 24, Color('#A0ECF2'), HORIZONTAL_ALIGNMENT_CENTER)
+	panel.add_child(progress)
+	var play: Button = _make_button('PLAY CASE %d' % GameState.highest_unlocked_level)
+	play.custom_minimum_size = Vector2(460, 96)
+	play.pressed.connect(_on_play_pressed)
+	panel.add_child(play)
+	var row: HBoxContainer = HBoxContainer.new()
+	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	row.add_theme_constant_override('separation', 14)
+	panel.add_child(row)
+	var reward: Button = _make_button('WATCH WHISPER: +1 FRAGMENT')
+	reward.pressed.connect(func() -> void:
+		AudioManager.play_sfx('tap_button')
+		AdManager.show_rewarded('office_screen', 'dream_fragments', 1)
+	)
+	row.add_child(reward)
+	var reset: Button = _make_button('REPLAY LEVEL 1')
+	reset.pressed.connect(func() -> void:
+		AudioManager.play_sfx('tap_button')
+		GameState.current_level = 1
+		_start_level(1)
+	)
+	row.add_child(reset)
+	var boosters: Label = _make_label('Boosters: Chord x%d | Veil Ripper x%d | Blossom x%d | Inspiration x%d' % [int(GameState.booster_inventory.get('luminescent_chord', 0)), int(GameState.booster_inventory.get('veil_ripper', 0)), int(GameState.booster_inventory.get('synesthesia_blossom', 0)), int(GameState.booster_inventory.get('jazzmans_inspiration', 0))], 22, Color('#F29BB4'), HORIZONTAL_ALIGNMENT_CENTER)
+	panel.add_child(boosters)
+	_apply_safe_area()
+
+func _lobby_story_text() -> String:
+	var intro: Array = content_data.get('intro_cutscene', [])
+	var lines: Array[String] = []
+	for i: int in range(min(3, intro.size())):
+		lines.append(String(intro[i]))
+	if GameState.completed_levels.size() > 0:
+		lines.append('The Sporeboard glows brighter. Each solved case pins another dream to Morchella’s wall.')
+	return '\n'.join(lines)
+
+func _on_play_pressed() -> void:
+	AudioManager.play_sfx('tap_button')
+	_start_level(GameState.highest_unlocked_level)
+
+func _start_level(level_num: int) -> void:
+	var levels: Array = content_data.get('levels', [])
+	var found: Dictionary = {}
+	for item: Variant in levels:
+		var d: Dictionary = item
+		if int(d.get('num', 0)) == level_num:
+			found = d
+			break
+	if found.is_empty():
+		show_lobby()
+		return
+	current_level = found
+	var before: Array[String] = _chapter_lines(level_num, true)
+	before.append('Case %d: %s — %s' % [level_num, String(found.get('name', 'Unknown')), String(found.get('narrative_beat', ''))])
+	show_story(before, func() -> void:
+		_enter_gameplay()
+	)
+
+func show_story(lines: Array[String], callback: Callable) -> void:
+	state = 'story'
+	_clear_scene()
+	_add_background('bg_lobby', Color('#18182C'))
+	var panel: PanelContainer = _make_panel()
+	panel.set_anchors_preset(Control.PRESET_CENTER)
+	panel.custom_minimum_size = Vector2(860, 720)
+	root_ui.add_child(panel)
+	var box: VBoxContainer = VBoxContainer.new()
+	box.add_theme_constant_override('separation', 22)
+	panel.add_child(box)
+	var title: Label = _make_label('MYCELIUM WHISPER', 38, Color('#EFC158'), HORIZONTAL_ALIGNMENT_CENTER)
+	box.add_child(title)
+	var label: Label = _make_label('\n\n'.join(lines), 26, Color.WHITE, HORIZONTAL_ALIGNMENT_CENTER)
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	box.add_child(label)
+	var next: Button = _make_button('FOLLOW THE GLOW')
+	next.pressed.connect(func() -> void:
+		AudioManager.play_sfx('tap_button')
+		callback.call()
+	)
+	box.add_child(next)
+	_apply_safe_area()
+
+func _enter_gameplay() -> void:
+	state = 'game'
+	AudioManager.play_music('gameplay')
+	_clear_scene()
+	_add_background('bg_game', Color('#18182C'))
+	board = MyceliumBoard.new()
+	add_child(board)
+	board.setup(current_level, texture_manifest)
+	board.match_resolved.connect(_on_board_stats)
+	_build_game_ui()
+	_refit_board()
+
+func _build_game_ui() -> void:
+	hud_top = _make_panel()
+	hud_top.set_anchors_preset(Control.PRESET_TOP_WIDE)
+	hud_top.custom_minimum_size = Vector2(0, 150)
+	root_ui.add_child(hud_top)
+	var hud_box: VBoxContainer = VBoxContainer.new()
+	hud_box.add_theme_constant_override('separation', 6)
+	hud_top.add_child(hud_box)
+	hud_label = _make_label('', 24, Color('#A0ECF2'), HORIZONTAL_ALIGNMENT_CENTER)
+	hud_box.add_child(hud_label)
+	status_label = _make_label('Drag through 3+ matching adjacent spores. Beat-bright matches charge jazz.', 20, Color('#EFC158'), HORIZONTAL_ALIGNMENT_CENTER)
+	status_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	hud_box.add_child(status_label)
+	bottom_bar = HBoxContainer.new()
+	bottom_bar.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	bottom_bar.alignment = BoxContainer.ALIGNMENT_CENTER
+	bottom_bar.add_theme_constant_override('separation', 8)
+	root_ui.add_child(bottom_bar)
+	_add_game_button('Pulse Reveal', _use_pulse_reveal)
+	_add_game_button('Syncopate', _use_syncopate)
+	_add_game_button('Spore Grow', _use_spore_grow)
+	_add_game_button('Chord', _use_luminescent_chord)
+	_add_game_button('Veil', _use_veil_ripper)
+	_add_game_button('Blossom', _use_synesthesia)
+	_add_game_button('Inspire', _use_jazzman)
+	_add_game_button('Exit', show_lobby)
+	_apply_safe_area()
+
+func _add_game_button(text: String, call: Callable) -> void:
+	var b: Button = _make_button(text)
+	b.custom_minimum_size = Vector2(124, 70)
+	b.pressed.connect(func() -> void:
+		AudioManager.play_sfx('tap_button')
+		call.call()
+	)
+	bottom_bar.add_child(b)
+
+func _on_board_stats(stats: Dictionary) -> void:
+	_update_hud(stats)
+	if stats.has('length'):
+		var note: String = 'On beat!' if bool(stats.get('on_beat', false)) else 'Off beat, but the spores still listened.'
+		status_label.text = '%s Chain %d: +%d clue energy, +%d dream fragments.' % [note, int(stats.get('length', 0)), int(stats.get('energy_gain', 0)), int(stats.get('fragments_gain', 0))]
+	_check_end_conditions()
+
+func _update_hud(stats: Dictionary = {}) -> void:
+	if board == null or hud_label == null:
+		return
+	var params: Dictionary = current_level.get('params', {})
+	hud_label.text = 'Moves %d | Clue %d/%d | Jazz %d%% | Fragments %d/%d | Obstacles %d | Intuition %d' % [board.moves_left, board.clue_energy, int(params.get('clue_energy_goal', 0)), board.jazz_meter, board.dream_fragments, int(params.get('dream_fragments_goal', 0)), board.count_obstacles(), _level_intuition()]
+
+func _check_end_conditions() -> void:
+	if board == null:
+		return
+	var params: Dictionary = current_level.get('params', {})
+	var clue_ok: bool = board.clue_energy >= int(params.get('clue_energy_goal', 0))
+	var fragments_ok: bool = board.dream_fragments >= int(params.get('dream_fragments_goal', 0))
+	var jazz_goal_ok: bool = board.jazz_meter >= int(params.get('jazz_meter_goal', 0))
+	var obstacles_ok: bool = board.count_obstacles() == 0 if int(params.get('obstacles', 0)) > 0 or int(params.get('obscura_veil', 0)) > 0 else true
+	var veils_ok: bool = board.count_veils() == 0 if int(params.get('obscura_veil', 0)) > 0 else true
+	if clue_ok and fragments_ok and jazz_goal_ok and obstacles_ok and veils_ok:
+		_win_level()
+	elif board.moves_left <= 0:
+		var min_jazz: int = int(params.get('jazz_meter_min', 0))
+		if min_jazz > 0 and board.jazz_meter < min_jazz:
+			_lose_level('The groove fell below %d%%, and darkness swallowed the trail.' % min_jazz)
+		else:
+			_lose_level('The last move fades. The clue-root withers before it can bloom.')
+
+func _win_level() -> void:
+	if state != 'game':
+		return
+	state = 'win'
+	AudioManager.play_sfx('win')
+	AudioManager.play_music('win')
+	var clue_reward: int = board.clue_energy
+	var fragment_reward: int = max(1, board.dream_fragments)
+	GameState.complete_level(int(current_level.get('num', 1)), clue_reward, fragment_reward)
+	var after: Array[String] = _chapter_lines(int(current_level.get('num', 1)), false)
+	after.append('Reward: Dream-Fragment Collection — Patchwork memories awaken the city’s imagination.')
+	_show_result(true, after)
+
+func _lose_level(reason: String) -> void:
+	if state != 'game':
+		return
+	state = 'lose'
+	AudioManager.play_sfx('lose')
+	AudioManager.play_music('lose')
+	_show_result(false, [reason, 'MORCHELLA: Spores always tell the truth. Tonight, they told me to try again.'])
+
+func _show_result(won: bool, lines: Array[String]) -> void:
+	if is_instance_valid(board):
+		board.queue_free()
+		board = null
+	_clear_scene()
+	_add_background('bg_lobby', Color('#18182C'))
+	var panel: PanelContainer = _make_panel()
+	panel.set_anchors_preset(Control.PRESET_CENTER)
+	panel.custom_minimum_size = Vector2(860, 760)
+	root_ui.add_child(panel)
+	var box: VBoxContainer = VBoxContainer.new()
+	box.add_theme_constant_override('separation', 18)
+	panel.add_child(box)
+	box.add_child(_make_label('CASE SOLVED' if won else 'CASE WENT COLD', 44, Color('#A0ECF2') if won else Color('#F29BB4'), HORIZONTAL_ALIGNMENT_CENTER))
+	var text: Label = _make_label('\n\n'.join(lines), 25, Color.WHITE, HORIZONTAL_ALIGNMENT_CENTER)
+	text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	box.add_child(text)
+	var row: HBoxContainer = HBoxContainer.new()
+	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	row.add_theme_constant_override('separation', 14)
+	box.add_child(row)
+	var next: Button = _make_button('BACK TO OFFICE')
+	next.pressed.connect(show_lobby)
+	row.add_child(next)
+	if won:
+		var encore: Button = _make_button('REWARDED ENCORE')
+		encore.pressed.connect(func() -> void:
+			AudioManager.play_sfx('tap_button')
+			AdManager.show_rewarded('level_completed', 'dream_fragments', 2)
+		)
+		row.add_child(encore)
+	else:
+		var retry: Button = _make_button('RETRY CASE')
+		retry.pressed.connect(func() -> void:
+			AudioManager.play_sfx('tap_button')
+			_start_level(int(current_level.get('num', 1)))
+		)
+		row.add_child(retry)
+	_apply_safe_area()
+
+func _use_pulse_reveal() -> void:
+	if board == null:
+		return
+	if board.free_turns <= 0 and board.clue_energy < 15:
+		status_label.text = 'Pulse Reveal needs 15 clue energy, unless Jazzman’s Inspiration is active.'
+		return
+	if board.free_turns <= 0:
+		board.clue_energy -= 15
+	var result: Dictionary = board.activate_pulse_reveal()
+	AudioManager.play_sfx('booster')
+	status_label.text = 'Pulse Reveal collected %d %s spores.' % [int(result.get('collected', 0)), String(result.get('color', 'neon'))]
+	_check_end_conditions()
+
+func _use_syncopate() -> void:
+	if board == null:
+		return
+	var result: Dictionary = board.activate_syncopate()
+	AudioManager.play_sfx('booster')
+	status_label.text = 'Syncopate tore rhythm through %d shadows and veils.' % int(result.get('cleared', 0))
+	_check_end_conditions()
+
+func _use_spore_grow() -> void:
+	if board == null:
+		return
+	if board.free_turns <= 0 and board.clue_energy < 20:
+		status_label.text = 'Spore Grow needs 20 clue energy.'
+		return
+	if board.free_turns <= 0:
+		board.clue_energy -= 20
+	var result: Dictionary = board.activate_spore_grow()
+	AudioManager.play_sfx('special_element')
+	status_label.text = 'Spore Grow raised %d Evidence Mushrooms.' % int(result.get('grown', 0))
+
+func _use_luminescent_chord() -> void:
+	if board == null:
+		return
+	if int(GameState.booster_inventory.get('luminescent_chord', 0)) <= 0 and board.free_turns <= 0:
+		status_label.text = 'No Luminescent Chords in your case file.'
+		return
+	if board.free_turns <= 0 and board.clue_energy < 25:
+		status_label.text = 'Luminescent Chord needs 25 clue energy.'
+		return
+	if board.free_turns <= 0:
+		board.clue_energy -= 25
+		GameState.spend_booster('luminescent_chord')
+	board.set_pending_booster('luminescent_chord')
+	AudioManager.play_sfx('booster')
+	status_label.text = 'Tap any tile: the Chord will clear a mycelium cross.'
+
+func _use_veil_ripper() -> void:
+	if board == null:
+		return
+	if int(GameState.booster_inventory.get('veil_ripper', 0)) <= 0 and board.free_turns <= 0:
+		status_label.text = 'No Veil Rippers available.'
+		return
+	if board.free_turns <= 0:
+		GameState.spend_booster('veil_ripper')
+	var result: Dictionary = board.activate_veil_ripper()
+	AudioManager.play_sfx('booster')
+	status_label.text = 'Veil Ripper exposed %d Obscura Veils.' % int(result.get('cleared', 0))
+	_check_end_conditions()
+
+func _use_synesthesia() -> void:
+	if board == null:
+		return
+	if int(GameState.booster_inventory.get('synesthesia_blossom', 0)) <= 0 and board.free_turns <= 0:
+		status_label.text = 'No Synesthesia Blossoms in the office drawer.'
+		return
+	if board.free_turns <= 0 and not GameState.spend_dream_fragments(2):
+		status_label.text = 'Synesthesia Blossom costs 2 dream fragments.'
+		return
+	if board.free_turns <= 0:
+		GameState.spend_booster('synesthesia_blossom')
+	var result: Dictionary = board.activate_synesthesia()
+	AudioManager.play_sfx('special_element')
+	status_label.text = 'Synesthesia transformed %d spores into Jazz Notes.' % int(result.get('changed', 0))
+
+func _use_jazzman() -> void:
+	if board == null:
+		return
+	if int(GameState.booster_inventory.get('jazzmans_inspiration', 0)) <= 0:
+		status_label.text = 'Jazzman’s Inspiration unlocks after deeper case victories.'
+		return
+	if not GameState.spend_dream_fragments(5):
+		status_label.text = 'Jazzman’s Inspiration costs 5 dream fragments.'
+		return
+	GameState.spend_booster('jazzmans_inspiration')
+	board.activate_jazzmans_inspiration()
+	AudioManager.play_sfx('booster')
+	status_label.text = 'All abilities are free for 3 turns. The whole city swings.'
+
+func _chapter_lines(level_num: int, before: bool) -> Array[String]:
+	var chapter: int = clampi(int(ceil(float(level_num) / 2.0)), 1, 5)
+	var scenes: Array = content_data.get('chapter_scenes', [])
+	for item: Variant in scenes:
+		var scene: Dictionary = item
+		if int(scene.get('chapter', 0)) == chapter:
+			var arr: Array = scene.get('before_lines' if before else 'after_lines', [])
+			var out: Array[String] = []
+			for line: Variant in arr:
+				out.append(String(line))
+			return out
+	return []
+
+func _level_intuition() -> int:
+	return 3 + int(GameState.upgrade_tiers.get('sporeboard_enhancement', 0))
+
+func _on_rewarded_completed(_placement_id: String, reward_id: String, amount: int) -> void:
+	if reward_id == 'dream_fragments':
+		GameState.add_dream_fragments(amount)
+	elif reward_id == 'veil_ripper':
+		GameState.add_booster('veil_ripper', amount)
+	if state == 'lobby':
+		show_lobby()
+
+func _refresh_lobby_if_needed() -> void:
+	if state == 'lobby':
+		show_lobby()
+
+func _on_resized() -> void:
+	_apply_safe_area()
+	_refit_board()
+
+func _refit_board() -> void:
+	if board == null:
+		return
+	var size: Vector2 = get_viewport_rect().size
+	var landscape: bool = size.x > size.y
+	var left: float = 36.0
+	var right: float = 36.0
+	var top: float = 190.0
+	var bottom: float = 145.0
+	if landscape:
+		left = 260.0
+		right = 260.0
+		top = 35.0
+		bottom = 35.0
+	var rect: Rect2 = Rect2(Vector2(left, top), Vector2(max(220.0, size.x - left - right), max(220.0, size.y - top - bottom)))
+	board.fit_to_rect(rect)
+
+func _apply_safe_area() -> void:
+	var size: Vector2 = get_viewport_rect().size
+	var inset: float = 28.0
+	if hud_top != null:
+		hud_top.offset_left = inset
+		hud_top.offset_right = -inset
+		hud_top.offset_top = inset
+		hud_top.offset_bottom = inset + 150.0
+	if bottom_bar != null:
+		bottom_bar.offset_left = inset
+		bottom_bar.offset_right = -inset
+		bottom_bar.offset_top = -118.0 - inset
+		bottom_bar.offset_bottom = -inset
+	if bg_node != null:
+		bg_node.set_anchors_preset(Control.PRESET_FULL_RECT)
+		bg_node.offset_left = 0
+		bg_node.offset_top = 0
+		bg_node.offset_right = 0
+		bg_node.offset_bottom = 0
+
+func _clear_scene() -> void:
+	for child: Node in root_ui.get_children():
 		child.queue_free()
 	if is_instance_valid(board):
 		board.queue_free()
 		board = null
+	bg_node = null
+	hud_top = null
+	hud_label = null
+	status_label = null
+	bottom_bar = null
 
-func _safe_margin() -> Vector4:
-	var base: float = 28.0
-	var top_extra: float = 26.0
-	var bottom_extra: float = 20.0
-	return Vector4(base, base + top_extra, base, base + bottom_extra)
-
-func show_lobby() -> void:
-	_clear_ui()
-	AudioManager.play_music("lobby")
-	lobby_panel = Control.new()
-	lobby_panel.set_anchors_preset(Control.PRESET_FULL_RECT)
-	ui_root.add_child(lobby_panel)
-	var safe: Vector4 = _safe_margin()
-	var column: VBoxContainer = VBoxContainer.new()
-	column.anchor_left = 0.05
-	column.anchor_right = 0.95
-	column.anchor_top = 0.05
-	column.anchor_bottom = 0.95
-	column.offset_left = safe.x
-	column.offset_right = -safe.z
-	column.offset_top = safe.y
-	column.offset_bottom = -safe.w
-	column.alignment = BoxContainer.ALIGNMENT_CENTER
-	column.add_theme_constant_override("separation", 24)
-	lobby_panel.add_child(column)
-	title_label = Label.new()
-	title_label.text = "NEON MYCELIUM\nDREAM NOIR"
-	title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	title_label.add_theme_font_size_override("font_size", 58)
-	title_label.add_theme_color_override("font_color", Color("#A0ECF2"))
-	column.add_child(title_label)
-	var tagline: Label = Label.new()
-	tagline.text = "Grow the truth, one bioluminescent spore at a time."
-	tagline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	tagline.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	tagline.add_theme_font_size_override("font_size", 25)
-	tagline.add_theme_color_override("font_color", Color("#EFC158"))
-	column.add_child(tagline)
-	var story: Label = Label.new()
-	story.text = _lobby_story_text()
-	story.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	story.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	story.add_theme_font_size_override("font_size", 23)
-	story.add_theme_color_override("font_color", Color.WHITE)
-	column.add_child(story)
-	var progress: Label = Label.new()
-	progress.text = "Case %d unlocked • Stored Dream Fragments: %d • Office Tier: %d" % [GameState.highest_unlocked_level, GameState.dream_fragments, int(GameState.upgrades.get("sporeboard_enhancement", 0))]
-	progress.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	progress.add_theme_font_size_override("font_size", 24)
-	progress.add_theme_color_override("font_color", Color("#53F29D"))
-	column.add_child(progress)
-	var play_button: Button = _make_button("PLAY CURRENT CASE")
-	play_button.custom_minimum_size = Vector2(0, 86)
-	play_button.pressed.connect(_on_play_pressed)
-	column.add_child(play_button)
-	var row: HBoxContainer = HBoxContainer.new()
-	row.alignment = BoxContainer.ALIGNMENT_CENTER
-	row.add_theme_constant_override("separation", 12)
-	column.add_child(row)
-	var prev_button: Button = _make_button("◀")
-	prev_button.pressed.connect(_prev_level)
-	row.add_child(prev_button)
-	var level_label: Label = Label.new()
-	level_label.name = "LevelSelectLabel"
-	selected_level_index = clamp(GameState.current_unit - 1, 0, max(levels.size() - 1, 0))
-	level_label.text = _selected_level_text()
-	level_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	level_label.custom_minimum_size = Vector2(460, 70)
-	level_label.add_theme_color_override("font_color", Color("#A0ECF2"))
-	level_label.add_theme_font_size_override("font_size", 22)
-	row.add_child(level_label)
-	var next_button: Button = _make_button("▶")
-	next_button.pressed.connect(_next_level)
-	row.add_child(next_button)
-	var upgrade_button: Button = _make_button("UPGRADE SPOREBOARD (2/4/6 fragments)")
-	upgrade_button.pressed.connect(_try_upgrade_office)
-	column.add_child(upgrade_button)
-	AdManager.show_banner("office_screen")
-	_layout_all()
-
-func _lobby_story_text() -> String:
-	var stage: int = int(GameState.upgrades.get("sporeboard_enhancement", 0)) + 1
-	if GameState.progress_level <= 1:
-		return "Jazz seeps through the cracks. Detective Morchella waits in a dim office while Lady Amanita's stolen dream flickers on the sporeboard."
-	if stage >= 3:
-		return "The office blooms with golden mycelium and case threads. The city remembers more each night, but The Obscura still hums beneath the floorboards."
-	return "Morchella's Sporeboard glows brighter now: new lamps, stranger files, and a gramophone grown from trumpet fungus. Every fragment sharpens the trail."
-
-func _selected_level_text() -> String:
-	if levels.is_empty():
-		return "No cases loaded"
-	var level: Dictionary = levels[selected_level_index]
-	return "Case %d: %s\n%s" % [int(level.get("num", 1)), String(level.get("name", "Unknown")), String(level.get("narrative_beat", ""))]
-
-func _prev_level() -> void:
-	AudioManager.play_sfx("tap_button")
-	selected_level_index = max(0, selected_level_index - 1)
-	GameState.set_current_unit(selected_level_index + 1)
-	show_lobby()
-
-func _next_level() -> void:
-	AudioManager.play_sfx("tap_button")
-	selected_level_index = min(min(GameState.highest_unlocked_level - 1, levels.size() - 1), selected_level_index + 1)
-	GameState.set_current_unit(selected_level_index + 1)
-	show_lobby()
-
-func _try_upgrade_office() -> void:
-	AudioManager.play_sfx("tap_button")
-	if GameState.upgrade("sporeboard_enhancement"):
-		show_story(["Office Upgrade: A sanctuary woven from memory and neon. Morchella pins a new thread to the sporeboard, and the room exhales blue light."], Callable(self, "show_lobby"))
+func _add_background(id: String, fallback: Color) -> void:
+	var path: String = String(texture_manifest.get(id, ''))
+	var loaded: Resource = null
+	if path != '':
+		loaded = load(path)
+	if loaded is Texture2D:
+		var tex_rect: TextureRect = TextureRect.new()
+		tex_rect.texture = loaded
+		tex_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		tex_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+		root_ui.add_child(tex_rect)
+		root_ui.move_child(tex_rect, 0)
+		bg_node = tex_rect
 	else:
-		show_story(["Sporelock taps the ledger. 'Decor needs fragments, detective. Truth is expensive when it glows.'"], Callable(self, "show_lobby"))
+		var color_rect: ColorRect = ColorRect.new()
+		color_rect.color = fallback
+		root_ui.add_child(color_rect)
+		root_ui.move_child(color_rect, 0)
+		bg_node = color_rect
+	_apply_safe_area()
 
-func _on_play_pressed() -> void:
-	AudioManager.play_sfx("tap_button")	
-	AdManager.hide_banner()
-	var lines: Array[String] = []
-	if GameState.progress_level <= 1 and selected_level_index == 0:
-		lines.append_array(_string_array(story_data.get("intro_cutscene", [])))
-	lines.append_array(_chapter_before_lines(selected_level_index + 1))
-	if lines.is_empty():
-		_start_selected_level()
-	else:
-		show_story(lines, Callable(self, "_start_selected_level"))
-
-func _start_selected_level() -> void:
-	_clear_ui()
-	AudioManager.play_music("gameplay")
-	var level: Dictionary = levels[selected_level_index]
-	board = NeonMyceliumBoard.new()
-	board.name = "NeonMyceliumBoard"
-	add_child(board)
-	board.stats_changed.connect(_on_board_stats)
-	board.level_won.connect(_on_level_won)
-	board.level_lost.connect(_on_level_lost)
-	board.story_event.connect(_on_story_event)
-	_build_game_hud()
-	board.setup(level)
-	_layout_all()
-
-func _build_game_hud() -> void:
-	top_panel = PanelContainer.new()
-	top_panel.name = "TopHUD"
-	ui_root.add_child(top_panel)
-	var top_box: VBoxContainer = VBoxContainer.new()
-	top_box.add_theme_constant_override("separation", 4)
-	top_panel.add_child(top_box)
-	stats_label = Label.new()
-	stats_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	stats_label.add_theme_font_size_override("font_size", 24)
-	stats_label.add_theme_color_override("font_color", Color("#A0ECF2"))
-	top_box.add_child(stats_label)
-	goal_label = Label.new()
-	goal_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	goal_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	goal_label.add_theme_font_size_override("font_size", 21)
-	goal_label.add_theme_color_override("font_color", Color.WHITE)
-	top_box.add_child(goal_label)
-	message_label = Label.new()
-	message_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	message_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	message_label.add_theme_font_size_override("font_size", 18)
-	message_label.add_theme_color_override("font_color", Color("#EFC158"))
-	top_box.add_child(message_label)
-	bottom_panel = PanelContainer.new()
-	bottom_panel.name = "BottomActions"
-	ui_root.add_child(bottom_panel)
-	var bottom_box: VBoxContainer = VBoxContainer.new()
-	bottom_box.add_theme_constant_override("separation", 8)
-	bottom_panel.add_child(bottom_box)
-	var ability_row: HBoxContainer = HBoxContainer.new()
-	ability_row.alignment = BoxContainer.ALIGNMENT_CENTER
-	ability_row.add_theme_constant_override("separation", 8)
-	bottom_box.add_child(ability_row)
-	_add_action_button(ability_row, "Pulse", Callable(self, "_use_pulse"))
-	_add_action_button(ability_row, "Sync", Callable(self, "_use_syncopate"))
-	_add_action_button(ability_row, "Grow", Callable(self, "_use_spore_grow"))
-	var booster_row: HBoxContainer = HBoxContainer.new()
-	booster_row.alignment = BoxContainer.ALIGNMENT_CENTER
-	booster_row.add_theme_constant_override("separation", 8)
-	bottom_box.add_child(booster_row)
-	_add_action_button(booster_row, "Chord", Callable(self, "_use_chord"))
-	_add_action_button(booster_row, "Ripper", Callable(self, "_use_ripper"))
-	_add_action_button(booster_row, "Blossom", Callable(self, "_use_blossom"))
-	_add_action_button(booster_row, "Echo", Callable(self, "_use_echo"))
-	_add_action_button(booster_row, "Jazzman", Callable(self, "_use_jazzman"))
-
-func _add_action_button(parent: Control, text: String, callable: Callable) -> void:
-	var b: Button = _make_button(text)
-	b.custom_minimum_size = Vector2(112, 58)
-	b.pressed.connect(callable)
-	parent.add_child(b)
+func _make_label(text: String, font_size: int, color: Color, align: HorizontalAlignment) -> Label:
+	var label: Label = Label.new()
+	label.text = text
+	label.horizontal_alignment = align
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.add_theme_font_size_override('font_size', font_size)
+	label.add_theme_color_override('font_color', color)
+	label.add_theme_color_override('font_shadow_color', Color(0, 0, 0, 0.65))
+	label.add_theme_constant_override('shadow_offset_x', 2)
+	label.add_theme_constant_override('shadow_offset_y', 2)
+	return label
 
 func _make_button(text: String) -> Button:
-	var b: Button = Button.new()
-	b.text = text
-	b.focus_mode = Control.FOCUS_NONE
-	b.add_theme_font_size_override("font_size", 20)
-	b.add_theme_color_override("font_color", Color.WHITE)
-	var normal: StyleBoxFlat = StyleBoxFlat.new()
-	normal.bg_color = Color("#273455")
-	normal.border_color = Color("#44B9E4")
-	normal.set_border_width_all(3)
-	normal.set_corner_radius_all(18)
-	var hover: StyleBoxFlat = normal.duplicate()
-	hover.bg_color = Color("#315277")
-	hover.border_color = Color("#E55FCB")
-	var pressed: StyleBoxFlat = normal.duplicate()
-	pressed.bg_color = Color("#1B1327")
-	pressed.border_color = Color("#EFC158")
-	b.add_theme_stylebox_override("normal", normal)
-	b.add_theme_stylebox_override("hover", hover)
-	b.add_theme_stylebox_override("pressed", pressed)
-	return b
+	var button: Button = Button.new()
+	button.text = text
+	button.add_theme_font_size_override('font_size', 20)
+	button.add_theme_color_override('font_color', Color.WHITE)
+	button.add_theme_stylebox_override('normal', _style(Color('#273455'), Color('#44B9E4')))
+	button.add_theme_stylebox_override('hover', _style(Color('#31436D'), Color('#E55FCB')))
+	button.add_theme_stylebox_override('pressed', _style(Color('#1B1327'), Color('#EFC158')))
+	return button
 
-func _layout_all() -> void:
-	var size: Vector2 = get_viewport_rect().size
-	var safe: Vector4 = _safe_margin()
-	var portrait: bool = size.y >= size.x
-	if is_instance_valid(top_panel):
-		top_panel.anchor_left = 0.0
-		top_panel.anchor_right = 1.0
-		top_panel.anchor_top = 0.0
-		top_panel.anchor_bottom = 0.0
-		top_panel.offset_left = safe.x
-		top_panel.offset_right = -safe.z
-		top_panel.offset_top = safe.y
-		top_panel.offset_bottom = safe.y + (150.0 if portrait else 110.0)
-	if is_instance_valid(bottom_panel):
-		bottom_panel.anchor_left = 0.0
-		bottom_panel.anchor_right = 1.0
-		bottom_panel.anchor_top = 1.0
-		bottom_panel.anchor_bottom = 1.0
-		bottom_panel.offset_left = safe.x
-		bottom_panel.offset_right = -safe.z
-		bottom_panel.offset_bottom = -safe.w
-		bottom_panel.offset_top = -safe.w - (156.0 if portrait else 118.0)
-	if is_instance_valid(board):
-		var top_reserved: float = safe.y + (170.0 if portrait else 125.0)
-		var bottom_reserved: float = safe.w + (180.0 if portrait else 140.0)
-		var area: Rect2 = Rect2(Vector2(safe.x, top_reserved), Vector2(size.x - safe.x - safe.z, size.y - top_reserved - bottom_reserved))
-		board.set_board_area(area)
-
-func _on_board_stats(stats: Dictionary) -> void:
-	current_stats = stats
-	if is_instance_valid(stats_label):
-		stats_label.text = "%s   Moves:%d   Intuition:%d   Jazz:%d%%" % [String(stats.get("level_name", "Case")), int(stats.get("moves", 0)), int(stats.get("intuition", 0)), int(stats.get("jazz_meter", 0))]
-	if is_instance_valid(goal_label):
-		var goal_parts: Array[String] = []
-		goal_parts.append("Clue %d/%d" % [int(stats.get("clue_energy", 0)), int(stats.get("clue_goal", 0))])
-		if int(stats.get("fragment_goal", 0)) > 0:
-			goal_parts.append("Fragments %d/%d" % [int(stats.get("dream_fragments", 0)), int(stats.get("fragment_goal", 0))])
-		if int(stats.get("jazz_goal", 0)) > 0:
-			goal_parts.append("Jazz Goal %d%%" % int(stats.get("jazz_goal", 0)))
-		if int(stats.get("obstacles", 0)) > 0:
-			goal_parts.append("Obstacles %d" % int(stats.get("obstacles", 0)))
-		goal_label.text = " • ".join(goal_parts)
-	if is_instance_valid(message_label):
-		message_label.text = String(stats.get("message", ""))
-
-func _use_pulse() -> void:
-	AudioManager.play_sfx("tap_button")
-	if is_instance_valid(board):
-		board.pulse_reveal()
-
-func _use_syncopate() -> void:
-	AudioManager.play_sfx("tap_button")
-	if is_instance_valid(board):
-		board.syncopate()
-
-func _use_spore_grow() -> void:
-	AudioManager.play_sfx("tap_button")
-	if is_instance_valid(board):
-		board.spore_grow()
-
-func _use_chord() -> void:
-	AudioManager.play_sfx("tap_button")
-	if is_instance_valid(board):
-		board.prepare_luminescent_chord()
-
-func _use_ripper() -> void:
-	AudioManager.play_sfx("tap_button")
-	if is_instance_valid(board):
-		board.veil_ripper()
-
-func _use_blossom() -> void:
-	AudioManager.play_sfx("tap_button")
-	if is_instance_valid(board):
-		board.synesthesia_blossom()
-
-func _use_echo() -> void:
-	AudioManager.play_sfx("tap_button")
-	if is_instance_valid(board):
-		board.obscura_echo()
-
-func _use_jazzman() -> void:
-	AudioManager.play_sfx("tap_button")
-	if is_instance_valid(board):
-		board.jazzmans_inspiration()
-
-func _on_story_event(text: String) -> void:
-	show_story([text], Callable())
-
-func _on_level_won(result: Dictionary) -> void:
-	var level_num: int = int(result.get("level", 1))
-	var clue_reward: int = int(result.get("clue_energy", 0))
-	var fragment_reward: int = max(1, int(result.get("dream_fragments", 0)))
-	GameState.complete_level(level_num, clue_reward, fragment_reward)
-	AudioManager.play_music("win")
-	var lines: Array[String] = []
-	lines.append("Case Complete: %s" % String(levels[selected_level_index].get("name", "Dream Case")))
-	lines.append("You nurtured a truth until it pulsed with light. Reward: %d clue energy and %d dream fragments." % [clue_reward, fragment_reward])
-	lines.append_array(_chapter_after_lines(level_num))
-	show_story(lines, Callable(self, "_show_win_panel"))
-
-func _on_level_lost(result: Dictionary) -> void:
-	AudioManager.play_music("lose")
-	var lines: Array[String] = [String(result.get("reason", "The trail went cold.")), "Morchella closes the case file for now. In Neon Mycelium, even failure leaves spores to follow."]
-	show_story(lines, Callable(self, "_show_lose_panel"))
-
-func _show_win_panel() -> void:
-	_show_result_panel("CASE SOLVED", "The city glows a little brighter. Return to the office and choose the next thread.", true)
-
-func _show_lose_panel() -> void:
-	_show_result_panel("DREAM FADED", "Watch a rewarded whisper for one bonus fragment, or return to the office and try the groove again.", false)
-
-func _show_result_panel(title: String, body: String, won: bool) -> void:
-	_clear_ui()
-	AudioManager.play_music("win" if won else "lose")
+func _make_panel() -> PanelContainer:
 	var panel: PanelContainer = PanelContainer.new()
-	panel.anchor_left = 0.08
-	panel.anchor_right = 0.92
-	panel.anchor_top = 0.22
-	panel.anchor_bottom = 0.78
-	ui_root.add_child(panel)
-	var box: VBoxContainer = VBoxContainer.new()
-	box.alignment = BoxContainer.ALIGNMENT_CENTER
-	box.add_theme_constant_override("separation", 20)
-	panel.add_child(box)
-	var t: Label = Label.new()
-	t.text = title
-	t.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	t.add_theme_font_size_override("font_size", 46)
-	t.add_theme_color_override("font_color", Color("#A0ECF2") if won else Color("#F29BB4"))
-	box.add_child(t)
-	var b: Label = Label.new()
-	b.text = body
-	b.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	b.add_theme_font_size_override("font_size", 24)
-	b.add_theme_color_override("font_color", Color.WHITE)
-	box.add_child(b)
-	if not won:
-		var ad_button: Button = _make_button("REWARDED WHISPER (+1 fragment)")
-		ad_button.pressed.connect(_rewarded_fragment)
-		box.add_child(ad_button)
-	var office_button: Button = _make_button("BACK TO OFFICE")
-	office_button.pressed.connect(show_lobby)
-	box.add_child(office_button)
+	panel.add_theme_stylebox_override('panel', _style(Color(0.08, 0.05, 0.13, 0.88), Color('#44B9E4')))
+	return panel
 
-func _rewarded_fragment() -> void:
-	AudioManager.play_sfx("tap_button")
-	AdManager.rewarded_completed.connect(_on_rewarded_fragment, CONNECT_ONE_SHOT)
-	AdManager.show_rewarded_ad("placement_1")
-
-func _on_rewarded_fragment(_placement: String, success: bool) -> void:
-	if success:
-		GameState.add_dream_fragments(1)
-		show_story(["The city whispers one more insight. A dream fragment settles into Morchella's palm."], Callable(self, "show_lobby"))
-
-func show_story(lines: Array[String], callback: Callable) -> void:
-	pending_story_lines = lines
-	pending_story_callback = callback
-	story_line_index = 0
-	if pending_story_lines.is_empty():
-		if callback.is_valid():
-			callback.call()
-		return
-	if is_instance_valid(overlay_panel):
-		overlay_panel.queue_free()
-	overlay_panel = PanelContainer.new()
-	overlay_panel.anchor_left = 0.05
-	overlay_panel.anchor_right = 0.95
-	overlay_panel.anchor_top = 0.28
-	overlay_panel.anchor_bottom = 0.74
-	ui_root.add_child(overlay_panel)
-	var box: VBoxContainer = VBoxContainer.new()
-	box.alignment = BoxContainer.ALIGNMENT_CENTER
-	box.add_theme_constant_override("separation", 18)
-	overlay_panel.add_child(box)
-	var label: Label = Label.new()
-	label.name = "StoryText"
-	label.text = pending_story_lines[0]
-	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.add_theme_font_size_override("font_size", 26)
-	label.add_theme_color_override("font_color", Color.WHITE)
-	label.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	box.add_child(label)
-	var continue_button: Button = _make_button("CONTINUE")
-	continue_button.pressed.connect(_advance_story)
-	box.add_child(continue_button)
-
-func _advance_story() -> void:
-	AudioManager.play_sfx("tap_button")
-	story_line_index += 1
-	if story_line_index >= pending_story_lines.size():
-		if is_instance_valid(overlay_panel):
-			overlay_panel.queue_free()
-		if pending_story_callback.is_valid():
-			pending_story_callback.call()
-		return
-	var label: Label = overlay_panel.find_child("StoryText", true, false) as Label
-	if is_instance_valid(label):
-		label.text = pending_story_lines[story_line_index]
-
-func _chapter_before_lines(level_num: int) -> Array[String]:
-	var chapter: int = int(ceil(float(level_num) / 2.0))
-	var scenes: Array = Array(story_data.get("chapter_scenes", []))
-	for s in scenes:
-		var d: Dictionary = s
-		if int(d.get("chapter", 0)) == chapter:
-			return _string_array(d.get("before_lines", []))
-	return []
-
-func _chapter_after_lines(level_num: int) -> Array[String]:
-	var chapter: int = int(ceil(float(level_num) / 2.0))
-	var scenes: Array = Array(story_data.get("chapter_scenes", []))
-	for s in scenes:
-		var d: Dictionary = s
-		if int(d.get("chapter", 0)) == chapter:
-			return _string_array(d.get("after_lines", []))
-	return []
-
-func _string_array(value: Variant) -> Array[String]:
-	var result: Array[String] = []
-	if typeof(value) == TYPE_ARRAY:
-		for v in Array(value):
-			result.append(String(v))
-	return result
+func _style(base: Color, border: Color) -> StyleBoxFlat:
+	var style: StyleBoxFlat = StyleBoxFlat.new()
+	style.bg_color = base
+	style.border_color = border
+	style.set_border_width_all(3)
+	style.set_corner_radius_all(22)
+	style.set_content_margin_all(18)
+	style.shadow_color = Color(border.r, border.g, border.b, 0.3)
+	style.shadow_size = 12
+	return style

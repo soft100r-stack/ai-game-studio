@@ -1,10 +1,13 @@
-; Godot 4 project file
+; Engine configuration file.
+; Edit safely in Godot 4.x.
+
 config_version=5
 
 [application]
 config/name="Neon Mycelium: Dream Noir"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.2")
+config/icon=""
 
 [autoload]
 GameState="*res://scripts/game_state.gd"
@@ -23,6 +26,3 @@ window/dpi/allow_hidpi=true
 [rendering]
 renderer/rendering_method="mobile"
 textures/canvas_textures/default_texture_filter=1
-
-[input]
-ui_accept={"deadzone":0.5,"events":[Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)]}

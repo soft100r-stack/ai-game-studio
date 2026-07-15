@@ -30,3 +30,6 @@ night_reports/
 
 # Тестовый мусор
 smoke_test*.log
+
+# Сгенерированные текстуры (тяжёлые, регенерируемы через TEXTURES=1)
+assets/sprites/*.png

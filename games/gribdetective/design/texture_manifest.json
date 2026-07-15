@@ -1,0 +1,13 @@
+{
+  "glow_spore_blue": "res://assets/sprites/glow_spore_blue.png",
+  "glow_spore_pink": "res://assets/sprites/glow_spore_pink.png",
+  "glow_spore_green": "res://assets/sprites/glow_spore_green.png",
+  "glow_spore_gold": "res://assets/sprites/glow_spore_gold.png",
+  "mycelium_strand": "res://assets/sprites/mycelium_strand.png",
+  "dream_shadow": "res://assets/sprites/dream_shadow.png",
+  "obscura_veil": "res://assets/sprites/obscura_veil.png",
+  "evidence_mushroom": "res://assets/sprites/evidence_mushroom.png",
+  "jazz_note_spore": "res://assets/sprites/jazz_note_spore.png",
+  "bg_game": "res://assets/sprites/bg_game.png",
+  "bg_lobby": "res://assets/sprites/bg_lobby.png"
+}

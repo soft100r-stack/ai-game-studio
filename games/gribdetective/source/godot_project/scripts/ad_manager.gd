@@ -1,33 +1,26 @@
 extends Node
 
-signal rewarded_completed(placement_id: String, success: bool)
+signal rewarded_completed(placement_id: String, reward_id: String, amount: int)
 signal interstitial_closed(placement_id: String)
 
-var rewarded_count: int = 0
-var interstitial_count: int = 0
-var session_seconds: float = 0.0
+var rewarded_shown_this_session: int = 0
+var interstitial_shown_this_session: int = 0
+var last_interstitial_msec: int = 0
 
-func _process(delta: float) -> void:
-	session_seconds += delta
-
-func show_rewarded_ad(placement_id: String) -> void:
-	if rewarded_count >= 4:
-		rewarded_completed.emit(placement_id, false)
+func show_rewarded(placement_id: String, reward_id: String, amount: int) -> void:
+	if rewarded_shown_this_session >= 4:
 		return
-	rewarded_count += 1
-	call_deferred("_finish_rewarded", placement_id)
-
-func _finish_rewarded(placement_id: String) -> void:
-	rewarded_completed.emit(placement_id, true)
+	rewarded_shown_this_session += 1
+	await get_tree().create_timer(0.25).timeout
+	rewarded_completed.emit(placement_id, reward_id, amount)
 
 func show_interstitial(placement_id: String) -> void:
-	if session_seconds < 180.0 and interstitial_count > 0:
-		interstitial_closed.emit(placement_id)
+	var now: int = Time.get_ticks_msec()
+	if now - last_interstitial_msec < 180000:
 		return
-	interstitial_count += 1
-	call_deferred("_finish_interstitial", placement_id)
-
-func _finish_interstitial(placement_id: String) -> void:
+	interstitial_shown_this_session += 1
+	last_interstitial_msec = now
+	await get_tree().create_timer(0.2).timeout
 	interstitial_closed.emit(placement_id)
 
 func show_banner(_placement_id: String) -> void:
