@@ -39,10 +39,10 @@ OLLAMA_TIMEOUT = int(os.environ.get("OLLAMA_TIMEOUT", "1800"))
 # Рекомендуется coder-модель: OLLAMA_CODE_MODEL=qwen2.5-coder:7b
 OLLAMA_CODE_MODEL = os.environ.get("OLLAMA_CODE_MODEL", os.environ.get("OLLAMA_MODEL", "qwen2.5:7b"))
 
-# Язык ответов. Замок против «съезда» слабых моделей (Qwen любит уходить в китайский).
-STUDIO_LANG = os.environ.get("STUDIO_LANG", "русском")
+# Язык ответов студии. English — самый надёжный для LLM (нет «съезда» языков) и глобальный рынок.
+STUDIO_LANG = os.environ.get("STUDIO_LANG", "English")
 
-CLAUDE_MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5")
+CLAUDE_MODEL = os.environ.get("CLAUDE_MODEL", "claude-fable-5")  # код через Fable 5
 OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
 # Ретраи на вызов (сетевые сбои). При 17 агентах шанс блипа выше — держим запас.
 MAX_RETRIES = int(os.environ.get("MAX_RETRIES", "6"))
@@ -219,10 +219,14 @@ class BaseAgent:
         system = self.system_prompt
         if extra_system:
             system = f"{system}\n\n---\n{extra_system}"
-        # Языковой замок: заставляем модель держаться одного языка (Qwen склонна съезжать
-        # на китайский посреди ответа). Значения JSON — тоже на нужном языке.
-        system += (f"\n\nВАЖНО: весь ответ и все значения в JSON пиши строго на {STUDIO_LANG} "
-                   f"языке. НИКОГДА не переключайся на другой язык (китайский, английский и т.п.).")
+        # Языковой замок: заставляем модель держаться одного языка (не «съезжать»).
+        # Значения JSON — тоже строго на языке студии.
+        if STUDIO_LANG.strip().lower() in ("english", "en", "английском", "английский"):
+            system += ("\n\nIMPORTANT: write the ENTIRE response and ALL JSON values strictly in "
+                       "ENGLISH. Never switch to another language.")
+        else:
+            system += (f"\n\nВАЖНО: весь ответ и все значения в JSON пиши строго на {STUDIO_LANG} "
+                       f"языке. НИКОГДА не переключайся на другой язык.")
 
         retries = MAX_RETRIES
         for attempt in range(retries):

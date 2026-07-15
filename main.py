@@ -230,10 +230,11 @@ def main():
     parser.add_argument("--skip-code", action="store_true", help="Пропустить генерацию Godot-кода")
     parser.add_argument("--code-only", action="store_true",
                         help="Перегенерировать ТОЛЬКО код по уже готовому дизайну игры")
-    parser.add_argument("--engine", choices=["claude", "openai", "ollama", "hybrid"],
+    parser.add_argument("--engine", choices=["claude", "openai", "ollama", "hybrid", "mix"],
                         default="claude",
                         help="claude — всё через Claude; openai — всё через GPT; "
-                             "ollama — всё локально; hybrid — дизайн локально, код через Claude")
+                             "ollama — всё локально; hybrid — дизайн локально, код через Claude; "
+                             "mix — текст+фото через GPT, код через Claude (Fable 5)")
     args = parser.parse_args()
     os.environ["STUDIO_GENRE"] = args.genre  # включает жанро-зависимые промты
 
@@ -336,6 +337,14 @@ def _apply_engine(engine, skip_code):
         DeveloperAgent.backend = engine
         OptimizerAgent.backend = engine
         return {engine}
+
+    if engine == "mix":
+        # текст + генерация фото → OpenAI; код → Claude (Fable 5)
+        for cls in design_agents:  # включает TextureArtist/ConceptArtist (картинки OpenAI)
+            cls.backend = "openai"
+        DeveloperAgent.backend = "claude"
+        OptimizerAgent.backend = "claude"
+        return {"openai", "claude"}
 
     # hybrid: дизайн локально, код через Claude
     for cls in design_agents:
