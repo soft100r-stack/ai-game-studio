@@ -1,0 +1,28 @@
+; Godot 4 project file
+config_version=5
+
+[application]
+config/name="Neon Mycelium: Dream Noir"
+run/main_scene="res://Main.tscn"
+config/features=PackedStringArray("4.2")
+
+[autoload]
+GameState="*res://scripts/game_state.gd"
+AdManager="*res://scripts/ad_manager.gd"
+AudioManager="*res://scripts/audio_manager.gd"
+
+[display]
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/window_width_override=540
+window/size/window_height_override=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/dpi/allow_hidpi=true
+
+[rendering]
+renderer/rendering_method="mobile"
+textures/canvas_textures/default_texture_filter=1
+
+[input]
+ui_accept={"deadzone":0.5,"events":[Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)]}
